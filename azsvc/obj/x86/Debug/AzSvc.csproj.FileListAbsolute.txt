@@ -1,0 +1,10 @@
+C:\workspace\azpingsvc\azsvc\bin\Debug\AzSvc.exe.config
+C:\workspace\azpingsvc\azsvc\bin\Debug\AzSvc.exe
+C:\workspace\azpingsvc\azsvc\bin\Debug\AzSvc.pdb
+C:\workspace\azpingsvc\azsvc\bin\Debug\log4net.dll
+C:\workspace\azpingsvc\azsvc\bin\Debug\log4net.xml
+C:\workspace\azpingsvc\azsvc\obj\x86\Debug\AzSvc.AzSvc.resources
+C:\workspace\azpingsvc\azsvc\obj\x86\Debug\AzSvc.Properties.Resources.resources
+C:\workspace\azpingsvc\azsvc\obj\x86\Debug\AzSvc.csproj.GenerateResource.Cache
+C:\workspace\azpingsvc\azsvc\obj\x86\Debug\AzSvc.exe
+C:\workspace\azpingsvc\azsvc\obj\x86\Debug\AzSvc.pdb

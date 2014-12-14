@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzSvc", "azsvc\AzSvc.csproj", "{419AF0DA-03B3-48F7-8225-B1357971F220}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{194DB5B9-FF38-49E9-8C74-5B6F6E1014CD}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.txt = Readme.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{419AF0DA-03B3-48F7-8225-B1357971F220}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{419AF0DA-03B3-48F7-8225-B1357971F220}.Debug|x86.Build.0 = Debug|Any CPU
+		{419AF0DA-03B3-48F7-8225-B1357971F220}.Release|x86.ActiveCfg = Release|x86
+		{419AF0DA-03B3-48F7-8225-B1357971F220}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

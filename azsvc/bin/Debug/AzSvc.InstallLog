@@ -1,0 +1,21 @@
+﻿Installing assembly 'c:\workspace\azpingsvc\azsvc\bin\Debug\AzSvc.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = c:\workspace\azpingsvc\azsvc\bin\Debug\AzSvc.InstallLog
+   assemblypath = c:\workspace\azpingsvc\azsvc\bin\Debug\AzSvc.exe
+Installing service Azure Ping Service...
+Service Azure Ping Service has been successfully installed.
+Creating EventLog source Azure Ping Service in log Application...
+Committing assembly 'c:\workspace\azpingsvc\azsvc\bin\Debug\AzSvc.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = c:\workspace\azpingsvc\azsvc\bin\Debug\AzSvc.InstallLog
+   assemblypath = c:\workspace\azpingsvc\azsvc\bin\Debug\AzSvc.exe
+Uninstalling assembly 'c:\workspace\azpingsvc\azsvc\bin\Debug\AzSvc.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = c:\workspace\azpingsvc\azsvc\bin\Debug\AzSvc.InstallLog
+   assemblypath = c:\workspace\azpingsvc\azsvc\bin\Debug\AzSvc.exe
+Removing EventLog source Azure Ping Service.
+Service Azure Ping Service is being removed from the system...
+Service Azure Ping Service was successfully removed from the system.

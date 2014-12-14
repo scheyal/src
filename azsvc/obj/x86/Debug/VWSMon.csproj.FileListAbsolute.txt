@@ -1,0 +1,14 @@
+c:\vproot\src\tools\VWSMon\VWSMon\bin\Debug\VWSMon.exe.config
+c:\vproot\src\tools\VWSMon\VWSMon\bin\Debug\VWSMon.exe
+c:\vproot\src\tools\VWSMon\VWSMon\bin\Debug\VWSMon.pdb
+c:\vproot\src\tools\VWSMon\VWSMon\bin\Debug\log4net.dll
+c:\vproot\src\tools\VWSMon\VWSMon\bin\Debug\MySql.Data.dll
+c:\vproot\src\tools\VWSMon\VWSMon\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\vproot\src\tools\VWSMon\VWSMon\obj\x86\Debug\VWSMon.SvcMgr.resources
+c:\vproot\src\tools\VWSMon\VWSMon\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\vproot\src\tools\VWSMon\VWSMon\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\vproot\src\tools\VWSMon\VWSMon\obj\x86\Debug\VWSMon.exe
+c:\vproot\src\tools\VWSMon\VWSMon\obj\x86\Debug\VWSMon.pdb
+c:\workspace\azpingsvc\bin\Debug\VWSMon.exe.config
+c:\workspace\azpingsvc\obj\x86\Debug\VWSMon.exe
+c:\workspace\azpingsvc\obj\x86\Debug\VWSMon.pdb
