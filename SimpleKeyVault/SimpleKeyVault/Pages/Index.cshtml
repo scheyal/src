@@ -1,0 +1,62 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Simple KeyVault Example";
+}
+
+<div class="text-center">
+    <h4>Simple KeyVault Example</h4>
+    <br/>
+    <p>
+        Example of how to store appsettings.json values in Key Vault
+    </p>
+
+    <div class="container d-flex justify-content-center">
+        <table class="text-left table-bordered table-info">
+            <thead >
+                <tr class="thead-dark">
+                    <th>
+                        Key
+                    </th>
+                    <th>
+                        Value
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        ASecret
+                    </td>
+                    <td>
+                        @Model.AppConfig["ASecret"]
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        SecretCollection:NestedSecret
+                    </td>
+                    <td>
+                        @Model.AppConfig["SecretCollection:NestedSecret"]
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        SecretCollection:BadSecret
+                    </td>
+                    <td>
+                        @Model.AppConfig["SecretCollection:BadSecret"]
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        LocalSecret
+                    </td>
+                    <td>
+                        @Model.AppConfig["LocalSecret"]
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
