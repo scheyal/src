@@ -1,4 +1,11 @@
-﻿param (
+﻿
+ ######
+ # Bot Framework ARM Deployment Script
+ # Prepares bot: deployment scripts (web.config, .deployment), build, deploy
+ # Supports: CSharp, Node.js Bots
+ ######
+ 
+ param (
     [Parameter(
 				Mandatory=$False,
 				HelpMessage="Enter bot name, otherwise will auto-generate",
@@ -41,12 +48,19 @@
 	)][string]$BuildOnDeploy="false",
     [Parameter(
 		Mandatory=$False,
-		HelpMessage="Enter deployment timeout",
+		HelpMessage="Enter deployment timeout in seconds",
 		Position=8
-	)][string]$DeploymentTimeoutSec="1000"
+	)][string]$DeploymentTimeoutSec
 
  )
  
+
+
+ ##
+ # 0. Process Parameters and defaults
+ ##
+
+
 
 $timestamp = (Get-Date).ToString("MMddHHmm")
 
@@ -69,6 +83,11 @@ if($Password -eq "")
     $Password = $pwd
 }
 
+if($DeploymentTimeoutSec -ne "")
+{
+    # turn into command line param
+    $DeploymentTimeoutSec = "-t " + $DeploymentTimeoutSec
+}
 
 if (-Not (Test-Path $BotFolder)) 
 {
@@ -79,9 +98,9 @@ if (-Not (Test-Path $BotFolder))
 $ProjFilePath = Join-Path -Path $BotFolder -ChildPath $ProjFile
 if ($Lang -eq "CSharp")
 {
-    if( -Not (Test-Path $ProjFilePath) ) 
+    if( $ProjFile -eq "" -or -Not (Test-Path $ProjFilePath) ) 
     {
-      Write-Host "Error: Cannot find $ProjFilePath"
+      Write-Host "Error: Cannot find .csproj in $ProjFilePath"
       Exit
     }
 
@@ -122,27 +141,17 @@ Write-Host "BotFolder = $BotFolder"
 Write-Host "ProjFile = $ProjFile"
 Write-Host "ArmTemplate = $ArmTemplate"
 Write-Host "Lang = $Lang"
-
-
-Write-Host "Using Hard-Coded: Location=$Location,"
+Write-Host "Location = $Location"
 
 
 
-#debug:
-#skip app creation (already created)
-if($true)
-{
-#
-# Create AD App (from example: https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/09/01/how-to-create-an-azure-ad-application-in-powershell/)
-
+###
+# 1. Create AD App (from example: https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/09/01/how-to-create-an-azure-ad-application-in-powershell/)
+###
 
 # Sign in to Azure.
 # Login-AzureRmAccount
 # Connect-AzureRmAccount
-# Other variations:
-# If your Azure account is on a non-public cloud, make sure to specify the proper environment 
-# example for the German cloud:
-# Login-AzureRmAccount -EnvironmentName AzureGermanCloud
 
 # If you have multiple subscriptions, uncomment and set to the subscription you want to work with:
 # $subscriptionId = "11111111-aaaa-bbbb-cccc-222222222222"
@@ -168,36 +177,38 @@ Start-Sleep -Seconds 30
 $roleassignment = New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 ####>
 
-# Display the values for your application 
-Write-Output "Save these values for using them in your application"
 Write-Output "Subscription ID:" (Get-AzureRmContext).Subscription.SubscriptionId
 Write-Output "Tenant ID:" (Get-AzureRmContext).Tenant.TenantId
 Write-Output "Application ID:" $azureAdApplication.ApplicationId.Guid
 Write-Output "Application Secret:" $secret
-
 
 $SubId = (Get-AzureRmContext).Subscription.SubscriptionId
 $TenantId = (Get-AzureRmContext).Tenant.TenantId
 $AppId = $azureAdApplication.ApplicationId.Guid
 $AppSecret = $secret
 
-}
-else
-{
-  $SubId = "SPECIFY_HARD_CODED_SUB_ID"
-  $AppId = "SPECIFY_HARD_CODED_APP_ID"
-  $AppSecret = "SPECIFY_HARD_CODED_SECRET"
-}
-
+##
+# 2. Create ARM resources
+##
 
 Write-Output "az deployment create --location $Location --name $DeploymentName --template-file $ArmTemplate --subscription $SubId --parameters appId=$AppId appSecret=$AppSecret botId=$BotName newServerFarmName=$ServerFarm newWebAppName=$BotWebApp groupName=$ResourceGroup alwaysBuildOnDeploy=$BuildOnDeploy" 
 & az deployment create --location $Location --name $DeploymentName --template-file $ArmTemplate --subscription $SubId --parameters appId=$AppId appSecret=$AppSecret botId=$BotName newServerFarmName=$ServerFarm newWebAppName=$BotWebApp groupName=$ResourceGroup alwaysBuildOnDeploy=$BuildOnDeploy
 
 
+##
+# 3. Prepared bot deployment files
+##
 
 $ProjBotZip=$BotName + "Zip.zip"
 $ProjDeploymentFile=$BotFolder + "\.deployment"
 $ProjWebConfigFile=$BotFolder + "\web.config"
+
+
+if(Test-Path $ProjDeploymentFile)
+{
+  Remove-Item $ProjDeploymentFile
+}
+
 
 if($Lang -eq "Node")
 {
@@ -207,6 +218,13 @@ if($Lang -eq "Node")
       & az bot prepare-deploy --code-dir $BotFolder --lang $Lang
   }
 }
+else
+{
+     Write-Output "az bot prepare-deploy --code-dir $BotFolder --lang $Lang --proj-file-path $ProjFile"
+      & az bot prepare-deploy --code-dir $BotFolder --lang $Lang --proj-file-path $ProjFile
+}
+
+<# BUGBUG: This logic should have worked but it doesn't...
 elseif ($BuildOnDeploy -eq $True)
 {
   if(-not(Test-Path $ProjDeploymentFile))
@@ -215,6 +233,7 @@ elseif ($BuildOnDeploy -eq $True)
       & az bot prepare-deploy --code-dir $BotFolder --lang $Lang --proj-file-path $ProjFile
   }
 }
+#>
 
 Write-Output "Compressing bot project..."
 
@@ -227,6 +246,14 @@ $ZipSrc = $BotFolder + "\*"
 Compress-Archive -Path $ZipSrc -DestinationPath $ProjBotZip -Force
 Get-ChildItem -Path $ProjBotZip
 
+##
+# 4. Deploy to Azure
+##
+
 Write-Output "Deploying $BotWebApp into RG $ResourceGroup..."
-Write-Output "az webapp deployment source  config-zip --src  $ProjBotZip -g $ResourceGroup  -n $BotWebApp -t $DeploymentTimeoutSec"
-az webapp deployment source  config-zip --src  $ProjBotZip -g $ResourceGroup  -n $BotWebApp -t $DeploymentTimeoutSec
+Write-Output "az webapp deployment source  config-zip --src  $ProjBotZip -g $ResourceGroup  -n $BotWebApp $DeploymentTimeoutSec"
+az webapp deployment source  config-zip --src  $ProjBotZip -g $ResourceGroup  -n $BotWebApp $DeploymentTimeoutSec
+
+##
+# 5. Test in webchat/emulator
+##
