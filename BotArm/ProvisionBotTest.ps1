@@ -1,14 +1,52 @@
 ﻿param (
-    [string]$AppName,
-    [string]$Password,
-    [string]$BotFolder = "C:\workspace\botroot\TempPlay\03.welcome-user",
-    [string]$ProjFile = "WelcomeUser.csproj",
-    [string]$ArmTemplate = "ArmTemplate.json",
-    [string]$Lang="CSharp"
+    [Parameter(
+				Mandatory=$False,
+				HelpMessage="Enter bot name, otherwise will auto-generate",
+				Position=1
+			)][string]$AppName,
+    [Parameter(
+			Mandatory=$False,
+			HelpMessage="Enter AD App password, otherwise will auto-generate",
+			Position=2
+		)][string]$Password,
+    [Parameter(
+		Mandatory=$True,
+		HelpMessage="Enter bot solution folder (where .csproj or index.js located)",
+		Position=3
+	)][string]$BotFolder,
+    [Parameter(
+		Mandatory=$False,
+		HelpMessage="Mandatory for CSharp, ommit for Node",
+		Position=4
+	)][string]$ProjFile,
+    [Parameter(
+		Mandatory=$True,
+		HelpMessage="Enter location ofr ARM template",
+		Position=5
+	)][string]$ArmTemplate,
+    [Parameter(
+		Mandatory=$True,
+		HelpMessage="Enter project language: 'CSharp' or 'Node'",
+		Position=6
+	)][string]$Lang,
+    [Parameter(
+		Mandatory=$False,
+		HelpMessage="Enter deployment location",
+		Position=7
+	)][string]$Location = "WestUS",
+    [Parameter(
+		Mandatory=$False,
+		HelpMessage="Enter whether deployment should be performed by Kudu",
+		Position=8
+	)][string]$BuildOnDeploy="false",
+    [Parameter(
+		Mandatory=$False,
+		HelpMessage="Enter deployment timeout",
+		Position=8
+	)][string]$DeploymentTimeoutSec="1000"
+
  )
  
-# run powershell -ExecutionPolicy ByPass
-# Set-ExecutionPolicy Bypass
 
 $timestamp = (Get-Date).ToString("MMddHHmm")
 
@@ -54,7 +92,10 @@ if ($Lang -eq "CSharp")
 }
 elseif ($Lang -eq "Node")
 {
-    Write-Host "Using Node project..." 
+    Write-Host "Building Node project..." 
+    Push-Location $BotFolder
+    & npm install
+    Pop-Location
 }
 else
 {
@@ -71,7 +112,6 @@ $ResourceGroup = $AppName + "RG"
 $BotName=$AppName + "Bot"
 $BotWebApp=$BotName + "WebApp"
 $ServerFarm="CowBotsFarm" + $timestamp
-$Location="WestUS"
 
 Write-Host "AppName = $AppName"
 Write-Host "ResourceGroup = $ResourceGroup"
@@ -150,29 +190,30 @@ else
 }
 
 
-Write-Output "az deployment create --location $Location --name $DeploymentName --template-file $ArmTemplate --subscription $SubId --parameters appId=$AppId appSecret=$AppSecret botId=$BotName newServerFarmName=$ServerFarm newWebAppName=$BotWebApp groupName=$ResourceGroup alwaysBuildOnDeploy=false" 
-& az deployment create --location $Location --name $DeploymentName --template-file $ArmTemplate --subscription $SubId --parameters appId=$AppId appSecret=$AppSecret botId=$BotName newServerFarmName=$ServerFarm newWebAppName=$BotWebApp groupName=$ResourceGroup alwaysBuildOnDeploy=false
+Write-Output "az deployment create --location $Location --name $DeploymentName --template-file $ArmTemplate --subscription $SubId --parameters appId=$AppId appSecret=$AppSecret botId=$BotName newServerFarmName=$ServerFarm newWebAppName=$BotWebApp groupName=$ResourceGroup alwaysBuildOnDeploy=$BuildOnDeploy" 
+& az deployment create --location $Location --name $DeploymentName --template-file $ArmTemplate --subscription $SubId --parameters appId=$AppId appSecret=$AppSecret botId=$BotName newServerFarmName=$ServerFarm newWebAppName=$BotWebApp groupName=$ResourceGroup alwaysBuildOnDeploy=$BuildOnDeploy
 
 
 
 $ProjBotZip=$BotName + "Zip.zip"
 $ProjDeploymentFile=$BotFolder + "\.deployment"
-
-
-if (Test-Path $ProjDeploymentFile) 
-{
-  Remove-Item $ProjDeploymentFile
-}
+$ProjWebConfigFile=$BotFolder + "\web.config"
 
 if($Lang -eq "Node")
 {
-  Write-Output "az bot prepare-deploy --code-dir $BotFolder --lang $Lang"
-  & az bot prepare-deploy --code-dir $BotFolder --lang $Lang
+  if(-not(Test-Path $ProjWebConfigFile))
+  {
+      Write-Output "az bot prepare-deploy --code-dir $BotFolder --lang $Lang"
+      & az bot prepare-deploy --code-dir $BotFolder --lang $Lang
+  }
 }
-else
+elseif ($BuildOnDeploy -eq $True)
 {
-  Write-Output "az bot prepare-deploy --code-dir $BotFolder --lang $Lang --proj-file-path $ProjFile"
-  & az bot prepare-deploy --code-dir $BotFolder --lang $Lang --proj-file-path $ProjFile
+  if(-not(Test-Path $ProjDeploymentFile))
+  {
+      Write-Output "az bot prepare-deploy --code-dir $BotFolder --lang $Lang --proj-file-path $ProjFile"
+      & az bot prepare-deploy --code-dir $BotFolder --lang $Lang --proj-file-path $ProjFile
+  }
 }
 
 Write-Output "Compressing bot project..."
@@ -187,5 +228,5 @@ Compress-Archive -Path $ZipSrc -DestinationPath $ProjBotZip -Force
 Get-ChildItem -Path $ProjBotZip
 
 Write-Output "Deploying $BotWebApp into RG $ResourceGroup..."
-Write-Output "az webapp deployment source  config-zip --src  $ProjBotZip -g $ResourceGroup  -n $BotWebApp"
-az webapp deployment source  config-zip --src  $ProjBotZip -g $ResourceGroup  -n $BotWebApp
+Write-Output "az webapp deployment source  config-zip --src  $ProjBotZip -g $ResourceGroup  -n $BotWebApp -t $DeploymentTimeoutSec"
+az webapp deployment source  config-zip --src  $ProjBotZip -g $ResourceGroup  -n $BotWebApp -t $DeploymentTimeoutSec
