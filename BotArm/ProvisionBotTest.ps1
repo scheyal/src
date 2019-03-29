@@ -31,6 +31,7 @@
 		HelpMessage="Enter location ofr ARM template",
 		Position=5
 	)][string]$ArmTemplate,
+    [ValidateSet("CSharp","Node")]
     [Parameter(
 		Mandatory=$True,
 		HelpMessage="Enter project language: 'CSharp' or 'Node'",
@@ -49,7 +50,7 @@
     [Parameter(
 		Mandatory=$False,
 		HelpMessage="Enter deployment timeout in seconds",
-		Position=8
+		Position=9
 	)][string]$DeploymentTimeoutSec
 
  )
