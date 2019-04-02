@@ -58,7 +58,7 @@
 
 
  ##
- # 0. Process Parameters and defaults
+ #Step 0. Process Parameters and defaults
  ##
 
 
@@ -145,9 +145,15 @@ Write-Host "Lang = $Lang"
 Write-Host "Location = $Location"
 
 
+###
+# Connect to Azure Resource Manager
+##
+Connect-AzureRmAccount
+
+
 
 ###
-# 1. Create AD App (from example: https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/09/01/how-to-create-an-azure-ad-application-in-powershell/)
+#Step 1. Create AD App (from example: https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/09/01/how-to-create-an-azure-ad-application-in-powershell/)
 ###
 
 # Sign in to Azure.
@@ -189,7 +195,7 @@ $AppId = $azureAdApplication.ApplicationId.Guid
 $AppSecret = $secret
 
 ##
-# 2. Create ARM resources
+#Step 2. Create ARM resources
 ##
 
 Write-Output "az deployment create --location $Location --name $DeploymentName --template-file $ArmTemplate --subscription $SubId --parameters appId=$AppId appSecret=$AppSecret botId=$BotName newServerFarmName=$ServerFarm newWebAppName=$BotWebApp groupName=$ResourceGroup alwaysBuildOnDeploy=$BuildOnDeploy" 
@@ -197,7 +203,7 @@ Write-Output "az deployment create --location $Location --name $DeploymentName -
 
 
 ##
-# 3. Prepared bot deployment files
+#Step 3. Prepared bot deployment files
 ##
 
 $ProjBotZip=$BotName + "Zip.zip"
@@ -248,7 +254,7 @@ Compress-Archive -Path $ZipSrc -DestinationPath $ProjBotZip -Force
 Get-ChildItem -Path $ProjBotZip
 
 ##
-# 4. Deploy to Azure
+#Step 4. Deploy to Azure
 ##
 
 Write-Output "Deploying $BotWebApp into RG $ResourceGroup..."
@@ -256,5 +262,5 @@ Write-Output "az webapp deployment source  config-zip --src  $ProjBotZip -g $Res
 az webapp deployment source  config-zip --src  $ProjBotZip -g $ResourceGroup  -n $BotWebApp $DeploymentTimeoutSec
 
 ##
-# 5. Test in webchat/emulator
+#Step 5. Test in webchat/emulator
 ##
