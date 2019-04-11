@@ -59,9 +59,9 @@ $RGInfo
 
 Write-Host "`n---"
 Write-Host "Creating LUIS App..."
-Write-Host 'az cognitiveservices account create --kind "luis" --name "$AppName" --sku "S0" --location "$Region" --subscription "$AzSubId" -g "$ResourceGroup"  --yes'
+Write-Host 'az cognitiveservices account create --kind "LUIS" --name "$AppName" --sku "S0" --location "$Region" --subscription "$AzSubId" -g "$ResourceGroup"  --yes'
 
-$LuisSvcInfo = &az cognitiveservices account create --kind "luis" --name "$AppName" --sku "S0" --location "$Region" --subscription "$AzSubId" -g "$ResourceGroup" --yes
+$LuisSvcInfo = &az cognitiveservices account create --kind "LUIS" --name "$AppName" --sku "S0" --location "$Region" --subscription "$AzSubId" -g "$ResourceGroup" --yes
 
 Write-Host "** Luis Service Info:"
 $LuisSvcInfo
