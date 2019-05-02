@@ -3,13 +3,16 @@
  # Bot Framework ARM Deployment Script
  # Prepares bot: deployment scripts (web.config, .deployment), build, deploy
  # Supports: CSharp, Node.js Bots
+ # Example Invocation:
+ # @echo Creating CSharp Bot
+ # powershell -ExecutionPolicy Bypass -File  .\ProvisionBotTest.ps1 -BotFolder <bot_sources_path> -ArmTemplate <ArmTemplateExample> -Lang CSharp -Password <app_registration_pwd> -ProjFile <project_file.csproj>
  ######
  
  param (
     [Parameter(
-				Mandatory=$False,
-				HelpMessage="Enter bot name, otherwise will auto-generate",
-				Position=1
+            Mandatory=$False,
+            HelpMessage="Enter bot name, otherwise will auto-generate",
+            Position=1
 			)][string]$AppName,
     [Parameter(
 			Mandatory=$False,
@@ -194,9 +197,9 @@ $TenantId = (Get-AzureRmContext).Tenant.TenantId
 $AppId = $azureAdApplication.ApplicationId.Guid
 $AppSecret = $secret
 
-##
+###
 #Step 2. Create ARM resources
-##
+###
 
 Write-Output "az deployment create --location $Location --name $DeploymentName --template-file $ArmTemplate --subscription $SubId --parameters appId=$AppId appSecret=$AppSecret botId=$BotName newServerFarmName=$ServerFarm newWebAppName=$BotWebApp groupName=$ResourceGroup alwaysBuildOnDeploy=$BuildOnDeploy" 
 & az deployment create --location $Location --name $DeploymentName --template-file $ArmTemplate --subscription $SubId --parameters appId=$AppId appSecret=$AppSecret botId=$BotName newServerFarmName=$ServerFarm newWebAppName=$BotWebApp groupName=$ResourceGroup alwaysBuildOnDeploy=$BuildOnDeploy
