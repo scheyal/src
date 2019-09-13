@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Bot Framework Bulletin API";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bot Framework Bulletin</h1>
+    <p>
+    This website serves bulletin announcement by the Bot Framework SDK. The announcements are availalble via REST API.<br/>
+    The Bot Framework Command Line Interface (BF CLI) retrieves and displays these announcements.</p>
+
+    <div class="container">
+        <h3>@Model.Bulletin.Title</h3>
+        <p>@Model.Bulletin.Body</p>
+        <table class="table">
+            <tr>
+                <td>Publish Date</td>
+                <td>@Model.Bulletin.PublishDate</td>
+            </tr>
+            <tr>
+                <td>Reference</td>
+                <td><a href="@Model.Bulletin.ReferenceUrl">@Model.Bulletin.ReferenceUrl</a></td>
+            </tr>
+            <tr>
+                <td>Tags</td>
+                <td>@Model.Bulletin.Tags</td>
+            </tr>
+            <tr>
+                <td>See Also</td>
+                <td>@Model.Bulletin.SeeAlso</td>
+            </tr>
+        </table>
+    </div>
+</div>

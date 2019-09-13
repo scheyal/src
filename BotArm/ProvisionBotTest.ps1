@@ -26,7 +26,7 @@
 	)][string]$BotFolder,
     [Parameter(
 		Mandatory=$False,
-		HelpMessage="Mandatory for CSharp, ommit for Node",
+		HelpMessage="Mandatory for Csharp, ommit for Node",
 		Position=4
 	)][string]$ProjFile,
     [Parameter(
@@ -176,6 +176,9 @@ $secsecret = ConvertTo-SecureString -String $secret -AsPlainText -Force
 # Create the Azure AD app
 $azureAdApplication = New-AzureRmADApplication -DisplayName $AppName -HomePage $Uri -IdentifierUris $Uri -Password $secsecret -AvailableToOtherTenants $true
 
+Write-Host "Waiting 10 seconds..."
+Start-Sleep -Seconds 10
+
 <####
 # Service Principal for the app
 $svcprincipal = New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
@@ -201,8 +204,8 @@ $AppSecret = $secret
 #Step 2. Create ARM resources
 ###
 
-Write-Output "az deployment create --location $Location --name $DeploymentName --template-file $ArmTemplate --subscription $SubId --parameters appId=$AppId appSecret=$AppSecret botId=$BotName newServerFarmName=$ServerFarm newWebAppName=$BotWebApp groupName=$ResourceGroup alwaysBuildOnDeploy=$BuildOnDeploy" 
-& az deployment create --location $Location --name $DeploymentName --template-file $ArmTemplate --subscription $SubId --parameters appId=$AppId appSecret=$AppSecret botId=$BotName newServerFarmName=$ServerFarm newWebAppName=$BotWebApp groupName=$ResourceGroup alwaysBuildOnDeploy=$BuildOnDeploy
+Write-Output "az deployment create --location $Location --name $DeploymentName --template-file $ArmTemplate --subscription $SubId --parameters appId=$AppId appSecret=$AppSecret botId=$BotName newAppServicePlanName=$ServerFarm newWebAppName=$BotWebApp groupName=$ResourceGroup" 
+& az deployment create --location $Location --name $DeploymentName --template-file $ArmTemplate --subscription $SubId --parameters appId=$AppId appSecret=$AppSecret botId=$BotName newAppServicePlanName=$ServerFarm newWebAppName=$BotWebApp groupName=$ResourceGroup groupLocation=$Location botSku=S1 newAppServicePlanLocation=$Location
 
 
 ##
