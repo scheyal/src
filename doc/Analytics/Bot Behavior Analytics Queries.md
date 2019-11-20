@@ -27,7 +27,7 @@ customEvents
 ```
 #### Sample View
 
-![](C:\workspace\Other\src\doc\Analytics\img\userscount.png)
+![](./img/userscount.png)
 
 
 
@@ -59,7 +59,7 @@ customEvents
 
 #### Sample View
 
-![](C:\workspace\Other\src\doc\Analytics\img\convscount.PNG)
+![](./img/convscount.PNG)
 
 
 
@@ -91,7 +91,7 @@ customEvents
 
 #### Sample View
 
-![](C:\workspace\Other\src\doc\Analytics\img\dialogwfratio.PNG)
+![](./img/dialogwfratio.PNG)
 
 
 
@@ -121,7 +121,7 @@ customEvents
 
 #### Sample View
 
-![](C:\workspace\Other\src\doc\Analytics\img\cancelleddialogs.PNG)
+![](./img/cancelleddialogs.PNG)
 
 
 
@@ -261,7 +261,7 @@ not(isnull(timestamp2)), timestamp2 - timestamp, 0s) // Abandoned are not counte
 
 #### Sample view
 
-![dialogduration](C:\workspace\Other\src\doc\Analytics\img\dialogduration.PNG)
+![dialogduration](./img/dialogduration.PNG)
 
 
 
@@ -331,7 +331,7 @@ customEvents
 
 #### Sample view
 
-![IntentPopularity](C:\workspace\Other\src\doc\Analytics\img\IntentPopularity.PNG)
+![IntentPopularity](./img/IntentPopularity.PNG)
 
 _Interpretation: For example the most popular intent, confirm is detected only with 23% confidence on average._
 
@@ -369,7 +369,7 @@ customEvents
 
 #### Sample view
 
-![ChannelsUsage](C:\workspace\Other\src\doc\Analytics\img\ChannelsUsage.PNG)
+![ChannelsUsage](./img/ChannelsUsage.PNG)
 
  _Interpretation: Emulator testing used to be most popular but once we went live, DirectLineSpeech, is the most popular channel._
 
