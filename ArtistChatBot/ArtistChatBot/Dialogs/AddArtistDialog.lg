@@ -22,7 +22,6 @@
 # GetReview
 -```Tell me a bit about @{conversation.Artist}? What/why do you like, you know, your opinion.
   ```
-
 # SubmissionRecord
 -```
   - Artist: **@{conversation.Artist}**
@@ -31,10 +30,17 @@
   - Review: @{conversation.Review}
   ```
 
-
 # WarnNoMatching
 - *Enter it precisely (e.g. Led Zeppelin or Black Dog). We don't have spell check or any matching functionality yet. Gracias.*
 
+# ConfirmPromptSubmitArtist
+- Ready to submit artist?
+- Alright, now you get to express your opinion for eternity. Ready to submit?
+- Let's enlight the world. Ready to submit?
+
+# AskForName
+- Who are you? What's your **unique** name? For example, I'm Eyal... you can't be Chris :) We'll use that name to tag your input. If you think we should have proper login, you're right. One day (that day, when you pitch in and code up the login integration).
+- What's your **unique** name? Use one you can remember, one that we can use to tag your input uniquely. You can also use your social security number, mother's maiden name and bank account. Or just your microsoft alias. You get the gist.
 
 
 
