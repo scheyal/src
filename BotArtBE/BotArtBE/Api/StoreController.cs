@@ -22,12 +22,24 @@ namespace BotArtBE.Api
             AppConfig = configuration;
         }
 
+        private void Authenticate()
+        {
+            string AuthKey = AppConfig["AuthKey"];
+            string ClientAuthKey = Request.Headers["AuthKey"];
+
+            if (AuthKey != ClientAuthKey)
+            {
+                throw new UnauthorizedAccessException("Invalid Authentication Key");
+            }
+
+        }
         // POST: api/Store
         // e.g. https://localhost:44342/api/Store/Musician/Create
         [HttpPost]
         [Route("Musician/CreateOrUpdate/")]
         public async Task<ActionResult> Post([FromBody] MusicianNetModel Musician)
         {
+            Authenticate(); 
             try
             {
                 MusicianMgr mm = new MusicianMgr(AppConfig);
@@ -53,6 +65,8 @@ namespace BotArtBE.Api
         [Route("Musician/Find/{Name}")]
         public async Task<MusicianNetModel> GetAsync(string Name)
         {
+            Authenticate();
+
             MusicianModel musician = null;
             MusicianNetModel NetMusician = null;
             try
