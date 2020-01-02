@@ -1,0 +1,48 @@
+﻿> AddArtistDialog.lg
+> Language Generation for Artist information gathering dialog
+> EyalS
+
+# WelcomeAddArtist
+- Awesome. You are about to contribute from your immense music lover knowledge.
+- Ok, let's start the interview to add another artist to our growing knowledge.
+- Add a favorite artist to our knowledgebase.
+
+# GetArtist
+-```Who is one of your favorite artists?
+  @{WarnNoMatching()}
+  ```
+# GetAlbum
+-```What is one of your favorite album by @{conversation.Artist}?
+  @{WarnNoMatching()}
+  ```
+# GetSong
+-```What is one of your favorite song by @{conversation.Artist}?
+  @{WarnNoMatching()}
+  ```
+# GetReview
+-```Tell me a bit about @{conversation.Artist}? What/why do you like, you know, your opinion.
+  ```
+
+# SubmissionRecord
+-```
+  - Artist: **@{conversation.Artist}**
+  - Album: @{conversation.Album}
+  - Song: @{conversation.Song}
+  - Review: @{conversation.Review}
+  ```
+
+
+# WarnNoMatching
+- *Enter it precisely (e.g. Led Zeppelin or Black Dog). We don't have spell check or any matching functionality yet. Gracias.*
+
+
+
+
+> --
+> BUGUB Remove later
+> --
+# StructuredExample
+[Activity
+    Text = What is the artist name?
+    SuggestedActions = Help | Cancel
+]
