@@ -110,6 +110,12 @@ namespace ArtistChatBot
                                 {
                                     new SendActivity("Submitting artist **@{conversation.Artist}** ..."),
                                     new CodeAction(GenerateArtistBody),
+                                    new TraceActivity()
+                                    {
+                                        Name = "trace.httprequest.body",
+                                        ValueType = "Object",
+                                        Value = "turn"
+                                    },
                                     new Microsoft.Bot.Builder.Dialogs.Adaptive.Actions.HttpRequest()
                                     {
                                         // Set response from the http request to turn.httpResponse property in memory.
@@ -121,7 +127,7 @@ namespace ArtistChatBot
                                             { "AuthKey", authKey }
                                         },
 
-                                        Body = "{turn.httpBody}",
+                                        Body = "@{turn.httpbody}",
                                     },
                                     RootDialog.DebugAction("BP @HttpAction"),
                                     new SendActivity("Submitted. (Result = @{turn.httpResponse}.)"),
