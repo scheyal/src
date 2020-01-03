@@ -57,7 +57,7 @@ namespace ArtistChatBot
                         Condition = "#EatStats.Score >= 0.7",
                         Actions = new List<Dialog> ()
                         {
-                            new SendActivity("@{Placeholder()}"),
+                            new BeginDialog("DiscoverArtistDialog"),
                         }
                     },
                     new OnIntent()
@@ -182,6 +182,7 @@ namespace ArtistChatBot
             // var addArtistDialog = new AddArtistDialog(Configuration);
             // BUGBUG: Why do we adddialog here and in the child?
             AddDialog(new AddArtistDialog(Configuration));
+            AddDialog(new DiscoverArtistDialog(Configuration));
 
             // The initial child Dialog to run.
             InitialDialogId = nameof(AdaptiveDialog);

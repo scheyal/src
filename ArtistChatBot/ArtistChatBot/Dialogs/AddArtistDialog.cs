@@ -128,6 +128,7 @@ namespace ArtistChatBot
                                         },
 
                                         Body = "@{turn.httpbody}",
+                                        ResponseType = HttpRequest.ResponseTypes.None
                                     },
                                     RootDialog.DebugAction("BP @HttpAction"),
                                     new SendActivity("Submitted. (Result = @{turn.httpResponse}.)"),
@@ -156,15 +157,6 @@ namespace ArtistChatBot
 
             AddDialog(AddArtistDialog);
             InitialDialogId = nameof(AdaptiveDialog);
-        }
-
-        private static List<Dialog> AddArtistInterview()
-        {
-            return new List<Dialog>()
-            {
-                RootDialog.DebugAction("Start Add Artist Interview Dialog"),
-                new SendActivity("@{WelcomeCard()}")
-            };
         }
 
 
@@ -251,6 +243,11 @@ namespace ArtistChatBot
                 new JProperty("Votes", "1")
             );
 
+            // Fake test
+            JB = new JObject(
+                new JProperty("Name", artist),
+                new JProperty("Properties", "Debug Test")
+                );
             body = JB.ToString();
 
             return body;

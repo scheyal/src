@@ -1,0 +1,23 @@
+﻿> DiscoverArtistDialog.lg
+> Language Generation for Artist discovery dialog
+> EyalS
+
+# WelcomeDiscoverArtist
+- Curiousity Killed the Cat. But you're not a cat. Let's find some cool cats for you.
+- Let's find who is popular around here. 
+
+# AskForName
+-```First, what is your name please? Pick a unique name (such as yours) and remember it. We'll use that name to tag your input.
+*If you think we should have proper login, you're right. One day (that day, when you pitch in and code up the login integration).*
+```
+
+# GetArtist
+-```Who is one of your favorite artists?
+  @{WarnNoMatching()}
+  ```
+    # WarnNoMatching
+- *Enter it precisely (e.g. Led Zeppelin or Black Dog). We don't have spell check or any matching functionality yet. Gracias.*
+
+
+# Placeholder
+- Unknown Intent / Op in DiscoverArtist Dialog
