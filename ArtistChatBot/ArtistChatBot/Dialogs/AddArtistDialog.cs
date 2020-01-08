@@ -112,14 +112,14 @@ namespace ArtistChatBot
                                     new CodeAction(GenerateArtistBody),
                                     new TraceActivity()
                                     {
-                                        Name = "trace.httprequest.body",
+                                        Name = "dialog.httprequest.body",
                                         ValueType = "Object",
-                                        Value = "turn"
+                                        Value = "dialog"
                                     },
                                     new Microsoft.Bot.Builder.Dialogs.Adaptive.Actions.HttpRequest()
                                     {
                                         // Set response from the http request to turn.httpResponse property in memory.
-                                        ResultProperty = "turn.httpResponse",
+                                        ResultProperty = "dialog.httpResponse",
                                         Url = apiUrl,
                                         Method = HttpRequest.HttpMethod.POST,
                                         Headers = new Dictionary<string,string> ()
@@ -127,11 +127,11 @@ namespace ArtistChatBot
                                             { "AuthKey", authKey }
                                         },
 
-                                        Body = "@{turn.httpbody}",
+                                        Body = "@{dialog.httpbody}",
                                         ResponseType = HttpRequest.ResponseTypes.None
                                     },
                                     RootDialog.DebugAction("BP @HttpAction"),
-                                    new SendActivity("Submitted. (Result = @{turn.httpResponse}.)"),
+                                    new SendActivity("Submitted. (Result = @{dialog.httpResponse}.)"),
                                     new EndDialog()
                                 },
                                 ElseActions = new List<Dialog>()
@@ -159,7 +159,7 @@ namespace ArtistChatBot
             InitialDialogId = nameof(AdaptiveDialog);
         }
 
-
+        
         private async Task<DialogTurnResult> GenerateArtistBody(DialogContext dc, System.Object options)
 
         {
@@ -171,45 +171,59 @@ namespace ArtistChatBot
 
             submitter = String.IsNullOrEmpty(submitter) ? "Anonymous" : submitter;
 
-            string JsonBody = ArtistSubmissionBody(artist, album, song, review, submitter);
+            JObject JB = ArtistSubmissionBody(artist, album, song, review, submitter);
 
-            dc.GetState().SetValue("turn.httpbody", JsonBody);
+            // dc.GetState().SetValue("dialog.httpbody", JsonBody);
+
+            // Fake test
+            //JObject JB = new JObject(
+            //        new JProperty("Body",
+            //          new JObject(
+            //            new JProperty("Name", artist),
+            //            new JProperty("Properties", "Debug Test")
+            //          )
+            //        )
+            //    );
+
+            dc.GetState().SetValue("dialog.httpbody", JB);
 
             return new DialogTurnResult(DialogTurnStatus.Complete, options);
         }
 
-            /// <summary>
-            /// Produces Json for artist submission body.
-            /// Example:
-            /// {
-            //  "Name": "john bonham",
-            //  "Properties": {
-            //    "FavoriteAlbums": [
-            //      {
-            //        "Name": "led zeppelin 1",
-            //        "Votes": "1",
-            //        "Users": "eyal"
-            //      }
-            //    ],
-            //    "FavoriteSongs": [
-            //      {
-            //        "Name": "rocknroll",
-            //        "Votes": "1",
-            //        "Users": "eyal"
-            //      }
-            //    ],
-            //    "Reviews": "that's the way I like it"
-            //  },
-            //  "Votes": "1"
-            //}
-            /// </summary>
-            /// <param name="artist"></param>
-            /// <param name="album"></param>
-            /// <param name="song"></param>
-            /// <param name="review"></param>
-            /// <param name="submmiter"></param>
-            /// <returns></returns>
-            private static string ArtistSubmissionBody(string artist, string album, string song, string review, string submmiter)
+
+
+        /// <summary>
+        /// Produces Json for artist submission body.
+        /// Example:
+        /// {
+        //  "Name": "john bonham",
+        //  "Properties": {
+        //    "FavoriteAlbums": [
+        //      {
+        //        "Name": "led zeppelin 1",
+        //        "Votes": "1",
+        //        "Users": "eyal"
+        //      }
+        //    ],
+        //    "FavoriteSongs": [
+        //      {
+        //        "Name": "rocknroll",
+        //        "Votes": "1",
+        //        "Users": "eyal"
+        //      }
+        //    ],
+        //    "Reviews": "that's the way I like it"
+        //  },
+        //  "Votes": "1"
+        //}
+        /// </summary>
+        /// <param name="artist"></param>
+        /// <param name="album"></param>
+        /// <param name="song"></param>
+        /// <param name="review"></param>
+        /// <param name="submmiter"></param>
+        /// <returns></returns>
+        private static JObject ArtistSubmissionBody(string artist, string album, string song, string review, string submmiter)
         {
             string body = string.Empty;
 
@@ -244,13 +258,16 @@ namespace ArtistChatBot
             );
 
             // Fake test
-            JB = new JObject(
-                new JProperty("Name", artist),
-                new JProperty("Properties", "Debug Test")
-                );
-            body = JB.ToString();
+            //JB = new JObject(
+            //        new JProperty("Body", 
+            //          new JObject(
+            //            new JProperty("Name", artist),
+            //            new JProperty("Properties", "Debug Test")
+            //          )
+            //        )
+            //    );
 
-            return body;
+            return JB;
         }
     }
 }

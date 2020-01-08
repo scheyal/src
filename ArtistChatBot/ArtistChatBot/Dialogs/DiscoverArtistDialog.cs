@@ -95,6 +95,15 @@ namespace ArtistChatBot
                             }
                         },
                     },
+                     new OnIntent()
+                    {
+                        Intent = "ShowArtist",
+                        Condition = "#ShowArtist.Score >= 0.4",
+                        Actions = new List<Dialog> ()
+                        {
+                            RootDialog.DebugAction("Intent: Show Artist: @{turn.entities.Artist}"),
+                        }
+                    },
                     // Add intents
                     new OnUnknownIntent()
                     {
