@@ -12,23 +12,27 @@
   @{WarnNoMatching()}
   ```
 # GetAlbum
--```What is one of your favorite album by @{conversation.Artist}?
+-```What is one of your favorite album by @{dialog.Artist}?
   @{WarnNoMatching()}
   ```
 # GetSong
--```What is one of your favorite song by @{conversation.Artist}?
+-```What is one of your favorite song by @{dialog.Artist}?
   @{WarnNoMatching()}
   ```
 # GetReview
--```Tell me a bit about @{conversation.Artist}? What/why do you like, you know, your opinion.
+-```Tell me a bit about @{dialog.Artist}? What/why do you like, you know, your opinion.
   ```
 # SubmissionRecord
 -```
-  - Artist: **@{conversation.Artist}**
-  - Album: @{conversation.Album}
-  - Song: @{conversation.Song}
-  - Review: @{conversation.Review}
+  - Artist: **@{dialog.Artist}**
+  - Album: @{dialog.Album}
+  - Song: @{dialog.Song}
+  - Review: @{dialog.UserReview}
   ```
+  # SubmissionAccepted
+  - Thank you. Submission accepted.
+  - Awesome! Dude, that's dope. Thanks man.
+  - Rock on. Cheers. I'll remember that.
 
 # WarnNoMatching
 - *Enter it precisely (e.g. Led Zeppelin or Black Dog). We don't have spell check or any matching functionality yet. Gracias.*

@@ -69,7 +69,7 @@ namespace ArtistChatBot
                                 Condition = "turn.Artist != null",
                                 Actions = new List<Dialog>()
                                 {
-                                    // new SendActivity("Querying artist **@{dialog.Artist}** ..."),
+                                    new SendActivity("Querying artist **@{dialog.Artist}** ..."),
                                     new Microsoft.Bot.Builder.Dialogs.Adaptive.Actions.HttpRequest()
                                     {
                                         // Set response from the http request to turn.httpResponse property in memory.

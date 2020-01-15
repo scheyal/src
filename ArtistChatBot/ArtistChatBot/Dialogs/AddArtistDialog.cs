@@ -57,10 +57,10 @@ namespace ArtistChatBot
                                 Prompt = new ActivityTemplate("@{GetArtist()}")
                             },
                             new SetProperty() {
-                                Property = "conversation.Artist",
+                                Property = "dialog.Artist",
                                 Value = "turn.Artist"
                             },
-                            RootDialog.DebugAction("Future: use Add Artist: [name]"),
+                            // RootDialog.DebugAction("Future: use Add Artist: [name]"),
 
                             new TextInput()
                             {
@@ -68,10 +68,10 @@ namespace ArtistChatBot
                                 Prompt = new ActivityTemplate("@{GetAlbum()}")
                             },
                             new SetProperty() {
-                                Property = "conversation.Album",
+                                Property = "dialog.Album",
                                 Value = "turn.Album"
                             },
-                            RootDialog.DebugAction("Future: use Add Album: [name]"),
+                            // RootDialog.DebugAction("Future: use Add Album: [name]"),
 
                             new TextInput()
                             {
@@ -79,21 +79,21 @@ namespace ArtistChatBot
                                 Prompt = new ActivityTemplate("@{GetSong()}")
                             },
                             new SetProperty() {
-                                Property = "conversation.Song",
+                                Property = "dialog.Song",
                                 Value = "turn.Song"
                             },
-                            RootDialog.DebugAction("Future: use Add Song: [name]"),
+                            // RootDialog.DebugAction("Future: use Add Song: [name]"),
 
                             new TextInput()
                             {
-                                Property = "turn.Review",
+                                Property = "turn.UserReview",
                                 Prompt = new ActivityTemplate("@{GetReview()}")
                             },
                             new SetProperty() {
-                                Property = "conversation.Review",
-                                Value = "turn.Review"
+                                Property = "dialog.UserReview",
+                                Value = "turn.UserReview"
                             },
-                            RootDialog.DebugAction("Future: use Add Review: [name]"),
+                            // RootDialog.DebugAction("Future: use Add Review: [name]"),
 
                             new SendActivity("@{SubmissionRecord()}"),
                             new ConfirmInput()
@@ -108,7 +108,7 @@ namespace ArtistChatBot
                                 Condition = "turn.ConfirmSubmitArtist == true",
                                 Actions = new List<Dialog>()
                                 {
-                                    new SendActivity("Submitting artist **@{conversation.Artist}** ..."),
+                                    // new SendActivity("Submitting artist **@{dialog.Artist}** ..."),
                                     new CodeAction(GenerateArtistBody),
                                     new TraceActivity()
                                     {
@@ -116,6 +116,7 @@ namespace ArtistChatBot
                                         ValueType = "Object",
                                         Value = "dialog"
                                     },
+
                                     new Microsoft.Bot.Builder.Dialogs.Adaptive.Actions.HttpRequest()
                                     {
                                         // Set response from the http request to turn.httpResponse property in memory.
@@ -127,11 +128,24 @@ namespace ArtistChatBot
                                             { "AuthKey", authKey }
                                         },
 
-                                        Body = "@{dialog.httpbody}",
+                                        Body = ArtistSubmissionBodyInline(), // "@{dialog.httpbody}",
                                         ResponseType = HttpRequest.ResponseTypes.None
                                     },
-                                    RootDialog.DebugAction("BP @HttpAction"),
-                                    new SendActivity("Submitted. (Result = @{dialog.httpResponse}.)"),
+                                    // RootDialog.DebugAction("BP @HttpAction"),
+                                    // new SendActivity("Submitted. (Result = @{dialog.httpResponse}.)"),
+                                    new CodeAction(ProcessArtistResponse),
+                                    new IfCondition()
+                                    {
+                                        Condition = "dialog.ArtistResponse == 'OK200'",
+                                        Actions = new List<Dialog>()
+                                        {
+                                            new SendActivity("@{SubmissionAccepted()}"),
+                                        },
+                                        ElseActions = new List<Dialog>()
+                                        {
+                                            new SendActivity("@{dialog.ArtistResponse}"),
+                                        }
+                                    },
                                     new EndDialog()
                                 },
                                 ElseActions = new List<Dialog>()
@@ -163,10 +177,10 @@ namespace ArtistChatBot
         private async Task<DialogTurnResult> GenerateArtistBody(DialogContext dc, System.Object options)
 
         {
-            string artist = dc.GetState().GetValue<string>("conversation.Artist");
-            string album = dc.GetState().GetValue<string>("conversation.Album");
-            string song  = dc.GetState().GetValue<string>("conversation.Song");
-            string review = dc.GetState().GetValue<string>("conversation.Review");
+            string artist = dc.GetState().GetValue<string>("dialog.Artist");
+            string album = dc.GetState().GetValue<string>("dialog.Album");
+            string song  = dc.GetState().GetValue<string>("dialog.Song");
+            string review = dc.GetState().GetValue<string>("dialog.UserReview");
             string submitter = dc.GetState().GetValue<string>("user.userProfile.Name");
 
             submitter = String.IsNullOrEmpty(submitter) ? "Anonymous" : submitter;
@@ -186,6 +200,7 @@ namespace ArtistChatBot
             //    );
 
             dc.GetState().SetValue("dialog.httpbody", JB);
+
 
             return new DialogTurnResult(DialogTurnStatus.Complete, options);
         }
@@ -225,31 +240,39 @@ namespace ArtistChatBot
         /// <returns></returns>
         private static JObject ArtistSubmissionBody(string artist, string album, string song, string review, string submmiter)
         {
-            string body = string.Empty;
+            string body = string.Empty;            
 
             JObject JB = new JObject(
                 new JProperty("Name", artist),
-                new JProperty("Properties",
+                  new JProperty("Properties",
                     new JObject(
                        new JProperty("FavoriteAlbums",
                             new JArray(
                                 new JObject(
                                     new JProperty("Name", album),
                                     new JProperty("Votes", "1"),
-                                    new JProperty("Users", submmiter)
+                                    new JProperty("Users",
+                                        new JArray(
+                                            new JValue(submmiter)
+                                        )
+                                    )
                                 )
                             )
-                       ),
+                        ),
                         new JProperty("FavoriteSongs",
                             new JArray(
                                 new JObject(
                                     new JProperty("Name", song),
                                     new JProperty("Votes", "1"),
-                                    new JProperty("Users", submmiter)
+                                    new JProperty("Users",
+                                        new JArray(
+                                            new JValue(submmiter)
+                                        )
+                                    )
                                )
                             )
                        ),
-                        new JProperty("Reviews",
+                       new JProperty("Reviews",
                             new JValue(review)
                        )
                    )
@@ -268,6 +291,126 @@ namespace ArtistChatBot
             //    );
 
             return JB;
+        }
+
+        private static JObject ArtistSubmissionBodyInline()
+        {
+            JObject JB = new JObject(
+                new JProperty("Name", "@{dialog.Artist}"),
+                    new JProperty("Properties",
+                        new JObject(
+                            new JProperty("FavoriteAlbums",
+                                new JArray(
+                                    new JObject(
+                                        new JProperty("Name", "@{dialog.Album}"),
+                                        new JProperty("Votes", "1"),
+                                        new JProperty("Users", null)
+                                    )
+                                )
+                            ),
+                            new JProperty("FavoriteSongs",
+                                new JArray(
+                                    new JObject(
+                                        new JProperty("Name", "@{dialog.Album}"),
+                                        new JProperty("Votes", "1"),
+                                        new JProperty("Users",null)
+                                    )
+                                )
+                            ),
+                        new JProperty("Reviews",
+                            new JArray(
+                                new JValue("Review disabled due to bug...") // ("@{dialog.UserReview}")
+                            )
+                        )
+                    )
+                ),
+                new JProperty("Votes", "1"),
+                new JProperty("Submitter", "@{coalesce(user.userProfile.Name, 'Anonymous')}")
+            );
+
+//            string jsonStr = JB.ToString(Newtonsoft.Json.Formatting.Indented);
+//            System.Diagnostics.Trace.TraceInformation(jsonStr);
+            return JB;
+        }
+
+        private static JObject XXArtistSubmissionBodyInline()
+        {
+            JObject JB = new JObject(
+                new JProperty("Name", "@{dialog.Artist}"),
+                    new JProperty("Properties",
+                        new JObject(
+                            new JProperty("FavoriteAlbums",
+                                new JArray(
+                                    new JObject(
+                                        new JProperty("Name", "@{dialog.Album}"),
+                                        new JProperty("Votes", "1"),
+                                        new JProperty("Users",
+                                            new JArray(
+                                                new JValue("@{coalesce(user.userProfile.Name, 'Anonymous')}")
+                                            )
+                                        )
+                                    )
+                                )
+                            ),
+                            new JProperty("FavoriteSongs",
+                                new JArray(
+                                    new JObject(
+                                        new JProperty("Name", "@{dialog.Song}"),
+                                        new JProperty("Votes", "1"),
+                                        new JProperty("Users",
+                                            new JArray(
+                                                new JValue("@{coalesce(user.userProfile.Name, 'Anonymous')}")
+                                            )
+                                        )
+                                    )
+                                )
+                            ),
+                        new JProperty("Reviews",
+                            new JValue("@{dialog.UserReview}")
+                        )
+                    )
+                ),
+                new JProperty("Votes", "1")
+            );
+            return JB;
+        }
+
+
+        private async Task<DialogTurnResult> ProcessArtistResponse(DialogContext dc, System.Object options)
+        {
+
+            try
+            {
+                JObject JResponse = dc.GetState().GetValue<JObject>("dialog.httpResponse");
+
+                JToken first = JResponse.First;
+                if (!first.HasValues || first.Count() != 1)
+                {
+                    throw new Exception("Invalid BotArtBe response.");
+                }
+
+                string httpCode = (string)JResponse["statusCode"];
+                if (httpCode != "200")
+                {
+                    string errMsg = $"Backend Server Error. Http Code = {httpCode}";
+                    System.Diagnostics.Trace.TraceInformation(errMsg);
+                    dc.GetState().SetValue("dialog.ArtistResponse", errMsg);
+                }
+                else
+                {
+                    string msg = $"Submission Accepted. (Server Code = {httpCode})";
+                    System.Diagnostics.Trace.TraceInformation(msg);
+                    dc.GetState().SetValue("dialog.ArtistResponse", "OK200");
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Error: cannot parse server response. {e.Message}");
+
+            }
+
+            return new DialogTurnResult(DialogTurnStatus.Complete, options);
         }
     }
 }
