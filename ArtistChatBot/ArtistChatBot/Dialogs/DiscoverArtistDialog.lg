@@ -13,11 +13,6 @@
 
 # GetArtist
 -```Who is one of your favorite artists?
-  @{WarnNoMatching()}
   ```
-    # WarnNoMatching
-- *Enter it precisely (e.g. Led Zeppelin or Black Dog). We don't have spell check or any matching functionality yet. Gracias.*
-
-
 # Placeholder
 - Unknown Intent / Op in DiscoverArtist Dialog

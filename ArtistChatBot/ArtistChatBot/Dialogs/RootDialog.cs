@@ -12,6 +12,10 @@ using Microsoft.Bot.Builder.Dialogs.Adaptive.Generators;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.AI.Luis;
+using Newtonsoft.Json.Linq;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ArtistChatBot
 {
@@ -26,6 +30,8 @@ namespace ArtistChatBot
             string[] paths = { ".", "Dialogs", "RootDialog.lg" };
             string fullPath = Path.Combine(paths);
             AppConfig = Configuration;
+            string apiListUrl = AppConfig["ApiUrl"] + "/Musician/List/";
+            string authKey = AppConfig["ApiAuthKey"];
 
 
             // Create instance of adaptive dialog. 
@@ -42,6 +48,48 @@ namespace ArtistChatBot
                         Actions = WelcomeUserSteps()
                     },
                     // Add intents
+                    new OnIntent()
+                    {
+                        Intent = "ShowArtist",
+                        Condition = "#ShowArtist.Score >= 0.7",
+                        Actions = new List<Dialog> ()
+                        {
+
+                            new SetProperty() {
+                                Property = "turn.Artist",
+                                Value = "@ArtistName"
+                            },
+                            new SetProperty() {
+                                Property = "conversation.Artist",
+                                Value = "@ArtistName"
+                            },
+                            RootDialog.DebugAction("Checking more on **@{conversation.Artist}**"),
+                            new BeginDialog("DiscoverArtistDialog"),
+                        }
+                    },
+                    new OnIntent()
+                    {
+                        Intent = "ListArtists",
+                        Condition = "#ListArtists.Score >= 0.7",
+                        Actions = new List<Dialog> ()
+                        {
+                            new SendActivity("Querying musicians list..."),
+                            new Microsoft.Bot.Builder.Dialogs.Adaptive.Actions.HttpRequest()
+                            {
+                                // Set response from the http request to turn.httpResponse property in memory.
+                                ResultProperty = "dialog.httpResponse",
+                                Url = apiListUrl,
+                                Method = HttpRequest.HttpMethod.GET,
+                                Headers = new Dictionary<string,string> ()
+                                {
+                                    { "AuthKey", authKey }
+                                },
+                                ResponseType = HttpRequest.ResponseTypes.Json
+                            },
+                            new CodeAction(ProcessListResponse),
+                            new SendActivity("@{dialog.ArtistResponse}"),
+                        }
+                    },
                     new OnIntent()
                     {
                         Intent = "StartHere",
@@ -186,6 +234,56 @@ namespace ArtistChatBot
 
             // The initial child Dialog to run.
             InitialDialogId = nameof(AdaptiveDialog);
+        }
+
+
+        private async Task<DialogTurnResult> ProcessListResponse(DialogContext dc, System.Object options)
+        {
+
+            try
+            {
+                JObject JResponse = dc.GetState().GetValue<JObject>("dialog.httpResponse");
+
+                JToken first = JResponse.First;
+                if (!first.HasValues || first.Count() != 1)
+                {
+                    throw new Exception("Invalid BotArtBe response.");
+                }
+
+                string httpCode = (string)JResponse["statusCode"];
+                if (httpCode != "200")
+                {
+                    System.Diagnostics.Trace.TraceInformation($"BotArtBe error: httpCode = {httpCode}");
+                    dc.GetState().SetValue("dialog.ArtistResponse", "Artist not found");
+                }
+                else
+                {
+
+                    StringBuilder response = new StringBuilder();
+
+                    response.Append($"**Artists Listings:**\n");
+
+                    // BUGBUG check for existence first
+                    foreach (JToken jMusician in JResponse["content"]["musicians"])
+                    {
+
+                        string name = (string)jMusician["name"];
+                        string votes = (string)jMusician["votes"];
+
+                        response.Append($"  - **{name}**. Votes = {votes}.\n");
+                    }
+                    response.Append("\nType *Show Artist: <name>* for more details.\n");
+
+                    dc.GetState().SetValue("dialog.ArtistResponse", response.ToString());
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Error: cannot parse server response. {e.Message}");
+
+            }
+
+            return new DialogTurnResult(DialogTurnStatus.Complete, options);
         }
 
         public static SendActivity DebugAction(string text)

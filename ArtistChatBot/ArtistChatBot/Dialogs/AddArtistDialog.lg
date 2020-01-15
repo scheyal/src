@@ -9,7 +9,6 @@
 
 # GetArtist
 -```Who is one of your favorite artists?
-  @{WarnNoMatching()}
   ```
 # GetAlbum
 -```What is one of your favorite album by @{dialog.Artist}?
@@ -17,7 +16,6 @@
   ```
 # GetSong
 -```What is one of your favorite song by @{dialog.Artist}?
-  @{WarnNoMatching()}
   ```
 # GetReview
 -```Tell me a bit about @{dialog.Artist}? What/why do you like, you know, your opinion.
@@ -35,7 +33,7 @@
   - Rock on. Cheers. I'll remember that.
 
 # WarnNoMatching
-- *Enter it precisely (e.g. Led Zeppelin or Black Dog). We don't have spell check or any matching functionality yet. Gracias.*
+- **Reminder**: Enter name precisely. We don't have fuzzy matching yet (or never).
 
 # ConfirmPromptSubmitArtist
 - Ready to submit artist?

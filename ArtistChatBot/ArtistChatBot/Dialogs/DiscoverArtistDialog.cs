@@ -48,10 +48,23 @@ namespace ArtistChatBot
                         Actions = new List<Dialog> ()
                         {
                             new SendActivity("@{WelcomeDiscoverArtist()}"),
+                            /* Don't bug them unecessarily
                             new TextInput()
                             {
                                 Prompt = new ActivityTemplate("@{AskForName()}"),
                                 Property = "user.userProfile.Name"
+                            },
+                            */
+                            new IfCondition()
+                            {
+                                Condition = "conversation.Artist != null",
+                                Actions = new List<Dialog>()
+                                {
+                                    new SetProperty() {
+                                        Property = "turn.Artist",
+                                        Value = "conversation.Artist"
+                                    },
+                                }
                             },
                             new TextInput()
                             {
@@ -62,7 +75,7 @@ namespace ArtistChatBot
                                 Property = "dialog.Artist",
                                 Value = "turn.Artist"
                             },
-                            RootDialog.DebugAction("Future: use show Artist: [name]"),
+                            // RootDialog.DebugAction("Future: use show Artist: [name]"),
 
                             new IfCondition()
                             {
