@@ -9,6 +9,7 @@ namespace BotArtBE.Models
     public class MusicianModel : TableEntity
     {
         public string Name { get; set; }
+        public string NormalizedName { get; set; }
         public string Properties { get; set; }
         public int Votes { get; set; }
     }

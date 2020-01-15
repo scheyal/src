@@ -21,12 +21,16 @@ namespace BotArtBE.Models
             Table = new TableStorageAsync<MusicianModel>(TableName, ConnStr);
         }
 
+        public string NormalizeName(string name)
+        {
+            return name.ToLowerInvariant();
+        }
         public async Task CreateOrUpdate(MusicianModel Musician)
         {
             try
             {
                 //validate musician
-                MusicianModel found = await Find(Musician.Name);
+                MusicianModel found = await Find(Musician.NormalizedName);
                 if(found != null)
                 {
                     // fail create
@@ -56,7 +60,7 @@ namespace BotArtBE.Models
             {
                 await Table.ConnectAsync();
 
-                List<MusicianModel> musicians = (List<MusicianModel>) await Table.GetEntitiesByPropertyAsync("Name", Name);
+                List<MusicianModel> musicians = (List<MusicianModel>) await Table.GetEntitiesByPropertyAsync("NormalizedName", Name);
                 if (musicians.Count == 1)
                 {
                     musician = musicians.First<MusicianModel>();
@@ -81,7 +85,7 @@ namespace BotArtBE.Models
             // search in store
             try
             {
-                string Name = Musician.Name;
+                string Name = Musician.NormalizedName;
                 await Table.ConnectAsync();
 
                 if(found != null)
@@ -90,7 +94,7 @@ namespace BotArtBE.Models
                 }
                 else
                 {
-                    List<MusicianModel> musicians = (List<MusicianModel>)await Table.GetEntitiesByPropertyAsync("Name", Name);
+                    List<MusicianModel> musicians = (List<MusicianModel>)await Table.GetEntitiesByPropertyAsync("NormalizedName", Name);
                     if (musicians.Count == 1)
                     {
                         dbMusician = musicians.First<MusicianModel>();
@@ -115,19 +119,19 @@ namespace BotArtBE.Models
 
         private void Merge(MusicianModel MSrc, MusicianModel MDst)
         {
-            if(MSrc.Name != MDst.Name)
+            if(MSrc.NormalizedName != MDst.NormalizedName)
             {
-                throw new Exception($"Cannot merge {MSrc.Name} into {MDst.Name}");
+                throw new Exception($"Cannot merge {MSrc.NormalizedName} into {MDst.NormalizedName}");
             }
 
             MusicianProperties dp = String.IsNullOrEmpty(MDst.Properties)? new MusicianProperties() : MusicianPropertiesMgr.Deserialize(MDst.Properties);
             MusicianProperties sp = String.IsNullOrEmpty(MSrc.Properties) ? new MusicianProperties() : MusicianPropertiesMgr.Deserialize(MSrc.Properties);
 
-            if(sp.Reviews == null)
+            if(dp.Reviews == null)
             {
                 dp.Reviews = new List<string>();
             }
-            else
+            if(sp.Reviews != null)
             {
                 foreach (string s in sp.Reviews)
                 {
@@ -135,11 +139,11 @@ namespace BotArtBE.Models
                 }
             }
 
-            if (sp.FavoriteAlbums == null)
+            if (dp.FavoriteAlbums == null)
             {
                 dp.FavoriteAlbums = new List<Album>();
             }
-            else
+            if(sp.FavoriteAlbums != null)
             {
                 foreach (Album sa in sp.FavoriteAlbums)
                 {
@@ -167,12 +171,12 @@ namespace BotArtBE.Models
                 }
             }
 
-            if(sp.FavoriteSongs == null)
+            if(dp.FavoriteSongs == null)
             {
-                sp.FavoriteSongs = new List<Song>();
-
+                dp.FavoriteSongs = new List<Song>();
             }
-            else
+
+            if (sp.FavoriteSongs != null)
             {
                 foreach (Song sso in sp.FavoriteSongs)
                 {
@@ -191,10 +195,10 @@ namespace BotArtBE.Models
                     {
                         ds.Votes++;
                         string newUser = sso.Users.First();
-                        bool fUser = sso.Users.Exists(x => x == newUser);
+                        bool fUser = ds.Users.Exists(x => x == newUser);
                         if (!fUser)
                         {
-                            sso.Users.Add(newUser);
+                            ds.Users.Add(newUser);
                         }
                     }
                 }

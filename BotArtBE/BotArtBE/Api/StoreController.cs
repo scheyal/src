@@ -45,6 +45,7 @@ namespace BotArtBE.Api
                 MusicianMgr mm = new MusicianMgr(AppConfig);
 
                 MusicianModel NewMusician = MusicianMgr.NetToStoreModel(Musician);
+                NewMusician.NormalizedName = mm.NormalizeName(Musician.Name);
 
                 await mm.CreateOrUpdate(NewMusician);
 
@@ -72,7 +73,8 @@ namespace BotArtBE.Api
             try
             {
                 MusicianMgr mm = new MusicianMgr(AppConfig);
-                musician = await mm.Find(Name);
+                string normalizedName = mm.NormalizeName(Name);
+                musician = await mm.Find(normalizedName);
                 if(musician != null)
                 {
                     NetMusician = MusicianMgr.StoreToNetModel(musician);
