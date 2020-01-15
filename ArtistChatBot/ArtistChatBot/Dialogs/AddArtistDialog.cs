@@ -295,6 +295,7 @@ namespace ArtistChatBot
 
         private static JObject ArtistSubmissionBodyInline()
         {
+ 
             JObject JB = new JObject(
                 new JProperty("Name", "@{dialog.Artist}"),
                     new JProperty("Properties",
@@ -311,7 +312,7 @@ namespace ArtistChatBot
                             new JProperty("FavoriteSongs",
                                 new JArray(
                                     new JObject(
-                                        new JProperty("Name", "@{dialog.Album}"),
+                                        new JProperty("Name", "@{dialog.Song}"),
                                         new JProperty("Votes", "1"),
                                         new JProperty("Users",null)
                                     )
