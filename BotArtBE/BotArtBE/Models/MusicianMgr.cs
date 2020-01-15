@@ -209,6 +209,31 @@ namespace BotArtBE.Models
             MDst.Properties = dstprops;
         }
 
+
+        public async Task<MusicianListNetModel> GetMusicians()
+        {
+            MusicianListNetModel MusiciansList = null;
+            // search in store
+            try
+            {
+
+                await Table.ConnectAsync();
+                List<MusicianModel> musicians = (List<MusicianModel>)await Table.GetAllEntitiesAsync();
+                MusiciansList = new MusicianListNetModel();
+                foreach(MusicianModel m in musicians)
+                {
+                    MusiciansList.Musicians.Add(new MusicianVotes(m.Name, m.Votes));
+
+                }
+                return MusiciansList;
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Trace.TraceError($"Musician listing.Find Error: {e.Message}");
+                throw e;
+            }
+        }
+
         public static MusicianModel NetToStoreModel(MusicianNetModel inM)
         {
             MusicianModel outM = new MusicianModel();

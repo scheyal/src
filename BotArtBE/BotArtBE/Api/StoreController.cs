@@ -89,6 +89,29 @@ namespace BotArtBE.Api
             return NetMusician;
         }
 
+        // Find musician
+        // Example: https://localhost:44342/api/Store/List
+        [HttpGet]
+        [Route("Musician/List")]
+        public async Task<MusicianListNetModel> GetAsync()
+        {
+            Authenticate();
+
+            MusicianListNetModel musiciansList = null;
+            try
+            {
+                MusicianMgr mm = new MusicianMgr(AppConfig);
+
+                musiciansList = await mm.GetMusicians();
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Trace.TraceError($"Error: Musician search failed: {e.Message}");
+                throw e;
+            }
+
+            return musiciansList;
+        }
 
 
         // GET: api/Store/5
