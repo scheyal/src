@@ -96,7 +96,7 @@ namespace ArtistChatBot
                             // RootDialog.DebugAction("Future: use Add Review: [name]"),
 
                             new SendActivity("@{SubmissionRecord()}"),
-                            new ConfirmInput()
+                            new TextInput()
                             {
                                 Property = "turn.ConfirmSubmitArtist",
                                 Prompt = new ActivityTemplate("@{ConfirmPromptSubmitArtist()}")
@@ -105,7 +105,7 @@ namespace ArtistChatBot
                             {
                                 // All conditions are expressed using the common expression language.
                                 // See https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/common-expression-language to learn more
-                                Condition = "turn.ConfirmSubmitArtist == true",
+                                Condition = "toLower(turn.ConfirmSubmitArtist) == 'yes'",
                                 Actions = new List<Dialog>()
                                 {
                                     // new SendActivity("Submitting artist **@{dialog.Artist}** ..."),

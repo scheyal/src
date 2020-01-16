@@ -36,6 +36,12 @@
 - **Reminder**: Enter name precisely. We don't have fuzzy matching yet (or never).
 
 # ConfirmPromptSubmitArtist
+[Activity
+	Text = @{confirmPromptText()}
+	SuggestedActions = Yes | No
+]
+
+# confirmPromptText
 - Ready to submit artist?
 - Alright, now you get to express your opinion for eternity. Ready to submit?
 - Let's enlight the world. Ready to submit?
