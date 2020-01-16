@@ -2,16 +2,21 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>f922e62b-248d-4978-81c8-c54633537a09</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.Bot.Builder.Dialogs.Adaptive" Version="4.7.0-preview" />
-    <PackageReference Include="Microsoft.Bot.Builder.Dialogs.Debugging" Version="4.7.0-preview" />
-    <PackageReference Include="Microsoft.Bot.Builder.LanguageGeneration" Version="4.7.0-preview" />	
-    <PackageReference Include="Microsoft.Bot.Builder.Integration.AspNet.Core" Version="4.7.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.Dialogs.Adaptive" Version="4.7.1-preview" />
+    <PackageReference Include="Microsoft.Bot.Builder.Dialogs.Debugging" Version="4.7.1-preview" />
+    <PackageReference Include="Microsoft.Bot.Builder.Integration.AspNet.Core" Version="4.7.1" />
+    <PackageReference Include="Microsoft.Bot.Builder.LanguageGeneration" Version="4.7.1-preview" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />	
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\htm\" />
   </ItemGroup>
 
 </Project>

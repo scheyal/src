@@ -59,11 +59,7 @@ namespace ArtistChatBot
                                 Property = "turn.Artist",
                                 Value = "@ArtistName"
                             },
-                            new SetProperty() {
-                                Property = "conversation.Artist",
-                                Value = "@ArtistName"
-                            },
-                            RootDialog.DebugAction("Checking more on **@{conversation.Artist}**"),
+                            // RootDialog.DebugAction("Checking more on **@{turn.Artist}**"),
                             new BeginDialog("DiscoverArtistDialog"),
                         }
                     },
@@ -283,7 +279,7 @@ namespace ArtistChatBot
 
             }
 
-            return new DialogTurnResult(DialogTurnStatus.Complete, options);
+            return await dc.EndDialogAsync();
         }
 
         public static SendActivity DebugAction(string text)

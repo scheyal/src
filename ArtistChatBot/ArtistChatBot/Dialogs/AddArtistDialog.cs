@@ -128,8 +128,8 @@ namespace ArtistChatBot
                                             { "AuthKey", authKey }
                                         },
 
-                                        Body = ArtistSubmissionBodyInline(), // "@{dialog.httpbody}",
-                                        ResponseType = HttpRequest.ResponseTypes.None
+                                        Body = ArtistSubmissionBodyInline()
+                                        // ResponseType = HttpRequest.ResponseTypes.None
                                     },
                                     // RootDialog.DebugAction("BP @HttpAction"),
                                     // new SendActivity("Submitted. (Result = @{dialog.httpResponse}.)"),
@@ -202,7 +202,7 @@ namespace ArtistChatBot
             dc.GetState().SetValue("dialog.httpbody", JB);
 
 
-            return new DialogTurnResult(DialogTurnStatus.Complete, options);
+            return await dc.EndDialogAsync();
         }
 
 
@@ -320,7 +320,7 @@ namespace ArtistChatBot
                             ),
                         new JProperty("Reviews",
                             new JArray(
-                                new JValue("Review disabled due to bug...") // ("@{dialog.UserReview}")
+                                new JValue("*n/a") // ("@{dialog.UserReview}") 
                             )
                         )
                     )
@@ -411,7 +411,7 @@ namespace ArtistChatBot
 
             }
 
-            return new DialogTurnResult(DialogTurnStatus.Complete, options);
+            return await dc.EndDialogAsync();
         }
     }
 }

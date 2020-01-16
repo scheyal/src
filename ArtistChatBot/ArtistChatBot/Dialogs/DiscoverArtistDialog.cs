@@ -55,17 +55,17 @@ namespace ArtistChatBot
                                 Property = "user.userProfile.Name"
                             },
                             */
-                            new IfCondition()
-                            {
-                                Condition = "conversation.Artist != null",
-                                Actions = new List<Dialog>()
-                                {
-                                    new SetProperty() {
-                                        Property = "turn.Artist",
-                                        Value = "conversation.Artist"
-                                    },
-                                }
-                            },
+                            //new IfCondition()
+                            //{
+                            //    Condition = "conversation.Artist != null",
+                            //    Actions = new List<Dialog>()
+                            //    {
+                            //        new SetProperty() {
+                            //            Property = "turn.Artist",
+                            //            Value = "conversation.Artist"
+                            //        },
+                            //    }
+                            //},
                             new TextInput()
                             {
                                 Property = "turn.Artist",
@@ -225,7 +225,7 @@ namespace ArtistChatBot
 
             }
 
-            return new DialogTurnResult(DialogTurnStatus.Complete, options);
+            return await dc.EndDialogAsync();
         }
 
 

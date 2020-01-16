@@ -8,7 +8,7 @@
     title = Artist Chat Bot
     subtitle = Share and Learn About Team Music Favorites
     text = Follow the interview to share your favorite artists with your peers and find out what your peers are listening to.
-    image = https://localhost:44324/images/WelcomeLZ.jpg
+    image = https://botartbe.azurewebsites.net/img/WelcomeLZ.jpg
     buttons = Start Here | Help
 ]
 

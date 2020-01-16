@@ -11,14 +11,14 @@
 -```Who is one of your favorite artists?
   ```
 # GetAlbum
--```What is one of your favorite album by @{dialog.Artist}?
+-```What is one of your favorite album by @{dialog.Artist} (*n/a to skip)?
   @{WarnNoMatching()}
   ```
 # GetSong
--```What is one of your favorite song by @{dialog.Artist}?
+-```What is one of your favorite song by @{dialog.Artist} (*n/a to skip)?
   ```
 # GetReview
--```Tell me a bit about @{dialog.Artist}? What/why do you like, you know, your opinion.
+-```Tell me a bit about @{dialog.Artist}? What/why do you like? (**BUG: Not submitted yet**)
   ```
 # SubmissionRecord
 -```
