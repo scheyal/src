@@ -159,7 +159,9 @@ namespace ArtistChatBot
 
                     string artist = (string)JResponse["content"]["name"];
                     string artistVotes = (string)JResponse["content"]["votes"];
+                    string SpotifyUrl = (string)JResponse["content"]["submitter"];
                     response.Append($"Artist: **{artist}** (Votes = {artistVotes})\n");
+                    response.Append($"- Spotify URL: **{SpotifyUrl}**\n");
 
                     // BUGBUG check for existence first
                     response.Append($"- Albums\n");
