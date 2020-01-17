@@ -78,6 +78,12 @@ namespace BotArtBE.Api
                 if(musician != null)
                 {
                     NetMusician = MusicianMgr.StoreToNetModel(musician);
+                    if(Constants.UseSpotify)
+                    {
+                        //BUGBUG: Temp override Submitter field on the return
+                        NetMusician.Submitter = await GetSpotifyURL(Name);
+
+                    }
                 }
             }
             catch (Exception e)
@@ -113,69 +119,23 @@ namespace BotArtBE.Api
             return musiciansList;
         }
 
-
-        // GET: api/Store/5
-        [HttpGet("{id}", Name = "Get")]
-        public ActionResult Get(int id)
+ 
+        private async Task<string> GetSpotifyURL(string Name)
         {
-            return new NotFoundResult();
+            string URL = "N/A";
+            try
+            {
+                SpotifyModel spotify = new SpotifyModel(AppConfig);
+                URL = await spotify.GetArtistURL(Name);
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Trace.TraceError($"Error: Musician search failed: {e.Message}");
+                throw e;
+            }
+
+            return URL;
         }
 
-        // POST: api/Store
-        [HttpPost]
-        public ActionResult Post(string value)
-        {
-            return new NotFoundResult();
-        }
-
-        // PUT: api/Store/5
-        [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody] string value)
-        {
-            return new NotFoundResult();
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public ActionResult Delete(int id)
-        {
-            return new NotFoundResult();
-        }
     }
 }
-
-
-
-/** auto generate sample, remove later **
-        // GET: api/Api
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET: api/Api/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST: api/Api
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT: api/Api/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
-** **/

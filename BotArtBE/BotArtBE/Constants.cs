@@ -10,5 +10,6 @@ namespace BotArtBE
         public static string DefaultPartition = "BFV1";    // single partition
         public static string DefaultRow = "0";             // detects error
         public static string KeyVaultEndpoint = "https://botartvault.vault.azure.net/";
+        public static bool UseSpotify = true;
     }
 }

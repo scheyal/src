@@ -23,6 +23,7 @@ namespace BotArtBE
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+            
             .ConfigureAppConfiguration((ctx, builder) =>
             {
                 var keyVaultClient = new KeyVaultClient(

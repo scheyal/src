@@ -225,6 +225,7 @@ namespace BotArtBE.Models
                     MusiciansList.Musicians.Add(new MusicianVotes(m.Name, m.Votes));
 
                 }
+                MusiciansList.Musicians.Sort();
                 return MusiciansList;
             }
             catch (Exception e)
@@ -232,6 +233,16 @@ namespace BotArtBE.Models
                 System.Diagnostics.Trace.TraceError($"Musician listing.Find Error: {e.Message}");
                 throw e;
             }
+        }
+
+        public static bool CheckSkip(string val)
+        {
+            if (0 == String.Compare(val, "*n/a", true) ||
+                0 == String.Compare(val, "*skip", true))
+            {
+                return true;
+            }
+            return false;
         }
 
         public static MusicianModel NetToStoreModel(MusicianNetModel inM)
@@ -243,22 +254,47 @@ namespace BotArtBE.Models
             if (inM.Properties.FavoriteAlbums != null &&
                inM.Properties.FavoriteAlbums.Count > 0)
             {
+                List<Album> newAlbums = new List<Album>();
                 foreach (Album a in inM.Properties.FavoriteAlbums)
                 {
-                    a.Users = new List<string>();
-                    a.Users.Add(inM.Submitter);
+                    if(!CheckSkip(a.Name))
+                    {
+                        a.Users = new List<string>();
+                        a.Users.Add(inM.Submitter);
+                        newAlbums.Add(a);
+                    }
                 }
+                inM.Properties.FavoriteAlbums = newAlbums;
             }
             if (inM.Properties.FavoriteSongs != null &&
                inM.Properties.FavoriteSongs.Count > 0)
             {
+                List<Song> newSongs = new List<Song>();
                 foreach(Song s in inM.Properties.FavoriteSongs)
                 {
-                    s.Users = new List<string>();
-                    s.Users.Add(inM.Submitter);
+                    if (!CheckSkip(s.Name))
+                    {
+                        s.Users = new List<string>();
+                        s.Users.Add(inM.Submitter);
+                        newSongs.Add(s);
+                    }
                 }
+                inM.Properties.FavoriteSongs = newSongs;
             }
-            outM.Properties = MusicianPropertiesMgr.Serialize(inM.Properties);
+            if (inM.Properties.Reviews != null &&
+               inM.Properties.Reviews.Count > 0)
+            {
+                List<string> newReviews = new List<string>();
+                foreach (string r in inM.Properties.Reviews)
+                {
+                    if (!CheckSkip(r))
+                    {
+                        newReviews.Add(r);
+                    }
+                }
+                inM.Properties.Reviews= newReviews;
+            }
+                outM.Properties = MusicianPropertiesMgr.Serialize(inM.Properties);
             return outM;
         }
 
