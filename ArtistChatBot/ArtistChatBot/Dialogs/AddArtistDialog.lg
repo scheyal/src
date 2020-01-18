@@ -52,10 +52,6 @@
                 {
                     "type": "TextBlock",
                     "text": "Review: ...Coming soon: Waiting for a bug fix. \@{dialog.UserReview}."
-                },
-                {
-                    "type": "TextBlock",
-                    "text": "*@{confirmPromptText()}*"
                 }
             ]
         }
@@ -74,6 +70,7 @@
 
 # ConfirmPromptSubmitArtist
 [Activity
+	Text = **@{confirmPromptText()}**
 	SuggestedActions = Yes | No
 ]
 
