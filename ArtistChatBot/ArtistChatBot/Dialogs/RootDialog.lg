@@ -13,8 +13,8 @@
 ]
 
 # UnknownIntent
-- English please. I didn't get this last thing you mumbled. Type clearly (@{TryHelp()}).
-- I didn't get that. Type clearly (@{TryHelp()}). 
+- Sorry, I didn't understand this yet. (@{TryHelp()}).
+- I didn't get that. (@{TryHelp()}). 
 
 # TryHelp
 - Type 'help' to get a little help from your friends
@@ -55,27 +55,31 @@
             "items": [
                 {
                     "type": "TextBlock",
-                    "text": "**list all**: show all artists."
+                    "text": "**list all** : show all artists."
                 },
                 {
                     "type": "TextBlock",
-                    "text": "**feed**: tell me about a favorite artist."
+                    "text": "**add artist _artist-name_**: tell me about a favorite artist."
                 },
                 {
                     "type": "TextBlock",
-                    "text": "**show artist <name>**: learn about an artist (I know about)."
+                    "text": "**feed** : same as add artist with interview."
                 },
                 {
                     "type": "TextBlock",
-                    "text": "**eat**: same as show artist with prompt."
+                    "text": "**show artist _artist-name_**: learn about an artist (I know about)."
                 },
                 {
                     "type": "TextBlock",
-                    "text": "**help**: additional help."
+                    "text": "**eat** : same as show artist with interview."
                 },
                 {
                     "type": "TextBlock",
-                    "text": "**restart**: resets the bot."
+                    "text": "**help** : additional help."
+                },
+                {
+                    "type": "TextBlock",
+                    "text": "**restart** : resets the bot."
                 }
             ]
         }
@@ -104,8 +108,8 @@
 - I am a bot. A chat bot. That is, a robot that wanna talk about favorite artists, you know, shoot the breeze. 
 
 # AskForName
-- Who are you? What's your **unique** name? For example, I'm Eyal... you can't be Chris :) We'll use that name to tag your input. If you think we should have proper login, you're right. One day (that day, when you pitch in and code up the login integration).
-- What's your **unique** name? Use one you can remember, one that we can use to tag your input uniquely. You can also use your social security number, mother's maiden name and bank account. Or just your email. You get the gist.
+- What's your **unique** name? We'll use that name to tag your input. (suggestion: use your email).
+- What's your **unique** name? Use one you can remember, one that we can use to tag your input uniquely.
 
 # HiName
 - Hello @{CapitalizeName(user.userProfile.Name)}.

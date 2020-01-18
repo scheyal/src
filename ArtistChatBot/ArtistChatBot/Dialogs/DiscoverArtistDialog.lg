@@ -29,7 +29,7 @@
         },
         {
             "type": "TextBlock",
-            "text": "Votes: @{dialog.ArtistVotes}"
+            "text": "Likes: @{dialog.ArtistVotes}"
         }
     ],
     "actions": [

@@ -65,6 +65,21 @@ namespace ArtistChatBot
                     },
                     new OnIntent()
                     {
+                        Intent = "AddArtist",
+                        Condition = "#AddArtist.Score >= 0.7",
+                        Actions = new List<Dialog> ()
+                        {
+
+                            new SetProperty() {
+                                Property = "turn.Artist",
+                                Value = "@ArtistName"
+                            },
+                            //RootDialog.DebugAction("Got Artist @{turn.Artist}"),
+                            new BeginDialog("AddArtistDialog"),
+                        }
+                    },
+                    new OnIntent()
+                    {
                         Intent = "ListArtists",
                         Condition = "#ListArtists.Score >= 0.7",
                         Actions = new List<Dialog> ()
@@ -244,7 +259,7 @@ namespace ArtistChatBot
                         string name = (string)jMusician["name"];
                         string votes = (string)jMusician["votes"];
 
-                        response.Append($"  - **{name}**. Votes = {votes}.\n");
+                        response.Append($"  - **{name}**. Likes = {votes}.\n");
                     }
                     response.Append("\nType *Show Artist: <name>* for more details.\n");
 

@@ -46,11 +46,7 @@ namespace ArtistChatBot
                         Actions = new List<Dialog> ()
                         {
                             new SendActivity("@{WelcomeAddArtist()}"),
-                            new TextInput()
-                            {
-                                Prompt = new ActivityTemplate("@{AskForName()}"),
-                                Property = "user.userProfile.Name"
-                            },
+                            // RootDialog.DebugAction("AddArtistDialog: turn.Artist = @{turn.Artist}"),
                             new TextInput()
                             {
                                 Property = "turn.Artist",
@@ -60,8 +56,6 @@ namespace ArtistChatBot
                                 Property = "dialog.Artist",
                                 Value = "turn.Artist"
                             },
-                            // RootDialog.DebugAction("Future: use Add Artist: [name]"),
-
                             new TextInput()
                             {
                                 Property = "turn.Album",
@@ -94,6 +88,11 @@ namespace ArtistChatBot
                                 Value = "turn.UserReview"
                             },
                             // RootDialog.DebugAction("Future: use Add Review: [name]"),
+                            new TextInput()
+                            {
+                                Prompt = new ActivityTemplate("@{AskForName()}"),
+                                Property = "user.userProfile.Name"
+                            },
 
                             new SendActivity("@{SubmissionRecord()}"),
                             new TextInput()

@@ -160,13 +160,13 @@ namespace ArtistChatBot
                     dc.GetState().SetValue("dialog.ArtistResponse", "No Data");
 
                     // BUGBUG check for existence first
-                    response.Append($"- Albums\n");
+                    response.Append($"- Albums");
                     foreach (JToken jAlbum in JResponse["content"]["properties"]["favoriteAlbums"])
                     {
                         string album = (string)jAlbum["name"];
                         string votes = (string)jAlbum["votes"];
 
-                        response.Append($"  - **{album}**. Votes = {votes}.");
+                        response.Append($"\n  - **{album}**. Likes: {votes}.");
 
                         string users = String.Empty;
                         if(jAlbum["users"].HasValues)
@@ -176,20 +176,16 @@ namespace ArtistChatBot
                                 string u = (string)user;
                                 users += $"{u};";
                             }
-                            response.Append($" Liked by { users}\n");                         
-                        }
-                        else
-                        {
-                            response.Append("\n");
+                            response.Append($"\n    - By: { users}");                         
                         }
                     }
-                    response.Append($"- Songs\n");
+                    response.Append($"\n- Songs");
                     foreach (JToken jSong in JResponse["content"]["properties"]["favoriteSongs"])
                     {
                         string song = (string)jSong["name"];
                         string votes = (string)jSong["votes"];
 
-                        response.Append($"  - **{song}**. Votes = {votes}.");
+                        response.Append($"\n  - **{song}**. Likes: {votes}.");
 
                         string users = String.Empty;
                         if (jSong["users"].HasValues)
@@ -199,18 +195,14 @@ namespace ArtistChatBot
                                 string u = (string)user;
                                 users += $"{u};";
                             }
-                            response.Append($" Liked by { users}\n");
-                        }
-                        else
-                        {
-                            response.Append("\n");
+                            response.Append($"\n    - By: { users}");
                         }
                     }
-                    response.Append($"- Reviews\n");
+                    response.Append($"\n- Reviews");
                     foreach (JToken jRev in JResponse["content"]["properties"]["reviews"])
                     {
                         string review = (string)jRev;
-                        response.Append($"  - {review}\n");
+                        response.Append($"\n  - {review}");
                     }
 
                     dc.GetState().SetValue("dialog.ArtistResponse", response.ToString());
