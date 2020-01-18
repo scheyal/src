@@ -5,7 +5,7 @@
 # WelcomeAddArtist
 - Awesome. You are about to contribute from your immense music lover knowledge.
 - Ok, let's start the interview to add another artist to our growing knowledge.
-- Add a favorite artist to our knowledgebase.
+- Add a favorite artist to our knowledgebase
 
 # GetArtist
 -```Who is one of your favorite artists?
@@ -18,26 +18,62 @@
 -```What is one of your favorite song by @{dialog.Artist} (*n/a to skip)?
   ```
 # GetReview
--```Tell me a bit about @{dialog.Artist}? What/why do you like? (**BUG: Not submitted yet**)
+-```Tell me a bit about @{dialog.Artist}. What/why do you like? (**BUG: Not submitted yet**)
   ```
+
 # SubmissionRecord
--```
-  - Artist: **@{dialog.Artist}**
-  - Album: @{dialog.Album}
-  - Song: @{dialog.Song}
-  - Review: @{dialog.UserReview}
-  ```
-  # SubmissionAccepted
-  - Thank you. Submission accepted.
-  - Awesome! Dude, that's dope. Thanks man.
-  - Rock on. Cheers. I'll remember that.
+[Activity
+    Attachments = @{json(SubmissionRecord.Definition())}
+]
+# SubmissionRecord.Definition
+- ```
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "Large",
+            "text": "Artist: **@{dialog.Artist}**"
+        },
+        {
+            "type": "Container",
+			"separator":"true",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "Album: **@{dialog.Album}**"
+                },
+                {
+                    "type": "TextBlock",
+                    "text": "Song: **@{dialog.Song}**"
+                },
+                {
+                    "type": "TextBlock",
+                    "text": "Review: @{dialog.UserReview}."
+                },
+                {
+                    "type": "TextBlock",
+                    "text": "*@{confirmPromptText()}*"
+                }
+            ]
+        }
+    ]
+}
+```
+
+
+# SubmissionAccepted
+- Thank you. Submission accepted.
+- Awesome! Dude, that's dope. Thanks man.
+- Rock on. Cheers. I'll remember that.
 
 # WarnNoMatching
 - **Reminder**: Enter name precisely. We don't have fuzzy matching yet (or never).
 
 # ConfirmPromptSubmitArtist
 [Activity
-	Text = @{confirmPromptText()}
 	SuggestedActions = Yes | No
 ]
 
@@ -53,12 +89,3 @@
 
 # Placeholder
 - Unknown Intent / Op in AddArtist Dialog
-
-> --
-> BUGUB Remove later
-> --
-# StructuredExample
-[Activity
-    Text = What is the artist name?
-    SuggestedActions = Help | Cancel
-]

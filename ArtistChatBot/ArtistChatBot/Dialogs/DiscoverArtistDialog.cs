@@ -48,24 +48,6 @@ namespace ArtistChatBot
                         Actions = new List<Dialog> ()
                         {
                             new SendActivity("@{WelcomeDiscoverArtist()}"),
-                            /* Don't bug them unecessarily
-                            new TextInput()
-                            {
-                                Prompt = new ActivityTemplate("@{AskForName()}"),
-                                Property = "user.userProfile.Name"
-                            },
-                            */
-                            //new IfCondition()
-                            //{
-                            //    Condition = "conversation.Artist != null",
-                            //    Actions = new List<Dialog>()
-                            //    {
-                            //        new SetProperty() {
-                            //            Property = "turn.Artist",
-                            //            Value = "conversation.Artist"
-                            //        },
-                            //    }
-                            //},
                             new TextInput()
                             {
                                 Property = "turn.Artist",
@@ -75,14 +57,12 @@ namespace ArtistChatBot
                                 Property = "dialog.Artist",
                                 Value = "turn.Artist"
                             },
-                            // RootDialog.DebugAction("Future: use show Artist: [name]"),
-
                             new IfCondition()
                             {
                                 Condition = "turn.Artist != null",
                                 Actions = new List<Dialog>()
                                 {
-                                    new SendActivity("Querying artist **@{dialog.Artist}** ..."),
+                                    // new SendActivity("Querying artist **@{dialog.Artist}** ..."),
                                     new Microsoft.Bot.Builder.Dialogs.Adaptive.Actions.HttpRequest()
                                     {
                                         // Set response from the http request to turn.httpResponse property in memory.
@@ -96,15 +76,22 @@ namespace ArtistChatBot
                                         ResponseType = HttpRequest.ResponseTypes.Json
                                     },
                                     new CodeAction(ProcessArtistResponse),
-                                    new SendActivity("@{dialog.ArtistResponse}"),
+                                    // RootDialog.DebugAction("Server response = @{turn.ResponseStatusCode}"),
+                                    new IfCondition()
+                                    {
+                                        Condition = "turn.ResponseStatusCode != '200'",
+                                        Actions = new List<Dialog>()
+                                        {
+                                        new SendActivity("@{ArtistNotFound()}"),
+                                        },
+                                        ElseActions = new List<Dialog>()
+                                        {
+                                        new SendActivity("@{ArtistTitle()}"),
+                                        new SendActivity("@{dialog.ArtistResponse}"),
+                                        }
+                                    },
                                     new EndDialog()
-                                },
-                                ElseActions = new List<Dialog>()
-                                {
-                                    new SendActivity("Future: use Show Artist: <name> to discover if the artist is known here. Or use Add Artist to add your favorite artist.")
                                 }
-                                // We do not need to specify an else block here since if user said no,
-                                // the control flow will automatically return to the last active step (if any)
                             }
                         },
                     },
@@ -147,10 +134,14 @@ namespace ArtistChatBot
                 }
 
                 string httpCode = (string)JResponse["statusCode"];
+                dc.GetState().SetValue("turn.ResponseStatusCode", httpCode);
                 if (httpCode != "200")
                 {
                     System.Diagnostics.Trace.TraceInformation($"BotArtBe error: httpCode = {httpCode}");
-                    dc.GetState().SetValue("dialog.ArtistResponse", "Artist not found");
+                    //dc.GetState().SetValue("dialog.ArtistResponse", "Artist not found (try 'show all' to see who's in my database)");
+                    dc.GetState().SetValue("dialog.Artist", "N/A");
+                    dc.GetState().SetValue("dialog.ArtistVotes", "0");
+                    dc.GetState().SetValue("Dialog.artistUrl", "N/A");
                 }
                 else
                 {
@@ -160,14 +151,18 @@ namespace ArtistChatBot
                     string artist = (string)JResponse["content"]["name"];
                     string artistVotes = (string)JResponse["content"]["votes"];
                     string SpotifyUrl = (string)JResponse["content"]["submitter"];
-                    response.Append($"Artist: **{artist}** (Votes = {artistVotes})\n");
-                    response.Append($"- Spotify URL: **{SpotifyUrl}**\n");
+                    // response.Append($"Artist: **{artist}** (Votes = {artistVotes})\n");
+                    // response.Append($"- Spotify URL: **{SpotifyUrl}**\n");
+
+                    dc.GetState().SetValue("dialog.Artist", artist);
+                    dc.GetState().SetValue("dialog.ArtistVotes", artistVotes);
+                    dc.GetState().SetValue("Dialog.artistUrl", SpotifyUrl);
+                    dc.GetState().SetValue("dialog.ArtistResponse", "No Data");
 
                     // BUGBUG check for existence first
                     response.Append($"- Albums\n");
                     foreach (JToken jAlbum in JResponse["content"]["properties"]["favoriteAlbums"])
                     {
-
                         string album = (string)jAlbum["name"];
                         string votes = (string)jAlbum["votes"];
 

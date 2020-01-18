@@ -7,12 +7,52 @@
 - Let's find who is popular around here. 
 
 # AskForName
--```First, what is your name please? Pick a unique name (such as yours) and remember it. We'll use that name to tag your input.
-*If you think we should have proper login, you're right. One day (that day, when you pitch in and code up the login integration).*
+- First, what is your name please? Pick a unique name (such as yours) and remember it. We'll use that name to tag your input.
+
+
+# ArtistTitle
+[Activity
+    Attachments = @{json(ArtistTitle.Definition())}
+]
+
+# ArtistTitle.Definition
+- ```
+{
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "Artist: **@{dialog.Artist}**",
+            "size": "Large"
+        },
+        {
+            "type": "TextBlock",
+            "text": "Votes: @{dialog.ArtistVotes}"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "See on Spotify",
+            "url": "@{dialog.ArtistUrl}",
+			"iconUrl": "https://artistchatbot.azurewebsites.net/images/Spotify_Icon_RGB.png"
+        }
+    ]
+}
 ```
 
+# ArtistNotFound
+[HeroCard   
+    title = Artist @{dialog.Artist} not found.
+    subtitle = Artist is not in my database yet (code = @{turn.ResponseStatusCode}).
+    text = Please consider adding the artist to my database (type 'feed'). Or type 'show all' to see who is already known.
+    buttons = Feed | Show all | Shortcuts
+]
+
 # GetArtist
--```Who is one of your favorite artists?
-  ```
+- Who do you want to inquire about?
+
 # Placeholder
 - Unknown Intent / Op in DiscoverArtist Dialog

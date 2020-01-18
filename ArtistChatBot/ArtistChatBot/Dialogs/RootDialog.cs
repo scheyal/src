@@ -69,7 +69,7 @@ namespace ArtistChatBot
                         Condition = "#ListArtists.Score >= 0.7",
                         Actions = new List<Dialog> ()
                         {
-                            new SendActivity("Querying musicians list..."),
+                            // new SendActivity("Querying musicians list..."),
                             new Microsoft.Bot.Builder.Dialogs.Adaptive.Actions.HttpRequest()
                             {
                                 // Set response from the http request to turn.httpResponse property in memory.
@@ -92,7 +92,7 @@ namespace ArtistChatBot
                         Condition = "#StartHere.Score >= 0.7",
                         Actions = new List<Dialog> ()
                         {
-                            new SendActivity("@{Placeholder()}"),
+                            new BeginDialog("AddArtistDialog"),
                         }
                     },
                     new OnIntent()
@@ -179,35 +179,13 @@ namespace ArtistChatBot
                         Actions = new List<Dialog> ()
                         {
                             new SendActivity("@{Greetings()}"),
-                            /** **
-                            new IfCondition()
-                            {
-                                // BUGBUG: NOT WORKING. 
-                                Condition = "and($user.userProfile.Name != null, length($user.userProfile.Name) > 2)",
-                                Actions = new List<Dialog>()
-                                {
-                                    new SendActivity("@{HiName()}"),
-                                },
-                                ElseActions = new List<Dialog>()
-                                {
-                                    new TextInput()
-                                    {
-                                        Prompt = new ActivityTemplate("@{AskForName()}"),
-                                        Property = "user.userProfile.Name"
-                                    },
-                                    new SendActivity("@{AckName()}"),
-                                    DebugAction("BUGBUG: ElseActions for condition and($user.userProfile.Name != null, length($user.userProfile.Name) > 2)")
-
-                                }
-                            }, **/
-
                             new TextInput()
                             {
                                 Prompt = new ActivityTemplate("@{AskForName()}"),
                                 Property = "user.userProfile.Name"
                             },
-                            new SendActivity("@{AckName()}"),
-                            new SendActivity("@{NextPrompt()}"),
+                            new SendActivity("@{HiName()}"),
+                            // new SendActivity("@{NextPrompt()}"),
                             new SendActivity("@{BotOverviewHelp()}")
                         }
                     },
@@ -361,70 +339,5 @@ namespace ArtistChatBot
             };
         }
 
-        private static List<Dialog> OnBeginDialogSteps()
-        {
-            return new List<Dialog>()
-            {
-                // Ask for user's age and set it in user.userProfile scope.
-                new TextInput()
-                {
-                    Prompt = new ActivityTemplate("@{ModeOfTransportPrompt()}"),
-                    // Set the output of the text input to this property in memory.
-                    Property = "user.userProfile.Transport"
-                },
-                new TextInput()
-                {
-                    Prompt = new ActivityTemplate("@{AskForName()}"),
-                    Property = "user.userProfile.Name"
-                },
-                // SendActivity supports full language generation resolution.
-                // See here to learn more about language generation
-                // https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/language-generation
-                new SendActivity("@{AckName()}"),
-                new ConfirmInput()
-                {
-                    Prompt = new ActivityTemplate("@{AgeConfirmPrompt()}"),
-                    Property = "turn.ageConfirmation"
-                },
-                new IfCondition()
-                {
-                    // All conditions are expressed using the common expression language.
-                    // See https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/common-expression-language to learn more
-                    Condition = "turn.ageConfirmation == true",
-                    Actions = new List<Dialog>()
-                    {
-                         new NumberInput()
-                         {
-                             Prompt = new ActivityTemplate("@{AskForAge()}"),
-                             Property = "user.userProfile.Age",
-                             // Add validations
-                             Validations = new List<String>()
-                             {
-                                 // Age must be greater than or equal 1
-                                 "int(this.value) >= 1",
-                                 // Age must be less than 150
-                                 "int(this.value) < 150"
-                             },
-                             InvalidPrompt = new ActivityTemplate("@{AskForAge.invalid()}"),
-                             UnrecognizedPrompt = new ActivityTemplate("@{AskForAge.unRecognized()}")
-                         },
-                         new SendActivity("@{UserAgeReadBack()}")
-                    },
-                    ElseActions = new List<Dialog>()
-                    {
-                        new SendActivity("@{NoName()}") 
-                    }
-                },
-                new ConfirmInput()
-                {
-                    Prompt = new ActivityTemplate("@{ConfirmPrompt()}"),
-                    Property = "turn.finalConfirmation"
-                },
-                // Use LG template to come back with the final read out.
-                // This LG template is a great example of what logic can be wrapped up in LG sub-system.
-                new SendActivity("@{FinalUserProfileReadOut()}"), // examines turn.finalConfirmation
-                new EndDialog()
-            };
-        }
     }
 }
