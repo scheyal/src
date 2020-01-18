@@ -76,8 +76,10 @@ namespace ArtistChatBot
                                 Property = "dialog.Song",
                                 Value = "turn.Song"
                             },
-                            // RootDialog.DebugAction("Future: use Add Song: [name]"),
 
+                            // BUGBUG RootDialog.DebugAction("Coming soon: In the future you will be able to add a brief review. Waiting for a bug fix."),
+
+                            /* BUGBUG: Waiting for bug fix
                             new TextInput()
                             {
                                 Property = "turn.UserReview",
@@ -87,6 +89,7 @@ namespace ArtistChatBot
                                 Property = "dialog.UserReview",
                                 Value = "turn.UserReview"
                             },
+                            */
                             // RootDialog.DebugAction("Future: use Add Review: [name]"),
                             new TextInput()
                             {
@@ -108,7 +111,8 @@ namespace ArtistChatBot
                                 Actions = new List<Dialog>()
                                 {
                                     // new SendActivity("Submitting artist **@{dialog.Artist}** ..."),
-                                    new CodeAction(GenerateArtistBody),
+                                    // BUGBUG.Waiting for bug fix. using inline code in the meantime. 
+                                    // new CodeAction(GenerateArtistBody),
                                     new TraceActivity()
                                     {
                                         Name = "dialog.httprequest.body",

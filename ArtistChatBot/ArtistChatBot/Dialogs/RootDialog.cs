@@ -45,7 +45,7 @@ namespace ArtistChatBot
                     // Add a rule to welcome user
                     new OnConversationUpdateActivity()
                     {
-                        Actions = WelcomeUserSteps()
+                        Actions = WelcomeUserSteps(),
                     },
                     // Add intents
                     new OnIntent()
@@ -69,7 +69,6 @@ namespace ArtistChatBot
                         Condition = "#AddArtist.Score >= 0.7",
                         Actions = new List<Dialog> ()
                         {
-
                             new SetProperty() {
                                 Property = "turn.Artist",
                                 Value = "@ArtistName"
@@ -96,6 +95,10 @@ namespace ArtistChatBot
                                     { "AuthKey", authKey }
                                 },
                                 ResponseType = HttpRequest.ResponseTypes.Json
+                            },
+                            new SetProperty() {
+                                Property = "turn.Top",
+                                Value = "@Top"
                             },
                             new CodeAction(ProcessListResponse),
                             new SendActivity("@{dialog.ArtistResponse}"),
@@ -250,16 +253,27 @@ namespace ArtistChatBot
 
                     StringBuilder response = new StringBuilder();
 
+                    string Top = dc.GetState().GetValue<string>("turn.top");
+                    int limit = !String.IsNullOrEmpty(Top)? 10 : 100;
+                    int counter = 0;
+
                     response.Append($"**Artists Listings:**\n");
 
                     // BUGBUG check for existence first
                     foreach (JToken jMusician in JResponse["content"]["musicians"])
                     {
-
+                        if(++counter == limit)
+                        {
+                            break;
+                        }
                         string name = (string)jMusician["name"];
                         string votes = (string)jMusician["votes"];
 
                         response.Append($"  - **{name}**. Likes = {votes}.\n");
+                    }
+                    if(counter == limit)
+                    {
+                        response.Append($"\nReached max limit {limit}.\n");
                     }
                     response.Append("\nType *Show Artist: <name>* for more details.\n");
 
@@ -335,8 +349,12 @@ namespace ArtistChatBot
                             Condition = "$foreach.value.name != turn.activity.recipient.name",
                             Actions = new List<Dialog>()
                             {
-                                DebugAction("Todo: Display top stats."),
-                                new SendActivity("@{WelcomeCard()}")
+                                new SendActivity("@{WelcomeCard()}"),
+                                new SetProperty() {
+                                    Property = "turn.Welcome",
+                                    Value = "settings.EnableTopWelcome"
+                                },
+                                // RootDialog.DebugAction("Welcome? @{settings.EnableTopWelcome}"),
                             }
                         }
                     }

@@ -59,6 +59,10 @@
                 },
                 {
                     "type": "TextBlock",
+                    "text": "**show top artists** : show most favorite artists."
+                },
+                {
+                    "type": "TextBlock",
                     "text": "**add artist _artist-name_**: tell me about a favorite artist."
                 },
                 {
