@@ -139,7 +139,7 @@ namespace ArtistChatBot
                 {
                     System.Diagnostics.Trace.TraceInformation($"BotArtBe error: httpCode = {httpCode}");
                     //dc.GetState().SetValue("dialog.ArtistResponse", "Artist not found (try 'show all' to see who's in my database)");
-                    dc.GetState().SetValue("dialog.Artist", "N/A");
+                    // dc.GetState().SetValue("dialog.Artist", "N/A");
                     dc.GetState().SetValue("dialog.ArtistVotes", "0");
                     dc.GetState().SetValue("Dialog.artistUrl", "N/A");
                 }
