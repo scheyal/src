@@ -249,7 +249,7 @@ namespace BotArtBE.Models
         {
             MusicianModel outM = new MusicianModel();
 
-            outM.Name = inM.Name;
+            outM.Name = inM.Name.Trim();
             outM.Votes = inM.Votes;
             if (inM.Properties.FavoriteAlbums != null &&
                inM.Properties.FavoriteAlbums.Count > 0)
@@ -257,7 +257,8 @@ namespace BotArtBE.Models
                 List<Album> newAlbums = new List<Album>();
                 foreach (Album a in inM.Properties.FavoriteAlbums)
                 {
-                    if(!CheckSkip(a.Name))
+                    a.Name = a.Name.Trim();
+                    if (!CheckSkip(a.Name))
                     {
                         a.Users = new List<string>();
                         a.Users.Add(inM.Submitter);
@@ -272,6 +273,7 @@ namespace BotArtBE.Models
                 List<Song> newSongs = new List<Song>();
                 foreach(Song s in inM.Properties.FavoriteSongs)
                 {
+                    s.Name = s.Name.Trim();
                     if (!CheckSkip(s.Name))
                     {
                         s.Users = new List<string>();
@@ -289,7 +291,7 @@ namespace BotArtBE.Models
                 {
                     if (!CheckSkip(r))
                     {
-                        newReviews.Add(r);
+                        newReviews.Add(r.Trim());
                     }
                 }
                 inM.Properties.Reviews= newReviews;
