@@ -38,7 +38,14 @@
             "title": "See on Spotify",
             "url": "@{dialog.ArtistUrl}",
 			"iconUrl": "https://artistchatbot.azurewebsites.net/images/Spotify_Icon_RGB.png"
+        },
+        {
+            "type": "Action.OpenUrl",
+            "title": "See on Wikipedia",
+            "url": "https://en.m.wikipedia.org/w/index.php?title=Special:Search&search=music+intitle%3A%22@{dialog.Artist}%22&ns0=1",
+			"iconUrl": "https://artistchatbot.azurewebsites.net/images/WikipediaLogo.png"
         }
+
     ]
 }
 ```

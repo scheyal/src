@@ -160,6 +160,7 @@ namespace ArtistChatBot
                     dc.GetState().SetValue("dialog.ArtistResponse", "No Data");
 
                     // BUGBUG check for existence first
+                    response.Append("**Team Favorites:**\n");
                     response.Append($"- Albums");
                     foreach (JToken jAlbum in JResponse["content"]["properties"]["favoriteAlbums"])
                     {
