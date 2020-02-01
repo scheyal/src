@@ -35,7 +35,7 @@ namespace ArtistChatBot
             // Create instance of adaptive dialog. 
             var AddArtistDialog = new AdaptiveDialog(nameof(AdaptiveDialog))
             {
-                Generator = new TemplateEngineLanguageGenerator(new TemplateEngine().AddFile(fullPath)),
+                Generator = new TemplateEngineLanguageGenerator(LGParser.ParseFile(fullPath)),
                 Recognizer = RootDialog.CreateRecognizer(AppConfig),
 
                 Triggers = new List<OnCondition>()
@@ -79,7 +79,7 @@ namespace ArtistChatBot
 
                             // BUGBUG RootDialog.DebugAction("Coming soon: In the future you will be able to add a brief review. Waiting for a bug fix."),
 
-                            /* BUGBUG: Waiting for bug fix
+                            /* BUGBUG: Waiting for bug fix */
                             new TextInput()
                             {
                                 Property = "turn.UserReview",
@@ -89,7 +89,7 @@ namespace ArtistChatBot
                                 Property = "dialog.UserReview",
                                 Value = "turn.UserReview"
                             },
-                            */
+                            /* */
                             // RootDialog.DebugAction("Future: use Add Review: [name]"),
                             new TextInput()
                             {
@@ -126,9 +126,9 @@ namespace ArtistChatBot
                                         ResultProperty = "dialog.httpResponse",
                                         Url = apiUrl,
                                         Method = HttpRequest.HttpMethod.POST,
-                                        Headers = new Dictionary<string,string> ()
+                                        Headers = new Dictionary<string,Microsoft.Bot.Expressions.Properties.StringExpression> ()
                                         {
-                                            { "AuthKey", authKey }
+                                            { "AuthKey", "@settings.ApiAuthKey"}
                                         },
 
                                         Body = ArtistSubmissionBodyInline()
@@ -323,7 +323,7 @@ namespace ArtistChatBot
                             ),
                         new JProperty("Reviews",
                             new JArray(
-                                new JValue("*n/a") // ("@{dialog.UserReview}") 
+                                new JValue("@{dialog.UserReview}") 
                             )
                         )
                     )

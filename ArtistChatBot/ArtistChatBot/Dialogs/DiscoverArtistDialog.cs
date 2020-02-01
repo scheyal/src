@@ -37,8 +37,8 @@ namespace ArtistChatBot
             // Create instance of adaptive dialog. 
             var DiscoverArtistDialog = new AdaptiveDialog(nameof(AdaptiveDialog))
             {
-                Generator = new TemplateEngineLanguageGenerator(new TemplateEngine().AddFile(fullPath)),
-                Recognizer = RootDialog.CreateRecognizer(AppConfig),
+                Generator = new TemplateEngineLanguageGenerator(LGParser.ParseFile(fullPath)),
+                Recognizer = (Recognizer)RootDialog.CreateRecognizer(AppConfig),
 
                 Triggers = new List<OnCondition>()
                 {
@@ -69,9 +69,9 @@ namespace ArtistChatBot
                                         ResultProperty = "dialog.httpResponse",
                                         Url = apiUrl + "@{dialog.Artist}",
                                         Method = HttpRequest.HttpMethod.GET,
-                                        Headers = new Dictionary<string,string> ()
+                                        Headers = new Dictionary<string,Microsoft.Bot.Expressions.Properties.StringExpression> ()
                                         {
-                                            { "AuthKey", authKey }
+                                            { "AuthKey", "@settings.ApiAuthKey"}
                                         },
                                         ResponseType = HttpRequest.ResponseTypes.Json
                                     },

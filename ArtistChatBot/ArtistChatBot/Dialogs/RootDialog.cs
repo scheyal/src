@@ -10,7 +10,6 @@ using Microsoft.Bot.Builder.LanguageGeneration;
 using Microsoft.Bot.Builder.Dialogs.Adaptive.Templates;
 using Microsoft.Bot.Builder.Dialogs.Adaptive.Generators;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.AI.Luis;
 using Newtonsoft.Json.Linq;
 using System.Linq;
@@ -37,7 +36,7 @@ namespace ArtistChatBot
             // Create instance of adaptive dialog. 
             var rootDialog = new AdaptiveDialog(nameof(AdaptiveDialog))
             {
-                Generator = new TemplateEngineLanguageGenerator(new TemplateEngine().AddFile(fullPath)),
+                Generator = new TemplateEngineLanguageGenerator(LGParser.ParseFile(fullPath)),
                 Recognizer = CreateRecognizer(AppConfig),
 
                 Triggers = new List<OnCondition>()
@@ -90,9 +89,9 @@ namespace ArtistChatBot
                                 ResultProperty = "dialog.httpResponse",
                                 Url = apiListUrl,
                                 Method = HttpRequest.HttpMethod.GET,
-                                Headers = new Dictionary<string,string> ()
+                                Headers = new Dictionary<string,Microsoft.Bot.Expressions.Properties.StringExpression> ()
                                 {
-                                    { "AuthKey", authKey }
+                                    { "AuthKey", "@settings.ApiAuthKey"}
                                 },
                                 ResponseType = HttpRequest.ResponseTypes.Json
                             },
@@ -313,7 +312,7 @@ namespace ArtistChatBot
         }
 
 
-        public static IRecognizer CreateRecognizer(IConfiguration configuration)
+        public static Recognizer CreateRecognizer(IConfiguration configuration)
         {
             if (string.IsNullOrEmpty(configuration["LuisAppId"]) 
                 || string.IsNullOrEmpty(configuration["LuisAPIKey"]) 
@@ -328,7 +327,7 @@ namespace ArtistChatBot
                 configuration["LuisEndpointUrl"]
             );
 
-            LuisRecognizerOptionsV3 luisOpts = new LuisRecognizerOptionsV3(luisApplication);
+            LuisRecognizerOptionsV2 luisOpts = new LuisRecognizerOptionsV2(luisApplication);
             return new LuisRecognizer(luisOpts);
         }
 

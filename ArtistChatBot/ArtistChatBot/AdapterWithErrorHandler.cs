@@ -14,7 +14,6 @@ namespace ArtistChatBot
 {
     public class AdapterWithErrorHandler : BotFrameworkHttpAdapter
     {
-        private TemplateEngine _lgEngine;
 
         public AdapterWithErrorHandler(ICredentialProvider credentialProvider, ILogger<BotFrameworkHttpAdapter> logger, IStorage storage,
             UserState userState, ConversationState conversationState)
@@ -26,15 +25,14 @@ namespace ArtistChatBot
             // combine path for cross platform support
             string[] paths = { ".", "AdapterWithErrorHandler.lg" };
             string fullPath = Path.Combine(paths);
-            _lgEngine = new TemplateEngine().AddFile(fullPath);
+            LGFile _lgFile = LGParser.ParseFile(fullPath);
             OnTurnError = async (turnContext, exception) =>
             {
                 // Log any leaked exception from the application.
                 logger.LogError($"Exception caught : {exception.Message}");
 
                 // Send a catch-all apology to the user.
-                await turnContext.SendActivityAsync(ActivityFactory.CreateActivity(_lgEngine.EvaluateTemplate("SomethingWentWrong", exception).ToString()));
-
+                await turnContext.SendActivityAsync(ActivityFactory.CreateActivity(_lgFile.EvaluateTemplate("SomethingWentWrong", exception)));
                 if (conversationState != null)
                 {
                     try

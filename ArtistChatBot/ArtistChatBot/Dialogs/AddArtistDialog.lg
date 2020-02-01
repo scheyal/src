@@ -51,7 +51,7 @@
                 },
                 {
                     "type": "TextBlock",
-                    "text": "Review: ...Coming soon: Waiting for a bug fix. \@{dialog.UserReview}."
+                    "text": "Review: **@{dialog.UserReview}.**"
                 }
             ]
         }
