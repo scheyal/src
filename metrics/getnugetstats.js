@@ -43,6 +43,7 @@ function processDownloads(json)
   // init first week
   var lastmonth = week.month;
   var lastyear = week.year;
+  var lastcount = week.count;
   var mtotal = 0;
 
   console.log("Downloads , month")
@@ -50,15 +51,19 @@ function processDownloads(json)
     {
         weekLine = json["downloads"][i];
         week = parseWeekObj(weekLine);
-        // console.log(week);
+//        console.log(week);
         var year = week.year;
         var month = week.month;
         var count = week.count;
+        var delta = count - lastcount;
+        lastcount = count;
+
+        // console.log(" %s, %s", month, delta);
 
         if(lastmonth == month)
         {
           // sum up
-          mtotal += count;
+          mtotal += delta;
         }
         else
         {
@@ -66,7 +71,7 @@ function processDownloads(json)
           // reset
           lastmonth = month;
           lastyear = year;
-          mtotal = count;
+          mtotal = delta;
 
         }
     }
@@ -84,7 +89,7 @@ function processDownloads(json)
 // "globals"
 var nugeturl = "https://nugettrends.com/api/package/history/"
 var pkgname = "Microsoft.Bot.Builder";
-var months = "6";
+var months = "7";
 var targeturl = nugeturl + pkgname + "?months=" + months;
 
 
