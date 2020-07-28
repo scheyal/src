@@ -42,12 +42,13 @@ if(process.argv.length == 3)
 console.log("NPM stats for package: " + pkgname)
 var stats = require('download-stats');
 
+
 var start = new Date('2020-01-01');
-var end = new Date('2020-06-25');
+var end = new Date('2020-06-30');
 var downloads = [];
 stats.get(start, end, pkgname)
  .on('error', console.error)
-  .on('data', function(data) {
+ .on('data', function(data) {
     downloads.push(data);
     // console.log(data);
   })

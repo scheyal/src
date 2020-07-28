@@ -48,9 +48,11 @@ function packageLine(pkg)
     var vername = pkg["name"];
     var mmver = pkg["mmver"];
     var date = pkg["published_at"];
+    var monthyear = date.replace(/(\d{4})-(\d{2})-\d{2}T.*/,"$1-$2");
     var assetsCount = pkg["assets"].length;
     var assets = new Array(assetsCount);
     var actualCount = 0;
+
     for(var i=0;i<assetsCount;i++)
     {
         var assetName = pkg["assets"][i]["name"];
@@ -63,7 +65,7 @@ function packageLine(pkg)
         }
     }    
     assets = assets.slice(0, actualCount);
-    return {"mmver": mmver, "vername": vername, "date": date, "assets": assetsCount, assets};
+    return {"mmver": mmver, "vername": vername, "date": date, "monthyear": monthyear, "assets": assetsCount, assets};
 }
 
 function processLine(pkg)
@@ -74,6 +76,7 @@ function processLine(pkg)
     var ret = "";
     var match = ver.match(verfilter);
     var match = verfilter.exec(ver);
+    // console.log(pkg);
     if(noFilter == false || 
        (match != null && match.length > 1 && match[1] >= minver))
     {
@@ -95,17 +98,17 @@ function processDownloads(json)
 
   console.log("Received %s releases", len);
 
-  console.log("majminver, version, release_date, package_name, os_type, downloads");
+  console.log("majminver, version, release_date, month-year, package_name, os_type, downloads");
 
   for(var i=0; i<len; i++)
     {
         var pkg = processLine(json[i]);
         if(pkg != "")
         {
-            // console.log(pkg);
+            // console.log("package: ", pkg);
             for(var a=0; a<pkg.assets.length; a++)
             {
-                console.log("%s, %s, %s, %s, %s, %s", pkg.mmver, pkg.vername, pkg.date, 
+                console.log("%s, %s, %s, %s, %s, %s, %s", pkg.mmver, pkg.vername, pkg.date, pkg.monthyear,
                             pkg.assets[a].asset, pkg.assets[a].assetType, pkg.assets[a].downloads);
             }
         }
@@ -138,6 +141,7 @@ if(process.argv.length > 2)
 
   if(process.argv[3] == "nofilter")
   {
+    console.log("Apply no filter")
     noFilter = false;
   }
 }
