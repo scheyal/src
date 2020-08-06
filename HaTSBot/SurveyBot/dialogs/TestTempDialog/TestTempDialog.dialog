@@ -1,0 +1,31 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "DqJ38c",
+    "name": "TestTempDialog"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "id": "HdiEEs"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "UYtX7R"
+          },
+          "activity": "${SendActivity_UYtX7R()}"
+        }
+      ]
+    }
+  ],
+  "generator": "TestTempDialog.lg",
+  "recognizer": {
+    "$kind": "Microsoft.RegexRecognizer"
+  }
+}

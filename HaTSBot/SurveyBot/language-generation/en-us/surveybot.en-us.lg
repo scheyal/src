@@ -1,0 +1,91 @@
+[import](common.lg)
+
+# SendActivity_Welcome()
+- ${WelcomeMessage()}
+
+
+# SendActivity_xsXWZA()
+>Redundent. For educational reference only. 
+[Activity
+    type = typing
+]
+
+# SendActivity_hG3wIH()
+- ${StartSurvey()}
+
+# SendActivity_ZXOD9E()
+- Sorry, I did not understand  \"${turn.activity.text}\". Please rephrase.
+
+
+
+
+
+
+
+
+
+# ChoiceInput_Prompt_Tadl8s()
+- **1  Overall, how satisfied or dissatisfied are you with ${settings.productName}?**
+
+# ChoiceInput_Prompt_wMuWhj()
+- **2  How likely are you to recommend ${settings.productName} to a friend or colleague?**
+
+# TextInput_Prompt_JNrD12()
+- **3  (Optional) What, if anything, do you find frustrating or unappealing about ${settings.productName}? What _new_ capabilities would you like to see for ${settings.productName}? (type 'skip' to skip)**
+# TextInput_DefaultValueResponse_JNrD12()
+- n/a
+
+# TextInput_Prompt_JKEMhB()
+- **4 (Optional) What do you like best about ${settings.productName}? (type 'skip' to skip)**
+# TextInput_DefaultValueResponse_JKEMhB()
+- n/a
+
+# SendActivity_aCRNEh()
+- **5  Indicate your satisfaction with ${settings.productName} in the following areas:**
+
+# ChoiceInput_Prompt_ddvsyc()
+- **Ease of Use**
+# SendActivity_taLhrl()
+- Q5EaseOfUseAnswer = ${conversation.Q5EaseOfUseAnswer}
+
+
+
+
+# ChoiceInput_Prompt_cKwoPx()
+- **Technical reliability**
+
+# ChoiceInput_Prompt_9myimN()
+- **Features & capabilities**
+
+# ChoiceInput_Prompt_K9WVQZ()
+- **Visual Appeal**
+
+# ChoiceInput_Prompt_8J8Jzt()
+- **Speed**
+
+# SendActivity_SXc7zk()
+- ${Q6()}
+
+# SendActivity_tkiRf7()
+- **How satisifed or dissatisfied are you with the following tasks in ${settings.productName}?**
+# SendActivity_jXJ16L()
+- No tasks selected.
+
+
+# ChoiceInput_Prompt_t1zQM4()
+- Task: **${dialog.taskname}**
+
+# NumberInput_Prompt_YUjwdJ()
+- **7 How many months ago did you start using ${settings.productName}?**
+# NumberInput_InvalidPrompt_YUjwdJ()
+- Please enter number > 0 (if less than a month enter 1)
+# NumberInput_UnrecognizedPrompt_YUjwdJ()
+- Please enter the number of months you have been using ${settings.ProductName}.
+# NumberInput_Prompt_jp0ppa()
+- **8 In the last month, about how many days have you used ${settings.productName}?**
+# NumberInput_InvalidPrompt_jp0ppa()
+- Please enter a number between 0 and 31.
+# SendActivity_rtwH5s()
+- **Thank you. Your feedback is greatly appreciated!** 
+# SendActivity_oC4Gvh()
+- ${SurveyResults()}
