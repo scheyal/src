@@ -5,20 +5,21 @@
     title = Hello. 
     subtitle  = The survey contains 9 questions and should only take a few minutes.
     text = Help us improve our product. Please take our survey!  
-    buttons = Start
+    buttons = Start | Test
 ]
 
-#SurveyResults
+#SurveyResultsHeader
 [Herocard
-  title = Survey Results
-  subtitle = Raw Json results (todo: submit for collection)
-  text = ${conversation.SurveyResults}
+  title = Survey Responses
+  subtitle = Responses summary (debug Json format)
   ]
 
 #Q6
 [Activity
     Attachments = ${json(Q6TasksJson())}
 ]
+
+
 
 #Q6TasksJson
 - ```

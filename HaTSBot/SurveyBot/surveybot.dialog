@@ -223,7 +223,8 @@
           "choiceOptions": {
             "includeNumbers": true,
             "inlineOrMore": ", or ",
-            "inlineOr": " or "
+            "inlineOr": " or ",
+            "inlineSeparator": ", "
           },
           "style": "heroCard",
           "choices": "[\"0 (Definitely would not)\",\"1\",\"2\",\"3\",\"4\",\"5 (Might or might not)\",\"6\",\"7\",\"8\",\"9\",\"10 (Definitely would)\"]",
@@ -425,13 +426,21 @@
                   "value": "{\"taskid\": \"${dialog.taskid}\", \"taskname\" : \"${dialog.taskname}\", \"answer\" : \"${turn.activity.text}\" }"
                 },
                 {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "fVqtPE"
+                  },
+                  "property": "dialog.Q6TaskJson",
+                  "value": "=json(dialog.Q6TaskAnswer)"
+                },
+                {
                   "$kind": "Microsoft.EditArray",
                   "$designer": {
                     "id": "FTyzSt"
                   },
                   "changeType": "push",
                   "itemsProperty": "conversation.Q6Answer",
-                  "value": "${dialog.Q6TaskAnswer}"
+                  "value": "= dialog.Q6TaskJson"
                 }
               ]
             }
@@ -443,6 +452,23 @@
                 "id": "jXJ16L"
               },
               "activity": "${SendActivity_jXJ16L()}"
+            },
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "mCnmJl"
+              },
+              "property": "dialog.Q6TaskJson",
+              "value": "=json('{\"taskid\":\"-1\",\"taskname\":\"skip\",\"answer\":\"skip\"}')"
+            },
+            {
+              "$kind": "Microsoft.EditArray",
+              "$designer": {
+                "id": "NhAEnm"
+              },
+              "changeType": "push",
+              "itemsProperty": "conversation.Q6Answer",
+              "value": "= dialog.Q6TaskJson"
             }
           ],
           "condition": "turn.askTasks == true"
@@ -466,12 +492,21 @@
           "alwaysPrompt": false,
           "allowInterruptions": false,
           "prompt": "${NumberInput_Prompt_YUjwdJ()}",
-          "property": "conversation.Q7Answer",
+          "property": "turn.Q7Val",
           "invalidPrompt": "${NumberInput_InvalidPrompt_YUjwdJ()}",
           "validations": [
             "int(turn.activity.text) > 0 && int(turn.activity.text) < 240"
           ],
-          "unrecognizedPrompt": "${NumberInput_UnrecognizedPrompt_YUjwdJ()}"
+          "unrecognizedPrompt": "${NumberInput_UnrecognizedPrompt_YUjwdJ()}",
+          "defaultValue": null
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "IfYYYw"
+          },
+          "property": "conversation.Q7Answer",
+          "value": "${turn.Q7Val}"
         },
         {
           "$kind": "Microsoft.NumberInput",
@@ -484,59 +519,96 @@
           "alwaysPrompt": false,
           "allowInterruptions": false,
           "prompt": "${NumberInput_Prompt_jp0ppa()}",
-          "property": "conversation.Q8Answer",
+          "property": "turn.Q8Val",
           "validations": [
             "int(turn.activity.text) >= 0 && int(turn.activity.text) < 32"
           ],
           "invalidPrompt": "${NumberInput_InvalidPrompt_jp0ppa()}"
         },
         {
-          "$kind": "Microsoft.TraceActivity",
+          "$kind": "Microsoft.SetProperty",
           "$designer": {
-            "id": "9y4Sh3"
+            "id": "1wlh4j"
           },
-          "name": "Q7,8",
-          "label": "Q7,8 (trace)",
-          "value": "Q7Answer = ${conversation.Q7Answer}; Q8Answer = ${conversation.Q8Answer} "
-        },
-        {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "rtwH5s"
-          },
-          "activity": "${SendActivity_rtwH5s()}"
-        },
-        {
-          "$kind": "Microsoft.TraceActivity",
-          "$designer": {
-            "id": "k9uARn"
-          },
-          "name": "Conversation Values",
-          "label": "Conversation Values (trace)"
+          "property": "conversation.Q8Answer",
+          "value": "${turn.Q8Val}"
         },
         {
           "$kind": "Microsoft.SetProperty",
           "$designer": {
-            "id": "MLvmpB"
+            "id": "ku5EEy"
           },
           "property": "conversation.SurveyResults",
-          "value": "{ \t\"SurveyResults\": {  \"Q1Answer\": \"${conversation.Q1Answer}\", \t\t\"Q2Answer\": \"${conversation.Q2Answer}\", \t\t\"Q3Answer\": \"${conversation.Q3Answer}\", \t\t\"Q4Answer\": \"${conversation.Q4Answer}\", \t\t\"Q5EaseOfUseAnswer\": \"${conversation.Q5EaseOfUseAnswer}\", \t\t\"Q5FeaturesAndCapabilitiesAnswer\": \"${conversation.Q5FeaturesAndCapabilitiesAnswer}\", \t\t\"Q5SpeedAnswer\": \"${conversation.Q5SpeedAnswer}\", \t\t\"Q5TechnicalReliabilityAnswer\": \"${conversation.Q5TechnicalReliabilityAnswer}\", \t\t\"Q5VisualAppealAnswer\": \"${conversation.Q5VisualAppealAnswer}\", \t\t\"Q6Answer\": \"${conversation.Q6Answer}\", \t\t\"Q7Answer\": \"${conversation.Q7Answer}\", \t\t\"Q8Answer\": \"${conversation.Q8Answer}\" \t} }"
+          "value": "= {\"Q1Answer\": conversation.Q1Answer,\"Q2Answer\":conversation.Q2Answer,\"Q3Answer\":conversation.Q3Answer,\"Q4Answer\":conversation.Q4Answer,\"Q5EaseOfUseAnswer\":conversation.Q5EaseOfUseAnswer,\"Q5FeaturesAndCapabilitiesAnswer\":conversation.Q5FeaturesAndCapabilitiesAnswer,\"Q5SpeedAnswer\":conversation.Q5SpeedAnswer,\"Q5TechnicalReliabilityAnswer\":conversation.Q5TechnicalReliabilityAnswer,\"Q5VisualAppealAnswer\":conversation.Q5VisualAppealAnswer, \"Q6Answer\":conversation.Q6Answer,\"Q7Answer\":conversation.Q7Answer,\"Q8Answer\":conversation.Q8Answer}"
         },
         {
           "$kind": "Microsoft.TraceActivity",
           "$designer": {
-            "id": "7umTAg"
+            "id": "hmcF49"
           },
           "name": "Survey Results",
           "label": "Survey Results (trace)",
           "value": "${conversation.SurveyResults}"
         },
         {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "PTHNfG"
+          },
+          "property": "conversation.JsonResults",
+          "value": "= json(conversation.SurveyResults)"
+        },
+        {
+          "$kind": "Microsoft.TraceActivity",
+          "$designer": {
+            "id": "52j0QA"
+          },
+          "value": "JSON Results = ${conversation.JsonResults}",
+          "name": "Json Results",
+          "label": "Json Results (trace)"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "yWrc1G"
+          },
+          "method": "POST",
+          "url": "https://localhost:44306/api/Store/Submit",
+          "resultProperty": "conversation.ServerCode",
+          "headers": {
+            "AuthKey": "OPEN"
+          },
+          "body": "=conversation.JsonResults"
+        },
+        {
+          "$kind": "Microsoft.TraceActivity",
+          "$designer": {
+            "id": "k9uARn"
+          },
+          "name": "Server Response",
+          "label": "Server Response (trace)",
+          "value": "Server Response = ${conversation.ServerCode}"
+        },
+        {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
-            "id": "oC4Gvh"
+            "id": "me96MU"
           },
-          "activity": "${SendActivity_oC4Gvh()}"
+          "activity": "${SendActivity_me96MU()}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "gWLgd9"
+          },
+          "activity": "${SendActivity_gWLgd9()}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "OIJgX0"
+          },
+          "activity": "${SendActivity_OIJgX0()}"
         }
       ]
     },

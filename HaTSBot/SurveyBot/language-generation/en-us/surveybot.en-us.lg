@@ -85,7 +85,16 @@
 - **8 In the last month, about how many days have you used ${settings.productName}?**
 # NumberInput_InvalidPrompt_jp0ppa()
 - Please enter a number between 0 and 31.
-# SendActivity_rtwH5s()
+
+
+# SendActivity_me96MU()
 - **Thank you. Your feedback is greatly appreciated!** 
-# SendActivity_oC4Gvh()
-- ${SurveyResults()}
+# SendActivity_gWLgd9()
+- ${SurveyResultsHeader()}
+
+
+
+
+
+# SendActivity_OIJgX0()
+- ${conversation.JsonResults}

@@ -15,6 +15,86 @@
       },
       "actions": [
         {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "tlxFKy"
+          },
+          "property": "conversation.Q1Answer",
+          "value": "skip"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "rdGpAx"
+          },
+          "property": "conversation.Q2Answer",
+          "value": "skip"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "51m7cs"
+          },
+          "property": "conversation.Q3Answer",
+          "value": "skip"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "KUCh2M"
+          },
+          "property": "conversation.Q4Answer",
+          "value": "skip"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "PHPJ16"
+          },
+          "property": "conversation.Q5EaseOfUseAnswer",
+          "value": "skip"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "rxD2bA"
+          },
+          "property": "conversation.Q5FeaturesAndCapabilitiesAnswer",
+          "value": "skip"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "MovpaU"
+          },
+          "property": "conversation.Q5EaseOfUseAnswer",
+          "value": "skip"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "47JXRo"
+          },
+          "property": "conversation.Q5SpeedAnswer",
+          "value": "skip"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "mJD52N"
+          },
+          "property": "conversation.Q5TechnicalReliabilityAnswer",
+          "value": "skip"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "LZ5ky4"
+          },
+          "property": "conversation.Q5VisualAppealAnswer",
+          "value": "skip"
+        },
+        {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
             "id": "UYtX7R"
