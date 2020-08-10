@@ -19,6 +19,8 @@ namespace SurveyBE.Models
 
     public class SurveyEntryModel : TableEntity
     {
+        public string ProductName { get; set; }
+        public string ProductVersion { get; set; }
         public string Q1Answer { get; set; }
 		public string Q2Answer { get; set; }
 		public string Q3Answer { get; set; }

@@ -5,12 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\WeatherForecastController.cs" />
     <Compile Remove="RefDump\ITableStorageAsync.cs" />
     <Compile Remove="RefDump\KeyVaultMgr.cs" />
     <Compile Remove="RefDump\MusicianMgr.cs" />
     <Compile Remove="RefDump\MusicianModel.cs" />
     <Compile Remove="RefDump\TableStorageAsync.cs" />
     <Compile Remove="RefDump\Validate.cs" />
+    <Compile Remove="RefDump\WeatherForecastController.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,6 +21,7 @@
 
   <ItemGroup>
     <None Include="Azure\ITableStorageAsync.cs" />
+    <None Include="RefDump\WeatherForecastController.cs" />
     <None Include="RefDump\MusicianMgr.cs" />
     <None Include="RefDump\MusicianModel.cs" />
     <None Include="Azure\TableStorageAsync.cs" />
