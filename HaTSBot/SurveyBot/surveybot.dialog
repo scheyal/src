@@ -497,8 +497,7 @@
           "validations": [
             "int(turn.activity.text) > 0 && int(turn.activity.text) < 240"
           ],
-          "unrecognizedPrompt": "${NumberInput_UnrecognizedPrompt_YUjwdJ()}",
-          "defaultValue": null
+          "unrecognizedPrompt": "${NumberInput_UnrecognizedPrompt_YUjwdJ()}"
         },
         {
           "$kind": "Microsoft.SetProperty",
@@ -539,7 +538,7 @@
             "id": "ku5EEy"
           },
           "property": "conversation.SurveyResults",
-          "value": "= {\"Q1Answer\": conversation.Q1Answer,\"Q2Answer\":conversation.Q2Answer,\"Q3Answer\":conversation.Q3Answer,\"Q4Answer\":conversation.Q4Answer,\"Q5EaseOfUseAnswer\":conversation.Q5EaseOfUseAnswer,\"Q5FeaturesAndCapabilitiesAnswer\":conversation.Q5FeaturesAndCapabilitiesAnswer,\"Q5SpeedAnswer\":conversation.Q5SpeedAnswer,\"Q5TechnicalReliabilityAnswer\":conversation.Q5TechnicalReliabilityAnswer,\"Q5VisualAppealAnswer\":conversation.Q5VisualAppealAnswer, \"Q6Answer\":conversation.Q6Answer,\"Q7Answer\":conversation.Q7Answer,\"Q8Answer\":conversation.Q8Answer}"
+          "value": "= {\"ProductName\":settings.productName, \"ProductVersion\":settings.productVersion,\"Q1Answer\": conversation.Q1Answer,\"Q2Answer\":conversation.Q2Answer,\"Q3Answer\":conversation.Q3Answer,\"Q4Answer\":conversation.Q4Answer,\"Q5EaseOfUseAnswer\":conversation.Q5EaseOfUseAnswer,\"Q5FeaturesAndCapabilitiesAnswer\":conversation.Q5FeaturesAndCapabilitiesAnswer,\"Q5SpeedAnswer\":conversation.Q5SpeedAnswer,\"Q5TechnicalReliabilityAnswer\":conversation.Q5TechnicalReliabilityAnswer,\"Q5VisualAppealAnswer\":conversation.Q5VisualAppealAnswer, \"Q6Answer\":conversation.Q6Answer,\"Q7Answer\":conversation.Q7Answer,\"Q8Answer\":conversation.Q8Answer}"
         },
         {
           "$kind": "Microsoft.TraceActivity",
@@ -573,10 +572,10 @@
             "id": "yWrc1G"
           },
           "method": "POST",
-          "url": "https://localhost:44306/api/Store/Submit",
+          "url": "${settings.SurveyStoreURL}",
           "resultProperty": "conversation.ServerCode",
           "headers": {
-            "AuthKey": "OPEN"
+            "AuthKey": "dXwmF5Rzpnpr4ARqe1X7RlV2NDNIGw5F8bzmTj"
           },
           "body": "=conversation.JsonResults"
         },
@@ -626,6 +625,62 @@
           },
           "activityProcessed": true,
           "dialog": "TestTempDialog"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "wdvCQZ",
+        "name": "Survey Skill Message"
+      },
+      "condition": "turn.activity.text == 'StartSurveySkill'",
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "BGxR9n"
+          },
+          "condition": "turn.activity.value != null",
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "502QkH"
+              },
+              "activity": "${SendActivity_502QkH()}"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.TraceActivity",
+          "$designer": {
+            "id": "EISTEU"
+          },
+          "name": "Conversation Values",
+          "label": "Conversation Values (trace)"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "WNE3T5"
+          },
+          "activity": "${SendActivity_WNE3T5()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnEndOfConversationActivity",
+      "$designer": {
+        "id": "UFwAum"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "Wv6Jq3"
+          },
+          "activity": "${SendActivity_Wv6Jq3()}"
         }
       ]
     }

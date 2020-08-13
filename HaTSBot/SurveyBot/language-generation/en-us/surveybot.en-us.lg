@@ -98,3 +98,11 @@
 
 # SendActivity_OIJgX0()
 - ${conversation.JsonResults}
+# SendActivity_WNE3T5()
+- ${StartSurvey()}
+
+
+# SendActivity_Wv6Jq3()
+- Survey Skill Completed.
+# SendActivity_502QkH()
+- Skill Parameter: ${turn.activity.value}

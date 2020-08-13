@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.botframework.com/schemas/skills/skill-manifest-2.1.preview-1.json",
+  "$id": "SurveyBot",
+  "name": "Survey Bot Skill",
+  "version": "0.1",
+  "publisherName": "Microsoft Corporation",
+  "copyright": "Copyright (c) Microsoft Corporation. All rights reserved.",
+  "description": "Survey Bot based on HaTS model",
+  "tags": [
+    "Survey",
+    "HaTS"
+  ],
+  "endpoints": [
+    {
+      "name": "dev",
+      "protocol": "BotFrameworkV3",
+      "description": "Development Localhost",
+      "endpointUrl": "http://localhost:3979/api/messages",
+      "msAppId": "83410343-6e27-4eed-b147-1c25032846ee"
+    },
+    {
+      "name": "eu",
+      "protocol": "BotFrameworkV3",
+      "description": "Production endpoint for SkillBot in Europe",
+      "endpointUrl": "http://myskill.contoso.com/api/messages",
+      "msAppId": "83410343-6e27-4eed-b147-1c25032846ee"
+    }
+  ],
+  "activities": {
+    "message": {
+      "type": "message",
+      "description": "Receives the user's' utterance to start survey"
+    },
+    "typing": {
+      "type": "typing"
+    },
+    "conversationUpdate": {
+      "type": "conversationUpdate"
+    }
+  }
+}
