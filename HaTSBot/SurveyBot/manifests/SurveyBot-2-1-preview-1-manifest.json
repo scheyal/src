@@ -19,10 +19,10 @@
       "msAppId": "83410343-6e27-4eed-b147-1c25032846ee"
     },
     {
-      "name": "eu",
+      "name": "prod",
       "protocol": "BotFrameworkV3",
       "description": "Production endpoint for SkillBot in Europe",
-      "endpointUrl": "http://myskill.contoso.com/api/messages",
+      "endpointUrl": "https://SurveyBotRG-dev.azurewebsites.net/api/messages",
       "msAppId": "83410343-6e27-4eed-b147-1c25032846ee"
     }
   ],

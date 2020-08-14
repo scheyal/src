@@ -104,5 +104,14 @@
 
 # SendActivity_Wv6Jq3()
 - Survey Skill Completed.
-# SendActivity_502QkH()
-- Skill Parameter: ${turn.activity.value}
+
+
+# SendActivity_0At1Jn()
+- ```
+**Survey Skill**
+${settings.productName} (${settings.productVersion})
+```
+
+
+# SendActivity_eTmXwA()
+- Test ${settings.productName} (${settings.productVersion})

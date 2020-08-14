@@ -85,6 +85,13 @@
       "intent": "StartSurvey",
       "actions": [
         {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "eTmXwA"
+          },
+          "activity": "${SendActivity_eTmXwA()}"
+        },
+        {
           "$kind": "Microsoft.ChoiceInput",
           "$designer": {
             "id": "Tadl8s"
@@ -634,31 +641,52 @@
         "id": "wdvCQZ",
         "name": "Survey Skill Message"
       },
-      "condition": "turn.activity.text == 'StartSurveySkill'",
+      "condition": "=startsWith(turn.activity.text,'StartSurveySkill')",
       "actions": [
         {
-          "$kind": "Microsoft.IfCondition",
+          "$kind": "Microsoft.SetProperties",
           "$designer": {
-            "id": "BGxR9n"
+            "id": "QQ7IX3",
+            "name": "Set Invoke Properties"
           },
-          "condition": "turn.activity.value != null",
-          "actions": [
+          "assignments": [
             {
-              "$kind": "Microsoft.SendActivity",
-              "$designer": {
-                "id": "502QkH"
-              },
-              "activity": "${SendActivity_502QkH()}"
+              "value": "=split(turn.activity.text, ' ')",
+              "property": "turn.values"
+            },
+            {
+              "property": "conversation.productName",
+              "value": "=coalesce(turn.values[1], null)"
+            },
+            {
+              "property": "conversation.productVersion",
+              "value": "=coalesce(turn.values[2], null)"
             }
           ]
         },
         {
-          "$kind": "Microsoft.TraceActivity",
+          "$kind": "Microsoft.SetProperties",
           "$designer": {
-            "id": "EISTEU"
+            "id": "jjAeCs",
+            "name": "Set product version properties"
           },
-          "name": "Conversation Values",
-          "label": "Conversation Values (trace)"
+          "assignments": [
+            {
+              "property": "settings.productName",
+              "value": "=coalesce(conversation.productName, settings.productName)"
+            },
+            {
+              "property": "settings.productVersion",
+              "value": "=coalesce(conversation.productVersion, settings.productVersion)"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "0At1Jn"
+          },
+          "activity": "${SendActivity_0At1Jn()}"
         },
         {
           "$kind": "Microsoft.SendActivity",
