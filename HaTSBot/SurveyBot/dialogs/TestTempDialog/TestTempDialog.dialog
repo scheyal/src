@@ -15,84 +15,48 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.SetProperty",
+          "$kind": "Microsoft.SetProperties",
           "$designer": {
-            "id": "tlxFKy"
+            "id": "tv1j8X"
           },
-          "property": "conversation.Q1Answer",
-          "value": "skip"
-        },
-        {
-          "$kind": "Microsoft.SetProperty",
-          "$designer": {
-            "id": "rdGpAx"
-          },
-          "property": "conversation.Q2Answer",
-          "value": "skip"
-        },
-        {
-          "$kind": "Microsoft.SetProperty",
-          "$designer": {
-            "id": "51m7cs"
-          },
-          "property": "conversation.Q3Answer",
-          "value": "skip"
-        },
-        {
-          "$kind": "Microsoft.SetProperty",
-          "$designer": {
-            "id": "KUCh2M"
-          },
-          "property": "conversation.Q4Answer",
-          "value": "skip"
-        },
-        {
-          "$kind": "Microsoft.SetProperty",
-          "$designer": {
-            "id": "PHPJ16"
-          },
-          "property": "conversation.Q5EaseOfUseAnswer",
-          "value": "skip"
-        },
-        {
-          "$kind": "Microsoft.SetProperty",
-          "$designer": {
-            "id": "rxD2bA"
-          },
-          "property": "conversation.Q5FeaturesAndCapabilitiesAnswer",
-          "value": "skip"
-        },
-        {
-          "$kind": "Microsoft.SetProperty",
-          "$designer": {
-            "id": "MovpaU"
-          },
-          "property": "conversation.Q5EaseOfUseAnswer",
-          "value": "skip"
-        },
-        {
-          "$kind": "Microsoft.SetProperty",
-          "$designer": {
-            "id": "47JXRo"
-          },
-          "property": "conversation.Q5SpeedAnswer",
-          "value": "skip"
-        },
-        {
-          "$kind": "Microsoft.SetProperty",
-          "$designer": {
-            "id": "mJD52N"
-          },
-          "property": "conversation.Q5TechnicalReliabilityAnswer",
-          "value": "skip"
-        },
-        {
-          "$kind": "Microsoft.SetProperty",
-          "$designer": {
-            "id": "LZ5ky4"
-          },
-          "property": "conversation.Q5VisualAppealAnswer",
-          "value": "skip"
+          "assignments": [
+            {
+              "property": "conversation.Q1Answer",
+              "value": "skip"
+            },
+            {
+              "property": "conversation.Q2Answer",
+              "value": "skip"
+            },
+            {
+              "property": "conversation.Q3Answer",
+              "value": "skip"
+            },
+            {
+              "property": "conversation.Q4Answer",
+              "value": "skip"
+            },
+            {
+              "property": "conversation.Q5EaseOfUseAnswer",
+              "value": "skip"
+            },
+            {
+              "property": "conversation.Q5FeaturesAndCapabilitiesAnswer",
+              "value": "skip"
+            },
+            {
+              "property": "conversation.Q5SpeedAnswer",
+              "value": "skip"
+            },
+            {
+              "property": "conversation.Q5TechnicalReliabilityAnswer",
+              "value": "skip"
+            },
+            {
+              "property": "conversation.Q5VisualAppealAnswer",
+              "value": "skip"
+            }
+          ]
         },
         {
           "$kind": "Microsoft.SendActivity",
@@ -100,6 +64,12 @@
             "id": "UYtX7R"
           },
           "activity": "${SendActivity_UYtX7R()}"
+        },
+        {
+          "$kind": "Microsoft.EndTurn",
+          "$designer": {
+            "id": "c0Iia9"
+          }
         }
       ]
     }
@@ -107,5 +77,6 @@
   "generator": "TestTempDialog.lg",
   "recognizer": {
     "$kind": "Microsoft.RegexRecognizer"
-  }
+  },
+  "id": "TestTempDialog"
 }

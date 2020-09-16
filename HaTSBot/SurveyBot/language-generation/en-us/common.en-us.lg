@@ -1,13 +1,12 @@
 # WelcomeMessage
 - Welcome to the Survey Bot
-# StartSurvey
+# StartSurvey()
 [Herocard
     title = Hello. 
     subtitle  = The survey contains 9 questions and should only take a few minutes.
     text = Help us improve our product. Please take our survey!  
     buttons = Start | Test
 ]
-
 #SurveyResultsHeader
 [Herocard
   title = Survey Responses

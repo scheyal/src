@@ -284,6 +284,12 @@
             "id": "SXc7zk"
           },
           "activity": "${SendActivity_SXc7zk()}"
+        },
+        {
+          "$kind": "Microsoft.EndTurn",
+          "$designer": {
+            "id": "pxd6Rz"
+          }
         }
       ]
     },
@@ -651,16 +657,16 @@
           },
           "assignments": [
             {
-              "value": "=split(turn.activity.text, ' ')",
-              "property": "turn.values"
+              "value": "=split(turn.activity.text, ':')",
+              "property": "turn.product"
             },
             {
               "property": "conversation.productName",
-              "value": "=coalesce(turn.values[1], null)"
+              "value": "=coalesce(turn.product[1], null)"
             },
             {
               "property": "conversation.productVersion",
-              "value": "=coalesce(turn.values[2], null)"
+              "value": "=coalesce(turn.product[2], null)"
             }
           ]
         },
@@ -694,6 +700,12 @@
             "id": "WNE3T5"
           },
           "activity": "${SendActivity_WNE3T5()}"
+        },
+        {
+          "$kind": "Microsoft.EndTurn",
+          "$designer": {
+            "id": "TtOZm6"
+          }
         }
       ]
     },
@@ -727,5 +739,6 @@
         "pattern": "test"
       }
     ]
-  }
+  },
+  "id": "surveybot"
 }
