@@ -546,6 +546,23 @@
           "value": "${turn.Q8Val}"
         },
         {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "OIItsj",
+            "name": "Set product version properties"
+          },
+          "assignments": [
+            {
+              "property": "settings.productName",
+              "value": "=coalesce(conversation.productName, settings.productName)"
+            },
+            {
+              "property": "settings.productVersion",
+              "value": "=coalesce(conversation.productVersion, settings.productVersion)"
+            }
+          ]
+        },
+        {
           "$kind": "Microsoft.SetProperty",
           "$designer": {
             "id": "ku5EEy"
