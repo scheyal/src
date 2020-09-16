@@ -1,0 +1,51 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "E7xEed",
+    "name": "EricEchoSkillDialog"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "id": "MM0kN9"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "6rrFB8"
+          },
+          "activity": "${SendActivity_6rrFB8()}"
+        },
+        {
+          "$kind": "Microsoft.BeginSkill",
+          "$designer": {
+            "id": "8hsBE2"
+          },
+          "activityProcessed": true,
+          "botId": "=settings.MicrosoftAppId",
+          "skillHostEndpoint": "=settings.skillHostEndpoint",
+          "id": "https://ericv3skillsechobot.azurewebsites.net/wwwroot/echo-bot-manifest.json",
+          "skillEndpoint": "https://ericv3skillsechobot.azurewebsites.net/api/messages",
+          "skillAppId": "020c97f4-e634-403e-95cf-13334c90e4e6",
+          "connectionName": "=settings.connectionName",
+          "activity": "${BeginSkill_Activity_8hsBE2()}",
+          "allowInterruptions": true
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "TMnYQV"
+          },
+          "activity": "${SendActivity_TMnYQV()}"
+        }
+      ]
+    }
+  ],
+  "generator": "EricEchoSkillDialog.lg",
+  "id": "EricEchoSkillDialog"
+}
