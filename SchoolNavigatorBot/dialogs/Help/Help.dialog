@@ -1,0 +1,119 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "FI8jvl",
+    "name": "Help",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "pgUjAY"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "E9BepW"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${ChoiceInput_Prompt_E9BepW()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or ",
+            "inlineOr": " or ",
+            "inlineSeparator": ", "
+          },
+          "choices": "=[\"School Navigation\", \"PreBuild Skills\"]",
+          "property": "turn.domain"
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "Q9tQ7C"
+          },
+          "cases": [
+            {
+              "value": "School Navigation",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "mfSALu"
+                  },
+                  "activity": "${SendActivity_mfSALu()}"
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "kbeN9v"
+                  },
+                  "activity": "${SendActivity_kbeN9v()}"
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "JHxzEl"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "SchoolNavigator"
+                }
+              ]
+            },
+            {
+              "value": "PreBuild Skills",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "fuv0vc"
+                  },
+                  "activity": "${SendActivity_fuv0vc()}"
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "6UYbdd"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "PrebuildDomain"
+                }
+              ]
+            }
+          ],
+          "default": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "i1xR8J"
+              },
+              "activity": "${SendActivity_i1xR8J()}"
+            },
+            {
+              "$kind": "Microsoft.EndDialog",
+              "$designer": {
+                "id": "tQGwki"
+              }
+            }
+          ],
+          "condition": "=turn.domain"
+        }
+      ]
+    }
+  ],
+  "generator": "Help.lg",
+  "recognizer": "Help.lu.qna",
+  "id": "Help"
+}
