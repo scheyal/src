@@ -44,7 +44,7 @@ var stats = require('download-stats');
 
 
 var start = new Date('2020-01-01');
-var end = new Date('2020-06-30');
+var end = new Date('2020-10-30');
 var downloads = [];
 stats.get(start, end, pkgname)
  .on('error', console.error)
