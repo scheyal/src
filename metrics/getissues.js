@@ -1,15 +1,16 @@
 'use strict';
   
-  // imports
-  const fetch = require('node-fetch');
-  const { Console } = require('console');
+// imports
+const fetch = require('node-fetch');
+const { Console } = require('console');
   
 
 // globals
 var githuburl = "https://api.github.com/repos/Microsoft/";
-var issuefilter = "/issues?state=open&labels=Orchestrator";
+var orchestratorLabels = [ "Area:%20AI-Orchestrator", "Area:%20Orchestrator", "Orchestrator" ]
+var issuefilter = "/issues?state=open&labels=";
 var repos = [ "botframework-cli", "BotBuilder-Samples", "botframework-sdk", "BotFramework-Composer"];
-
+var token = '<removed>';
 
 function processLine(line)
 {
@@ -22,13 +23,29 @@ function processLine(line)
     var url = line.html_url;
     var created = line.created_at;
     var title = line.title;
+	var milestone = line.milestone == null ? "none" : line.milestone.title;
+	
+	var labels = "";
+	
+	var len = line.labels.length;
+	for(var i=0; i<len; i++)
+	{
+		labels += line.labels[i].name; 
+		if(i < len-1)
+		{
+			labels += ", ";
+		}
+	}
+		
 
     issue = {
       "id": id,
       "owner": owner,
       "title": title,
       "url": url,
-      "created": created    
+      "created": created,
+	  "labels": labels,
+	  "Milestone": milestone
     }
 
     return issue;
@@ -62,14 +79,27 @@ function printRepoIssues(url)
 {
   // console.log("Repo Url: " + url);
   
-  let settings = { method: "Get" };
+  var tokenValue = 'token ' + token;
+  let settings = { 
+	method: "Get", 
+    headers: {
+		'Authorization': tokenValue
+	}
+  };
   
   fetch(url, settings)
       .then(res => res.json())
       .then((json) => {
         try
         {
-          processIssues(json);
+			if(json.hasOwnProperty('message'))
+			{
+				console.log(json);
+			}
+			else
+			{
+				processIssues(json);
+			}
         }
         catch(e)
         {
@@ -84,19 +114,24 @@ function main()
 {
 
   console.log("Repos:");
-  repos.forEach( repo => 
+  orchestratorLabels.forEach( olabel =>
     {
-      console.log(githuburl + repo + issuefilter);
+	  repos.forEach( repo => 
+		{
+	      var url = githuburl + repo + issuefilter + olabel;
+		  console.log(url);
+		}
+	  ) 
+
+	  console.log("Issues:");
+	  repos.forEach( repo => 
+		{
+	      var url = githuburl + repo + issuefilter + olabel;
+		  printRepoIssues(url);
+		} 
+	  )
     }
-  ) 
-
-  console.log("Issues:");
-  repos.forEach( repo => 
-    {
-      printRepoIssues(githuburl + repo + issuefilter);
-    } 
   )
-
 
 }
 
