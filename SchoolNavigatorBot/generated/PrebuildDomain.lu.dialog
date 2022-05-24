@@ -1,8 +1,0 @@
-{
-    "$kind": "Microsoft.MultiLanguageRecognizer",
-    "id": "LUIS_PrebuildDomain",
-    "recognizers": {
-        "en-us": "PrebuildDomain.en-us.lu",
-        "": "PrebuildDomain.en-us.lu"
-    }
-}

@@ -1,8 +1,0 @@
-c:\workspace\botroot\BFBulletin\BFBulletin\obj\Debug\netcoreapp2.1\BFBulletin.csprojAssemblyReference.cache
-c:\workspace\botroot\BFBulletin\BFBulletin\obj\Debug\netcoreapp2.1\BFBulletin.csproj.CoreCompileInputs.cache
-c:\workspace\botroot\BFBulletin\BFBulletin\obj\Debug\netcoreapp2.1\BFBulletin.RazorAssemblyInfo.cache
-c:\workspace\botroot\BFBulletin\BFBulletin\obj\Debug\netcoreapp2.1\BFBulletin.RazorAssemblyInfo.cs
-c:\workspace\botroot\BFBulletin\BFBulletin\obj\Debug\netcoreapp2.1\BFBulletin.AssemblyInfoInputs.cache
-c:\workspace\botroot\BFBulletin\BFBulletin\obj\Debug\netcoreapp2.1\BFBulletin.AssemblyInfo.cs
-c:\workspace\botroot\BFBulletin\BFBulletin\obj\Debug\netcoreapp2.1\BFBulletin.dll
-c:\workspace\botroot\BFBulletin\BFBulletin\obj\Debug\netcoreapp2.1\BFBulletin.pdb
