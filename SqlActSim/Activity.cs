@@ -13,8 +13,8 @@ namespace SqlActSim
         public string Name { get; set; }
 
         public SqlCommand CreateCommand(SqlConnection Connection);
-        public void FillTestLine();
-        public void PrintTestLine();
+        public void FillLine(long index);
+        public void PrintLine();
         public void GenerateTestLines(int count);
 
 

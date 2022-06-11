@@ -19,9 +19,9 @@ void usage(string error = "")
     Console.WriteLine("Error: Invalid command line.");
     Console.WriteLine("Usage: SqlActSim  ActivityType Total Watermark");
     Console.WriteLine("where:");
-    Console.WriteLine(" ActivityType: [power | TD]");
+    Console.WriteLine(" ActivityType: [power | TD | IP]");
     Console.WriteLine(" Total: count of activities");
-    Console.WriteLine(" Watermark: Stamp activity name, description. One word. Optional.");
+    Console.WriteLine(" Watermark: Stamp activity name, description. One word. Optional. 'TestOnly3Lines' for testing.");
 }
 
 string[] cmdargs = Environment.GetCommandLineArgs();
@@ -46,6 +46,10 @@ if (activityType == "power")
 else if (activityType == "TD")
 {
     A = new TDActivity();
+}
+else if (activityType == "IP")
+{
+    A = new IndustrialProcess();
 }
 else
 {
@@ -94,7 +98,7 @@ DB.TestAccess();
 for (int i = 0; i < MaxActivities; i++)
 {
     GlobalStatic.Counter = i + 1;
-    DB.UpdateDB(A);
+    DB.UpdateDB(A, i);
     // Thread.Sleep(10);
 }
 
