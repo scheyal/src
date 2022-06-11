@@ -14,8 +14,6 @@ namespace SqlActSim
         const string TableName = "TransportDistribution";
         const long MaxQuantity = 10000;
 
-        Random RandGen;
-
         // T&D Line
         public string Name { get; set; }
         public string Description;
@@ -45,8 +43,6 @@ namespace SqlActSim
 
         public TDActivity()
         {
-            RandGen = new Random();
-
         }
 
         public SqlCommand CreateCommand(SqlConnection Connection)
@@ -92,33 +88,7 @@ namespace SqlActSim
             return command;
         }
 
-        long GetQuantity(long timeTicks)
-        {
-            double rads = Math.PI / 180.0 * (double)(timeTicks % 180);
-            return (long)((double)MaxQuantity * Math.Sin(rads)) + MaxQuantity / 2;
-        }
-
-        bool RandBool()
-        {
-            int r = RandGen.Next();
-            return r > (int.MaxValue / 2) ? true : false;
-        }
-
-        int TriRand()
-        {
-            int r = RandGen.Next();
-            return r < (int.MaxValue / 3) ? 1 : (r > (int.MaxValue / 3 * 2) ? 3 : 2);
-
-        }
-
-        string GetTriRand(string s1, string s2, string s3)
-        {
-            int r = TriRand();
-            return r == 1 ? s1 : (r == 2 ? s2 : s3);
-
-        }
-
-        public void FillTestLine()
+        public void FillLine(long index)
         {
             long timeTicks = DateTime.Now.ToFileTimeUtc();
 
@@ -126,40 +96,40 @@ namespace SqlActSim
             string timeString = timeTicks.ToString();
             string timeISOString = DateTime.Now.ToString("o", CultureInfo.GetCultureInfo("en-US"));
 
-            long q = GetQuantity(timeTicks);
+            long q = Utilities.GetQuantity(timeTicks);
             long d = q;  
 
             Name = String.Format($"{GlobalStatic.Watermark}: #{timeISOString} (TD)");
             Description = String.Format($"{GlobalStatic.Watermark}: Sql hydrated @ {DateTime.Now.ToShortDateString()}");
             long c = q / 2;
             Cost = c.ToString();
-            CostUnit = RandBool()? "USD" : "GBP";
+            CostUnit = Utilities.RandBool()? "USD" : "GBP";
             long f = q / 3;
             FuelQuantity = f.ToString();
-            FuelQuantityUnit = GetTriRand("L", "US gallon", "Gallon");
-            FuelType = GetTriRand("Jet Gasoline", "Shale Oil", "Liquefied Petroleum Gases (LPG)");
+            FuelQuantityUnit = Utilities.GetTriRand("L", "US gallon", "Gallon");
+            FuelType = Utilities.GetTriRand("Jet Gasoline", "Shale Oil", "Liquefied Petroleum Gases (LPG)");
             GoodsQuantityMass = q.ToString();
-            GoodsQuantityMassUnit = GetTriRand("Kg", "lb","UK ton"); 
+            GoodsQuantityMassUnit = Utilities.GetTriRand("Kg", "lb","UK ton"); 
             Distance = d.ToString();
-            DistanceUnit = RandBool() ? "Km" : "mile";
-            TransportMode = GetTriRand("Aircraft", "Waterborn Craft", "Light-Duty Truck");
+            DistanceUnit = Utilities.RandBool() ? "Km" : "mile";
+            TransportMode = Utilities.GetTriRand("Aircraft", "Waterborn Craft", "Light-Duty Truck");
             OrganizationalUnit = "Contoso Africa";
             Facility = "Contoso Africa HQ Nairobi";
             Evidence = "cogito, ergo sum";
             Quantity = "0"; 
             QuantityUnit = "mile";
-            DataQualityType = RandBool() ? "Actual" : "Estimated";
+            DataQualityType = Utilities.RandBool() ? "Actual" : "Estimated";
             TransactionDate = DateTime.Now.ToShortDateString();
             ConsumptionStartDate = DateTime.Now.ToShortDateString();
             ConsumptionEndDate = DateTime.Now.ToShortDateString();
             OriginCorrelationID = timeString;
-            IndustrialProcessType = GetTriRand("Motor Gasoline", "Diesel Fuel", "Natural Gas");
-            ValueChainPartner= GetTriRand("Trey Research", "Southridge Video", "Bellows College");
-            SpendType = GetTriRand("Primary metals", "Computer systems design and related services", "Performing arts, spectator sports, museums, and related activities");
+            IndustrialProcessType = Utilities.GetTriRand("Motor Gasoline", "Diesel Fuel", "Natural Gas");
+            ValueChainPartner= Utilities.GetTriRand("Trey Research", "Southridge Video", "Bellows College");
+            SpendType = Utilities.GetTriRand("Primary metals", "Computer systems design and related services", "Performing arts, spectator sports, museums, and related activities");
 
         }
 
-        public void PrintTestLine()
+        public void PrintLine()
         {
             Console.WriteLine($"N:{Name}; D:{Description}; GQ:{GoodsQuantityMass}; TD: {TransactionDate}; O: {OriginCorrelationID}; TM: {TransportMode}");
         }
@@ -168,8 +138,8 @@ namespace SqlActSim
         {
             for (int i = 0; i < count; i++)
             {
-                FillTestLine();
-                PrintTestLine();
+                FillLine(i);
+                PrintLine();
             }
         }
 

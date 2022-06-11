@@ -34,12 +34,12 @@ namespace SqlActSim
         }
 
 
-        public void InsertActivity(SqlConnection Connection, IActivity Activity)
+        public void InsertActivity(SqlConnection Connection, IActivity Activity, long index)
         {
             try
             {
 
-                Activity.FillTestLine();
+                Activity.FillLine(index);
 
                 SqlCommand cmd = Activity.CreateCommand(Connection);
                 int rows = cmd.ExecuteNonQuery();
@@ -60,7 +60,7 @@ namespace SqlActSim
         }
 
 
-        public void UpdateDB(IActivity Activity)
+        public void UpdateDB(IActivity Activity, long index=-1)
         {
             try
             {
@@ -68,7 +68,7 @@ namespace SqlActSim
                 using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
                     connection.Open();
-                    InsertActivity(connection, Activity);
+                    InsertActivity(connection, Activity, index);
                 }
             }
             catch (Exception ex)

@@ -72,7 +72,7 @@ namespace SqlActSim
             return (long)((double)MaxMWh * Math.Sin(rads)) + MaxMWh / 2;
         }
 
-        public void FillTestLine()
+        public void FillLine(long index)
         {
             long timeTicks = DateTime.Now.ToFileTimeUtc();
 
@@ -101,7 +101,7 @@ namespace SqlActSim
             MeterNumber = meterNumber.ToString();
         }
 
-        public void PrintTestLine()
+        public void PrintLine()
         {
             Console.WriteLine($"N:{Name}; D:{Description}; Q:{Quantity}; TD: {TransactionDate}; O: {OriginCorrelationID}; M: {MeterNumber}");
         }
@@ -110,8 +110,8 @@ namespace SqlActSim
         {
             for(int i=0; i<count; i++)
             {
-                FillTestLine();
-                PrintTestLine();
+                FillLine(i);
+                PrintLine();
             }
         }
 

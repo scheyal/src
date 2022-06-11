@@ -16,8 +16,6 @@ namespace SqlActSim
         {
             Counter = 0;
             Watermark = "SqlActSim";
-
-
         }
     }
 }
