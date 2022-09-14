@@ -9,4 +9,5 @@
 # $CRMOrgs = Get-CrmOrganizations -Credential $Cred -DeploymentRegion NorthAmerica –OnlineType Office365
 # $CRMOrgs | get-member  # get all members
 
+
 $CRMOrgs | Sort-Object FriendlyName | Format-table -AutoSize -Property FriendlyName, WebApplicationUrl 
