@@ -12,9 +12,12 @@ It currently supports two activity types:
 ```
 Usage: SqlActSim  ActivityType Total Watermark
 where:
- ActivityType: [power | TD]
+ ActivityType: [PE | ME | WO ]
+        PE = Purchased Electricity
+        ME = Mobile Combustion Precalc Emissions
+        WO = Waste generated in Operations
  Total: count of activities
- Watermark: Stamp activity name, description. One word. Optional.
+ Watermark: Stamp activity name, description. One word. Optional. 'TestOnly3Lines' for testing.
 ```
 
 ## Setup
