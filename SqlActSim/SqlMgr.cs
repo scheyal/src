@@ -60,7 +60,7 @@ namespace SqlActSim
         }
 
 
-        public void UpdateDB(IActivity Activity, long index=-1)
+        public void UpdateDB(IActivity Activity, long index)
         {
             try
             {

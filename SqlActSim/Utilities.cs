@@ -10,7 +10,7 @@ namespace SqlActSim
     {
         const long MaxQuantity = 10000;
 
-        static Random RandGen;
+        public static Random RandGen;
 
 
         static Utilities()
@@ -18,11 +18,12 @@ namespace SqlActSim
             RandGen = new Random();
         }
 
-        public static long GetQuantity(long timeTicks, long Max = -1)
+        public static long GetQuantity(long timeTicks, long Max = Utilities.MaxQuantity, long Min = 0)
         {
-            Max = Max == -1 ? MaxQuantity : Max;
             double rads = Math.PI / 180.0 * (double)(timeTicks % 180);
-            return (long)((double)MaxQuantity * Math.Sin(rads)) + MaxQuantity / 2;
+            long value = (long)((double)Max * Math.Sin(rads)) + Max / 2;
+            value += value < Min ? Min : 0;
+            return value;
         }
 
         public static bool RandBool()
@@ -43,6 +44,17 @@ namespace SqlActSim
             int r = TriRand();
             return r == 1 ? s1 : (r == 2 ? s2 : s3);
 
+        }
+
+        public static string GetRandomString(string[] stringArray)
+        {
+            int r = RandGen.Next(stringArray.Length);
+            return stringArray[r];
+        }
+
+        public static double GetRandomFraction()
+        {
+            return (double)RandGen.NextDouble();
         }
 
     }

@@ -15,7 +15,14 @@ namespace SqlActSim
         public SqlCommand CreateCommand(SqlConnection Connection);
         public void FillLine(long index);
         public void PrintLine();
-        public void GenerateTestLines(int count);
+        public void GenerateTestLines(int count)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                FillLine(i);
+                PrintLine();
+            }
+        }
 
 
     }

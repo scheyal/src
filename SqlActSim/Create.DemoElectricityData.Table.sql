@@ -1,0 +1,23 @@
+﻿CREATE TABLE [dbo].[DemoElectricityData] (
+    [Name]                        NVARCHAR (MAX) NULL,
+    [Description]                 NVARCHAR (MAX) NULL,
+    [Energy Type]                 NVARCHAR (MAX) NULL,
+    [Quantity]                    NVARCHAR (MAX) NULL,
+    [Quantity Unit]               NVARCHAR (MAX) NULL,
+    [Data Quality Type]           NVARCHAR (MAX) NULL,
+    [Energy Provider Name]        NVARCHAR (MAX) NULL,
+    [Contractual Instrument Type] NVARCHAR (MAX) NULL,
+    [Is Renewable]                NVARCHAR (MAX) NULL,
+    [Organizational Unit]         NVARCHAR (MAX) NULL,
+    [Facility]                    NVARCHAR (MAX) NULL,
+    [Transaction Date]            NVARCHAR (MAX) NULL,
+    [Consumption Start Date]      NVARCHAR (MAX) NULL,
+    [Consumption End Date]        NVARCHAR (MAX) NULL,
+    [Evidence]                    NVARCHAR (MAX) NULL,
+    [Origin Correlation ID]       NVARCHAR (MAX) NULL,
+    [Meter number]                NVARCHAR (MAX) NULL,
+	[Car Model]                   NVARCHAR (MAX) NULL,
+	[Car Interior]                NVARCHAR (MAX) NULL,
+	[Sound System]                NVARCHAR (MAX) NULL,
+	[Assembly Count]              NVARCHAR (MAX) NULL
+);

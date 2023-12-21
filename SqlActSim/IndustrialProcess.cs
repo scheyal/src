@@ -9,6 +9,9 @@ using System.Globalization;
 
 namespace SqlActSim
 {
+    /// <summary>
+    /// TBD!
+    /// </summary>
     internal class IndustrialProcess : IActivity
     {
 
@@ -35,6 +38,7 @@ namespace SqlActSim
 
         public IndustrialProcess()
         {
+            throw new Exception("TBD: Need to be re-evaluated!");
         }
 
         public SqlCommand CreateCommand(SqlConnection Connection)

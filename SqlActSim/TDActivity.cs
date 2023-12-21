@@ -9,6 +9,10 @@ using System.Globalization;
 
 namespace SqlActSim
 {
+ 
+    /// <summary>
+    /// TBD!
+    /// </summary>
     internal class TDActivity : IActivity
     {
         const string TableName = "TransportDistribution";
@@ -43,6 +47,7 @@ namespace SqlActSim
 
         public TDActivity()
         {
+            throw new Exception("TBD: Need to be re-evaluated!");
         }
 
         public SqlCommand CreateCommand(SqlConnection Connection)

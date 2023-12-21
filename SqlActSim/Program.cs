@@ -19,7 +19,8 @@ void usage(string error = "")
     Console.WriteLine("Error: Invalid command line.");
     Console.WriteLine("Usage: SqlActSim  ActivityType Total Watermark");
     Console.WriteLine("where:");
-    Console.WriteLine(" ActivityType: [power | TD | IP]");
+    Console.WriteLine(" ActivityType: [PE | ME | WO ]");
+    Console.WriteLine("   \tPE = Purchased Electricity\n\tME = Mobile Combustion Precalc Emissions\n\tWO = Waste generated in Operations");
     Console.WriteLine(" Total: count of activities");
     Console.WriteLine(" Watermark: Stamp activity name, description. One word. Optional. 'TestOnly3Lines' for testing.");
 }
@@ -36,26 +37,35 @@ if (cmdargs.Length < 3 || cmdargs.Length > 4)
 string activityType = cmdargs[1];
 
 // Create Activity
-
 IActivity A;
 
-if (activityType == "power")
+try
 {
-    A = new Electricity();
+
+    if (activityType == "PE")
+    {
+        A = new Electricity();
+    }
+    else if (activityType == "ME")
+    {
+        A = new PrecalcMobileEmissions();
+    }
+    else if (activityType == "WO")
+    {
+        A = new WasteInOps();
+    }
+    else
+    {
+        usage("Error: Invalid activity type. Use only 'PE', 'ME', or 'WO'.");
+        return;
+    }
 }
-else if (activityType == "TD")
+catch (Exception ex)
 {
-    A = new TDActivity();
-}
-else if (activityType == "IP")
-{
-    A = new IndustrialProcess();
-}
-else
-{
-    usage("Error: Invalid activity type. Use only 'power' or 'TD'.");
+    Console.WriteLine($"Exception: Cannot load activities. Error: {ex.Message}");
     return;
 }
+
 
 // Create max counter
 
@@ -67,6 +77,8 @@ if (!bOk || MaxActivities == 0)
     usage("Error: Invalid total. Specify max number of records. ");
     return;
 }
+
+GlobalStatic.TotalActivities = MaxActivities;
 
 if (cmdargs.Length == 4)
 {
@@ -80,13 +92,38 @@ Console.WriteLine($"Ingestion {MaxActivities} activities of type {activityType} 
 // Test
 //
 
-if(GlobalStatic.Watermark == "TestOnly3Lines")
+try
+{
+    EmissionFactors ef = new EmissionFactors();
+    ef.LoadFactors();
+    bool fExist = ef.ContainFactors("WTT - fuels", "Solid fuels");
+    bool fMissing = ef.ContainFactors("asdf", "1234");
+    if (!fExist || fMissing)
+    {
+        throw new Exception("Emission Factors is inconsistent.");
+    }
+
+}
+catch (Exception ex)
+{
+    string msg = ex.Message;
+    Console.WriteLine($"Exception: Emission Factors table test failed. Error: {msg}");
+    return;
+}
+
+
+if (GlobalStatic.Watermark == "TestOnly3Lines")
 {
     Console.WriteLine("Generating 3 test lines...");
     A.GenerateTestLines(3);
     return;
 
 }
+
+
+///
+/// Action
+/// 
 
 SqlMgr DB = new SqlMgr();
 DB.TestAccess();

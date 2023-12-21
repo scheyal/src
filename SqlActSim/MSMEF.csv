@@ -1,0 +1,901 @@
+﻿Name,Type,SubType,Library
+Americas demo market based factor,,,Demo energy market based
+EMEA demo market based factor,,,Demo energy market based
+APAC demo market based factor,,,Demo energy market based
+Renewable demo purchased electricity factor,,,Demo energy emission factor library
+Americas demo purchased electricity factor,,,Demo energy emission factor library
+APAC demo purchased electricity factor,,,Demo energy emission factor library
+EMEA demo purchased electricity factor,,,Demo energy emission factor library
+Adatum EF,,,Demo External Emission Factor Library
+Consolidated Messenger EF,,,Demo External Emission Factor Library
+Demo geographic area,,,Demo energy emission factor library
+WTT- district heat & steam distribution,WTT - heat and steam,5% loss,Defra 2022 - WTT - heat and steam
+WTT- heat and steam - District heat and steam,WTT - heat and steam,District heat and steam,Defra 2022 - WTT - heat and steam
+WTT- heat and steam - Onsite heat and steam,WTT - heat and steam,Onsite heat and steam,Defra 2022 - WTT - heat and steam
+Coal (electricity generation - home produced coal only)  kWh (Gross CV),WTT - fuels,Solid fuels,Defra 2022 - WTT - fuels
+Coal (electricity generation - home produced coal only)  kWh (Net CV),WTT - fuels,Solid fuels,Defra 2022 - WTT - fuels
+Coal (electricity generation - home produced coal only)  tonnes,WTT - fuels,Solid fuels,Defra 2022 - WTT - fuels
+Petroleum coke  kWh (Gross CV),WTT - fuels,Solid fuels,Defra 2022 - WTT - fuels
+Petroleum coke  kWh (Net CV),WTT - fuels,Solid fuels,Defra 2022 - WTT - fuels
+Petroleum coke  tonnes,WTT - fuels,Solid fuels,Defra 2022 - WTT - fuels
+Coking coal  kWh (Gross CV),WTT - fuels,Solid fuels,Defra 2022 - WTT - fuels
+Coking coal  kWh (Net CV),WTT - fuels,Solid fuels,Defra 2022 - WTT - fuels
+Coking coal  tonnes,WTT - fuels,Solid fuels,Defra 2022 - WTT - fuels
+Coal (domestic)  kWh (Gross CV),WTT - fuels,Solid fuels,Defra 2022 - WTT - fuels
+Coal (domestic)  kWh (Net CV),WTT - fuels,Solid fuels,Defra 2022 - WTT - fuels
+Coal (domestic)  tonnes,WTT - fuels,Solid fuels,Defra 2022 - WTT - fuels
+Coal (electricity generation)  kWh (Gross CV),WTT - fuels,Solid fuels,Defra 2022 - WTT - fuels
+Coal (electricity generation)  kWh (Net CV),WTT - fuels,Solid fuels,Defra 2022 - WTT - fuels
+Other petroleum gas  tonnes,WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Natural gas (100% mineral blend)  kWh (Gross CV),WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Natural gas (100% mineral blend)  kWh (Net CV),WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Natural gas (100% mineral blend)  cubic metres,WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Natural gas (100% mineral blend)  tonnes,WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Diesel (100% mineral diesel)  litres,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Processed fuel oils - residual oil  tonnes,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Diesel (100% mineral diesel)  tonnes,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Natural gas  kWh (Gross CV),WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Petrol (100% mineral petrol)  kWh (Gross CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Coal (electricity generation)  tonnes,WTT - fuels,Solid fuels,Defra 2022 - WTT - fuels
+Diesel (average biofuel blend)  kWh (Gross CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Petrol (100% mineral petrol)  kWh (Net CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Coal (industrial)  kWh (Gross CV),WTT - fuels,Solid fuels,Defra 2022 - WTT - fuels
+Natural gas  kWh (Net CV),WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Diesel (average biofuel blend)  kWh (Net CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Petrol (100% mineral petrol)  litres,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Coal (industrial)  kWh (Net CV),WTT - fuels,Solid fuels,Defra 2022 - WTT - fuels
+Natural gas  cubic metres,WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Coal (industrial)  tonnes,WTT - fuels,Solid fuels,Defra 2022 - WTT - fuels
+Petrol (100% mineral petrol)  tonnes,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Diesel (average biofuel blend)  litres,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Natural gas  tonnes,WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Marine fuel oil  kWh (Gross CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+LPG  kWh (Gross CV),WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Diesel (average biofuel blend)  tonnes,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Petrol (average biofuel blend)  kWh (Gross CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Petrol (average biofuel blend)  kWh (Net CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+LPG  kWh (Net CV),WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Burning oil  kWh (Gross CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Marine fuel oil  kWh (Net CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Burning oil  kWh (Net CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Marine fuel oil  litres,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+LPG  litres,WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Petrol (average biofuel blend)  litres,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Burning oil  litres,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Petrol (average biofuel blend)  tonnes,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Marine fuel oil  tonnes,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+LPG  tonnes,WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Burning oil  tonnes,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Naphtha  kWh (Gross CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+LNG  kWh (Gross CV),WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Marine gas oil  kWh (Gross CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Aviation turbine fuel  kWh (Gross CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Naphtha  kWh (Net CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+LNG  kWh (Net CV),WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Marine gas oil  kWh (Net CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Naphtha  tonnes,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Aviation turbine fuel  kWh (Net CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Marine gas oil  litres,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+LNG  litres,WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Lubricants  kWh (Gross CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Marine gas oil  tonnes,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Aviation turbine fuel  litres,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+LNG  tonnes,WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Lubricants  kWh (Net CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Aviation turbine fuel  tonnes,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Lubricants  tonnes,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Waste oils  kWh (Gross CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Aviation spirit  kWh (Gross CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Waste oils  kWh (Net CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Gas oil  kWh (Gross CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Aviation spirit  kWh (Net CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Waste oils  tonnes,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Gas oil  kWh (Net CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Aviation spirit  litres,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Refinery miscellaneous  kWh (Gross CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+CNG  kWh (Gross CV),WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Aviation spirit  tonnes,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Refinery miscellaneous  kWh (Net CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Gas oil  litres,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Propane  kWh (Gross CV),WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+CNG  kWh (Net CV),WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Refinery miscellaneous  tonnes,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Gas oil  tonnes,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+CNG  litres,WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Propane  kWh (Net CV),WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Processed fuel oils - distillate oil  kWh (Gross CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Fuel oil  kWh (Gross CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Propane  litres,WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+CNG  tonnes,WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Processed fuel oils - distillate oil  kWh (Net CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Fuel oil  kWh (Net CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Propane  tonnes,WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Butane  kWh (Gross CV),WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Processed fuel oils - distillate oil  litres,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Fuel oil  litres,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Other petroleum gas  kWh (Gross CV),WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Butane  kWh (Net CV),WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Processed fuel oils - distillate oil  tonnes,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Fuel oil  tonnes,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Processed fuel oils - residual oil  kWh (Gross CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Butane  litres,WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Other petroleum gas  kWh (Net CV),WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Diesel (100% mineral diesel)  kWh (Gross CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Processed fuel oils - residual oil  kWh (Net CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Butane  tonnes,WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Diesel (100% mineral diesel)  kWh (Net CV),WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Other petroleum gas  litres,WTT - fuels,Gaseous fuels,Defra 2022 - WTT - fuels
+Processed fuel oils - residual oil  litres,WTT - fuels,Liquid fuels,Defra 2022 - WTT - fuels
+Distribution - district heat & steam,Transmission and distribution,5% loss,Defra 2022 - Transmission and distribution
+T&D- UK electricity,Transmission and distribution,Electricity: UK,Defra 2022 - Transmission and distribution
+Motorcycle,,,EPA 2022 - Business travel and employee commuting GHG emission factors
+PP-Landfilled,PP,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Diesel (100% mineral diesel) L,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Brown Coal Briquettes,,,IPCC 1.A.1 Energy Industries
+"Motor vehicles, bodies and trailers, and parts",,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Mixed Metals-Combusted,Mixed Metals,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Naphtha L,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Marine fuel oil kWh (net CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Poultry-Anaerobically Digested (Dry Digestate with Curing),Poultry,Anaerobically Digested (Dry Digestate with Curing),EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Shale Oil,,,IPCC 1.A.1 Energy Industries
+Charcoal,,,IPCC 1.A.1 Energy Industries
+Gasoline light-duty trucks 2012,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Natural Gas kWh (gross CV),Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Blast furnace gas,Fuel,Other fuels - gaseous,EPA 2022 - Stationary Combustion Fuels
+Phonebooks-Recycled,Phonebooks,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Coking coal kWh (net CV),Fuel,Solid Fuel,Defra 2022 - Fuels
+Passenger cars-diesel 1996-2006,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline passenger cars 2008,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Passenger cars-diesel 2007-2018,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Propane metricton,Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Lawn and garden equipment-gasoline (4 stroke),Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Tires,Fuel,Other fuels - solid,EPA 2022 - Stationary Combustion Fuels
+Natural Gas metricton,Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Propane,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Gasoline passenger cars 2017,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Intercity rail - Northeast corridor,,,EPA 2022 - Business travel and employee commuting GHG emission factors
+LNG metricton,Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Peat,Fuel,Biomass Fuels - Solid,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Light-duty trucks-diesel 1960-1982,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+"Air travel - medium haul (>= 300 miles, < 2300 miles)",,,EPA 2022 - Business travel and employee commuting GHG emission factors
+Buses-CNG,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Natural gas,Fuel,Natural Gas,EPA 2022 - Stationary Combustion Fuels
+Distillate fuel oil no. 2,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Fruits and Vegetables-Composted,Fruits and Vegetables,Composted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Beef-Composted,Beef,Composted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Utilities,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Nursing and residential care facilities,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Natural Gas,Fuel,Natural Gas,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Natural Gas Liquids (NGLs),,,IPCC 1.A.1 Energy Industries
+Aluminum Cans-Recycled,Aluminum Cans,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Burning oil kWh (net CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Passenger Car,Transport Mode,Non-shared load,EPA 2022 - Transportation and distribution
+Gasoline light-duty trucks 2016,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Bread-Anaerobically Digested (Wet Digestate with Curing),Bread,Anaerobically Digested (Wet Digestate with Curing),EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Gas Oil,,,IPCC 1.A.1 Energy Industries
+SPNO (SPP North),eGRID,Total output,EPA 2022 - eGRID
+Medium-duty trucks-LNG,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Heavy-duty trucks-LNG,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Sub-bituminous Coal,Fuel,Coal and Coke,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Agricultural Byproducts,Fuel,Biomass fuels - solid,EPA 2022 - Stationary Combustion Fuels
+Municipal Wastes (non-biomass fraction),,,IPCC 1.A.1 Energy Industries
+Bread-Anaerobically Digested (Dry Digestate with Curing),Bread,Anaerobically Digested (Dry Digestate with Curing),EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Petroleum coke kWh (net CV),Fuel,Solid Fuel,Defra 2022 - Fuels
+Dairy Products-Composted,Dairy Products,Composted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Propane,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Electronic Peripherals-Combusted,Electronic Peripherals,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Ethane,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Yard Trimmings-Anaerobically Digested (Dry Digestate with Curing),Yard Trimmings,Anaerobically Digested (Dry Digestate with Curing),EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Tires-Landfilled,Tires,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Butane L,Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Residual Fuel Oil,Fuel,,EPA 2022 - Mobile Combustion Fuels
+Tires-Recycled,Tires,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+LDPE-Landfilled,LDPE,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+PRMS (Puerto Rico Miscellaneous),eGRID,Total output,EPA 2022 - eGRID
+Petrol (100% mineral petrol) kWh (net CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Kerosene,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Coal (electricity generation - home produced coal only) kWh (net CV),Fuel,Solid Fuel,Defra 2022 - Fuels
+Steel Cans-Combusted,Steel Cans,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Mixed Paper (primarily residential)-Combusted,Mixed Paper (primarily residential),Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Solid byproducts,Fuel,Biomass fuels - solid,EPA 2022 - Stationary Combustion Fuels
+Burning oil kWh (gross CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Ethane,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Hard-copy Devices-Landfilled,Hard-copy Devices,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Other Liquid Biofuels,,,IPCC 1.A.1 Energy Industries
+Gasoline light-duty trucks 2001,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Coke Oven Coke and Lignite Coke,,,IPCC 1.A.1 Energy Industries
+Other Primary Solid Biomass,,,IPCC 1.A.1 Energy Industries
+Gasoline light-duty trucks 2013,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline heavy-duty vehicles 1985-86,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline heavy-duty vehicles 1990-1995,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Ethanol (100%),Fuel,,EPA 2022 - Mobile Combustion Fuels
+Gasoline light-duty trucks 1996,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Other real estate,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Gasoline light-duty trucks 2007,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Marine gas oil kWh (gross CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Computer and electronic products,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Yard Trimmings-Composted,Yard Trimmings,Composted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Natural Gas,,,IPCC 1.A.1 Energy Industries
+AZNM (WECC Southwest),eGRID,Total output,EPA 2022 - eGRID
+Aluminum Ingot-Combusted,Aluminum Ingot,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Educational services,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Phonebooks-Combusted,Phonebooks,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Liquefied Natural Gas (LNG),Fuel,,EPA 2022 - Mobile Combustion Fuels
+SRVC (SERC Virginia/Carolina),eGRID,Total output,EPA 2022 - eGRID
+Flat-panel Displays-Landfilled,Flat-panel Displays,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Gasoline light-duty trucks 2008,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+AKGD (ASCC Alaska Grid),eGRID,Total output,EPA 2022 - eGRID
+Gasoline light-duty trucks 1995,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline heavy-duty vehicles 2005,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Asphalt Shingles-Combusted,Asphalt Shingles,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+RFCW (RFC West),eGRID,Total output,EPA 2022 - eGRID
+Housing,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Oil and gas extraction,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Dairy Products-Combusted,Dairy Products,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Propane L,Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Asphalt Shingles-Recycled,Asphalt Shingles,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Coal (electricity generation - home produced coal only) kWh (gross CV),Fuel,Solid Fuel,Defra 2022 - Fuels
+Mixed Paper (primarily from offices)-Recycled,Mixed Paper (primarily from offices),Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+SRMW (SERC Midwest),eGRID,Total output,EPA 2022 - eGRID
+Coal (electricity generation - home produced coal only) metricton,Fuel,Solid Fuel,Defra 2022 - Fuels
+Agricultural offroad trucks-diesel,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Mixed (Electric Power Sector),Fuel,Coal and Coke,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Mixed (Industrial Coking),Fuel,Coal and Coke,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Textile mills and textile product mills,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Beef-Anaerobically Digested (Wet Digestate with Curing),Beef,Anaerobically Digested (Wet Digestate with Curing),EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Ships and boats-gasoline (2 stroke),Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Propylene,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+PVC-Landfilled,PVC,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Railroad equipment-gasoline,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Motor Gasoline,Fuel,,EPA 2022 - Mobile Combustion Fuels
+MROW (MRO West),eGRID,Total output,EPA 2022 - eGRID
+Aviation turbine fuel L,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Construction/Mining equipmentB-diesel,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Ambulatory health care services,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Gasoline heavy-duty vehicles 2016,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Mixed Recyclables-Recycled,Mixed Recyclables,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Gasoline heavy-duty vehicles 2017,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Food Waste (non-meat)-Anaerobically Digested (Dry Digestate with Curing),Food Waste (non-meat),Anaerobically Digested (Dry Digestate with Curing),EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Ethane,,,IPCC 1.A.1 Energy Industries
+"Other services, except government",,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Machinery,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Coal (electricity generation) kWh (net CV),Fuel,Solid Fuel,Defra 2022 - Fuels
+Mixed (Industrial Sector),Fuel,Coal and Coke,EPA 2022 - Stationary Combustion Fuels in MMBTU
+"Transit rail (i.e. subway, tram)",,,EPA 2022 - Business travel and employee commuting GHG emission factors
+Liquefied Petroleum Gases,,,IPCC 1.A.1 Energy Industries
+Mixed Paper (primarily residential)-Recycled,Mixed Paper (primarily residential),Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Beef-Landfilled,Beef,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+White Spirit & SBP,,,IPCC 1.A.1 Energy Industries
+Propane kWh (net CV),Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Aviation spirit metricton,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Ships and boats-diesel,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Beef-Anaerobically Digested (Dry Digestate with Curing),Beef,Anaerobically Digested (Dry Digestate with Curing),EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Mixed Paper (primarily from offices)-Combusted,Mixed Paper (primarily from offices),Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Rendered animal fat,Fuel,Biomass fuels - liquid,EPA 2022 - Stationary Combustion Fuels
+Gasoline heavy-duty vehicles 2008,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline passenger cars 2006,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Fuel oil L,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Apparel and leather and allied products,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Fiberglass Insulation-Landfilled,Fiberglass Insulation,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Air travel - long haul (>= 2300 miles),,,EPA 2022 - Business travel and employee commuting GHG emission factors
+Propane gas,Fuel,Other fuels - gaseous,EPA 2022 - Stationary Combustion Fuels
+Mixed (Industrial sector),Fuel,Coal and coke,EPA 2022 - Stationary Combustion Fuels
+Other Bituminous Coal,,,IPCC 1.A.1 Energy Industries
+Coking Coal,,,IPCC 1.A.1 Energy Industries
+Biodiesels,,,IPCC 1.A.1 Energy Industries
+Rail,Transport Mode,Shared load,EPA 2022 - Transportation and distribution
+Fiberglass Insulation-Recycled,Fiberglass Insulation,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Gasoline heavy-duty vehicles 2006,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Coal (domestic) metricton,Fuel,Solid Fuel,Defra 2022 - Fuels
+Isobutane,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Gasoline light-duty trucks 1985,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+"Amusements, gambling, and recreation industries",,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Bituminous Coal,Fuel,Coal and Coke,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Butane metricton,Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Food and beverage stores,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+LLDPE-Combusted,LLDPE,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Food Waste (meat only)-Anaerobically Digested (Wet Digestate with Curing),Food Waste (meat only),Anaerobically Digested (Wet Digestate with Curing),EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Processed fuel oils - distillate oil kWh (gross CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Processed fuel oils - residual oil L,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Naphtha metricton,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Steam and heat,Steam and heat,,EPA 2022 - eGRID
+Waxes,,,IPCC 1.A.1 Energy Industries
+Grass-Combusted,Grass,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Bread-Landfilled,Bread,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Processed fuel oils - residual oil metricton,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Gasoline heavy-duty vehicles 2004,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Lignite coal,Fuel,Coal and coke,EPA 2022 - Stationary Combustion Fuels
+Gasoline passenger cars 2002,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Branches-Composted,Branches,Composted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Industrial Wastes,,,IPCC 1.A.1 Energy Industries
+Nonmetallic mineral products,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Gasoline passenger cars 1996,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Fabricated metal products,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Gasoline heavy-duty vehicles 2011,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Aircraft,Transport Mode,Shared load,EPA 2022 - Transportation and distribution
+Isobutane,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Locomotives-diesel,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Lawn and garden equipment-diesel,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Pipeline transportation,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Other petroleum gas kWh (gross CV),Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Gasoline light-duty trucks 1987-93,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Aluminum Cans-Landfilled,Aluminum Cans,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Used Oil,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Gasoline passenger cars 1984-93,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Lawn and garden equipment-gasoline (2 stroke),Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+"Federal Reserve banks, credit intermediation, and related activities",,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Petrochemical feedstocks,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Poultry-Anaerobically Digested (Wet Digestate with Curing),Poultry,Anaerobically Digested (Wet Digestate with Curing),EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Residual fuel oil no. 5,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Gasoline passenger cars 2007,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Portable Electronic Devices-Landfilled,Portable Electronic Devices,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Mixed Organics-Combusted,Mixed Organics,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Mixed Organics-Landfilled,Mixed Organics,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Textbooks-Landfilled,Textbooks,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Mixed MSW-Landfilled,Mixed MSW,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Portable Electronic Devices-Combusted,Portable Electronic Devices,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Petroleum and coal products,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Light-duty trucks-ethanol,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+HDPE-Landfilled,HDPE,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Dairy Products-Anaerobically Digested (Wet Digestate with Curing),Dairy Products,Anaerobically Digested (Wet Digestate with Curing),EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Processed fuel oils - residual oil kWh (net CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Poultry-Composted,Poultry,Composted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Waste Oils,,,IPCC 1.A.1 Energy Industries
+Buses-biodiesel,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+"Forestry, fishing, and related activities",,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Food and beverage and tobacco products,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Medium- and Heavy-Duty Truck,Transport Mode,Non-shared load,EPA 2022 - Transportation and distribution
+Lubricants L,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Newspaper-Recycled,Newspaper,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Blast Furnace Gas,,,IPCC 1.A.1 Energy Industries
+Glass-Recycled,Glass,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+LNG kWh (gross CV),Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Petrochemical Feedstocks,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Distillate Fuel Oil No. 4,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Glass-Combusted,Glass,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+CRT Displays-Landfilled,CRT Displays,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Coke Oven Gas,,,IPCC 1.A.1 Energy Industries
+Wood Flooring-Combusted,Wood Flooring,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Agricultural equipmentA-diesel,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Butane kWh (gross CV),Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Sub-bituminous coal,Fuel,Coal and coke,EPA 2022 - Stationary Combustion Fuels
+Buses-LPG,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+PVC-Combusted,PVC,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Wood and wood residuals,Fuel,Biomass fuels - solid,EPA 2022 - Stationary Combustion Fuels
+Gasoline heavy-duty vehicles 2001,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Petroleum Coke (Solid),Fuel,Other Fuels - Solid,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Mixed Electronics-Combusted,Mixed Electronics,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Diesel Fuel,Fuel,,EPA 2022 - Mobile Combustion Fuels
+Medium-duty trucks-biodiesel,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Industrial/Commercial equipment-gasoline (2 stroke),Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Coal (industrial) kWh (net CV),Fuel,Solid Fuel,Defra 2022 - Fuels
+Crude Oil,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Coal Tar,,,IPCC 1.A.1 Energy Industries
+Pentanes plus,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Municipal solid waste,Fuel,Other fuels - solid,EPA 2022 - Stationary Combustion Fuels
+Gasoline motorcycles 1960-1995,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+CNG kWh (net CV),Fuel,Gaseous Fuel,Defra 2022 - Fuels
+ERCT (ERCOT All),eGRID,Total output,EPA 2022 - eGRID
+Food Waste (non-meat)-Composted,Food Waste (non-meat),Composted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+PS-Landfilled,PS,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Gasoline heavy-duty vehicles 2007,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Diesel (average biofuel blend) kWh (net CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Propane Gas,Fuel,Other Fuels - Gaseous,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Ships and boats-gasoline (4 stroke),Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Processed fuel oils - distillate oil L,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Kerosene,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Mixed Paper (primarily from offices)-Landfilled,Mixed Paper (primarily from offices),Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Asphalt Concrete-Landfilled,Asphalt Concrete,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Other Petroleum Products,,,IPCC 1.A.1 Energy Industries
+Air transportation,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Diesel (100% mineral diesel) kWh (gross CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Aluminum Ingot-Recycled,Aluminum Ingot,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Administrative and support services,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Marine gas oil L,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Straw,Fuel,"Biomass Fuels - Kraft Pulping Liquor, by Wood Furnish",EPA 2022 - Stationary Combustion Fuels in MMBTU
+Mixed (Commercial sector),Fuel,Coal and coke,EPA 2022 - Stationary Combustion Fuels
+Fuel gas,Fuel,Other fuels - gaseous,EPA 2022 - Stationary Combustion Fuels
+Magazines/Third-class mail-Recycled,Magazines/Third-class mail,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Municipal Wastes (biomass fraction),,,IPCC 1.A.1 Energy Industries
+Bitumen,,,IPCC 1.A.1 Energy Industries
+Chemical products,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Marine fuel oil kWh (gross CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Aviation gasoline,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Dimensional Lumber-Landfilled,Dimensional Lumber,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Kerosene-Type Jet Fuel,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Dairy Products-Anaerobically Digested (Dry Digestate with Curing),Dairy Products,Anaerobically Digested (Dry Digestate with Curing),EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Broadcasting and telecommunications,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Light-duty trucks-diesel 1983-1995,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Wood and Wood Residuals,Fuel,Biomass Fuels - Solid,EPA 2022 - Stationary Combustion Fuels in MMBTU
+CRT Displays-Combusted,CRT Displays,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+CAMX (WECC California),eGRID,Total output,EPA 2022 - eGRID
+Unfinished Oils,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Dimensional Lumber-Combusted,Dimensional Lumber,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Primary metals,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Heavy-duty trucks-LPG,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Marine fuel oil L,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Butylene,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Passenger cars-diesel 1960-1982,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline heavy-duty vehicles 2010,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+"Funds, trusts, and other financial vehicles",,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Gasoline light-duty trucks 1998,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline passenger cars 2004,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Heavy Gas Oils,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Leaves-Landfilled,Leaves,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+LPG metricton,Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Construction/Mining equipmentB-LPG,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+HDPE-Recycled,HDPE,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Light-duty cars-CNG,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Plastics and rubber products,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Gasoline passenger cars 1998,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Food Waste (non-meat)-Anaerobically Digested (Wet Digestate with Curing),Food Waste (non-meat),Anaerobically Digested (Wet Digestate with Curing),EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Gasoline light-duty trucks 1994,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Lubricants kWh (gross CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Gasoline heavy-duty vehicles 2013,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Butane,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Biodiesel (100%),Fuel,Biomass fuels - liquid,EPA 2022 - Stationary Combustion Fuels
+Passenger cars-diesel 1983-1995,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline passenger cars 2013,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Asphalt Shingles-Landfilled,Asphalt Shingles,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Mixed Recyclables-Combusted,Mixed Recyclables,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Natural gas (100% mineral blend) kWh (net CV),Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Diesel (100% mineral diesel) metricton,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Buses-methanol,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline light-duty trucks 2004,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Biodiesel (100%),Fuel,,EPA 2022 - Mobile Combustion Fuels
+Mixed Recyclables-Landfilled,Mixed Recyclables,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Motion picture and sound recording industries,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+RFCE (RFC East),eGRID,Total output,EPA 2022 - eGRID
+Fruits and Vegetables-Anaerobically Digested (Dry Digestate with Curing),Fruits and Vegetables,Anaerobically Digested (Dry Digestate with Curing),EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Industrial/Commercial equipment-LPG,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Refinery Gas,,,IPCC 1.A.1 Energy Industries
+Patent Fuel,,,IPCC 1.A.1 Energy Industries
+Bituminous coal,Fuel,Coal and coke,EPA 2022 - Stationary Combustion Fuels
+PLA-Combusted,PLA,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Other petroleum gas metricton,Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Mixed Paper (general)-Recycled,Mixed Paper (general),Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Food Waste-Combusted,Food Waste,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Gasoline heavy-duty vehicles 1988-1989,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline passenger cars 2009,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Construction/Mining equipmentB-gasoline (4 stroke),Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Fuel oil metricton,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Gas oil L,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Mixed Electronics-Landfilled,Mixed Electronics,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Ethanol (100%),Fuel,Biomass Fuels - Liquid,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Aluminum Cans-Combusted,Aluminum Cans,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Mixed Paper (general)-Combusted,Mixed Paper (general),Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Mixed MSW-Combusted,Mixed MSW,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Gasoline passenger cars 2003,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Aviation Gasoline,,,IPCC 1.A.1 Energy Industries
+Railroad equipment-LPG,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Rendered Animal Fat,Fuel,Biomass Fuels - Liquid,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Hospitals,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Agricultural equipmentA-gasoline (2 stroke),Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Mixed Plastics-Recycled,Mixed Plastics,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Agricultural Byproducts,Fuel,Biomass Fuels - Solid,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Diesel (average biofuel blend) L,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Office Paper-Combusted,Office Paper,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Gasoline light-duty trucks 1979-80,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Corrugated Containers-Recycled,Corrugated Containers,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Light-duty trucks-diesel 1996-2006,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Buses-LNG,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Passenger car,,,EPA 2022 - Business travel and employee commuting GHG emission factors
+Miscellaneous manufacturing,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+PET-Recycled,PET,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Leaves-Combusted,Leaves,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Refinery miscellaneous kWh (gross CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+LLDPE-Landfilled,LLDPE,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+SRSO (SERC South),eGRID,Total output,EPA 2022 - eGRID
+Construction/Mining offroad trucks-diesel,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Aircraft-jet fuel,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline light-duty trucks 2006,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline light-duty trucks 1984,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Grains-Landfilled,Grains,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Diesel (average biofuel blend) kWh (gross CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Other biomass gases,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+LDPE-Combusted,LDPE,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Ships and boats-residual fuel oil,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Copper Wire-Landfilled,Copper Wire,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Bamboo,Fuel,"Biomass Fuels - Kraft Pulping Liquor, by Wood Furnish",EPA 2022 - Stationary Combustion Fuels in MMBTU
+Aviation spirit kWh (net CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Anthracite Coal,Fuel,Coal and Coke,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Gasoline motorcycles 1996-2018,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Light-duty trucks-diesel 2007-2018,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+PET-Landfilled,PET,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Gasoline heavy-duty vehicles 2009,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Warehousing and storage,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Tires-Combusted,Tires,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Office Paper-Landfilled,Office Paper,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Coal (domestic) kWh (gross CV),Fuel,Solid Fuel,Defra 2022 - Fuels
+Natural Gas Cubic metres,Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Gasoline passenger cars 1982,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Aircraft-aviation gasoline,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Fuel oil kWh (net CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Gasoline passenger cars 1997,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline light-duty trucks 1986,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Medium-density Fiberboard-Landfilled,Medium-density Fiberboard,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Fly Ash-Landfilled,Fly Ash,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Dimensional Lumber-Recycled,Dimensional Lumber,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Magazines/Third-class mail-Combusted,Magazines/Third-class mail,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Mixed (Electric power sector),Fuel,Coal and coke,EPA 2022 - Stationary Combustion Fuels
+Gasoline light-duty trucks 1973-74,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+HIMS (HICC Miscellaneous),eGRID,Total output,EPA 2022 - eGRID
+Propylene,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Heavy-duty trucks-CNG,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+SRMV (SERC Mississippi Valley),eGRID,Total output,EPA 2022 - eGRID
+Desktop CPUs-Landfilled,Desktop CPUs,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Fruits and Vegetables-Landfilled,Fruits and Vegetables,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+LNG L,Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Distillate Fuel Oil No. 2,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Gasoline passenger cars 2015,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Aluminum Ingot-Landfilled,Aluminum Ingot,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Gasoline passenger cars 2018,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Plastics,Fuel,Other Fuels - Solid,EPA 2022 - Stationary Combustion Fuels in MMBTU
+NEWE (NPCC New England),eGRID,Total output,EPA 2022 - eGRID
+Gasoline light-duty trucks 2010,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Butylene,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Leaves-Composted,Leaves,Composted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Medium- and heavy-duty vehicles-diesel 1960-2006,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Airport equipment-diesel,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Phonebooks-Landfilled,Phonebooks,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Petrol (average biofuel blend) metricton,Fuel,Liquid Fuel,Defra 2022 - Fuels
+North American Softwood,Fuel,"Biomass Fuels - Kraft Pulping Liquor, by Wood Furnish",EPA 2022 - Stationary Combustion Fuels in MMBTU
+Asphalt Concrete-Recycled,Asphalt Concrete,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Petrol (average biofuel blend) kWh (gross CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Gasoline light-duty trucks 1977-78,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Ethylene,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Other petroleum gas L,Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Furniture and related products,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+"Electrical equipment, appliances, and components",,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Flat-panel Displays-Combusted,Flat-panel Displays,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Food Waste-Landfilled,Food Waste,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Light-duty truck,,,EPA 2022 - Business travel and employee commuting GHG emission factors
+Residual Fuel Oil,,,IPCC 1.A.1 Energy Industries
+Liquefied Petroleum Gases (LPG),Fuel,,EPA 2022 - Mobile Combustion Fuels
+Peat,,,IPCC 1.A.1 Energy Industries
+Aviation turbine fuel metricton,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Natural gasoline,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Burning oil L,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Heavy-duty trucks-biodiesel,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Copper Wire-Combusted,Copper Wire,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Diesel (100% mineral diesel) kWh (net CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Peat,Fuel,Biomass fuels - solid,EPA 2022 - Stationary Combustion Fuels
+Gasoline light-duty trucks 2005,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline light-duty trucks 2009,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Biodiesel (100%),Fuel,Biomass Fuels - Liquid,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Naphtha (<401 deg F),Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Kerosene-type jet fuel,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Gas oil metricton,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Mixed (Industrial coking),Fuel,Coal and coke,EPA 2022 - Stationary Combustion Fuels
+Gasoline heavy-duty vehicles 2000,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Coking coal metricton,Fuel,Solid Fuel,Defra 2022 - Fuels
+Liquefied Petroleum Gases (LPG),Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Oil Shale and Tar Sands,,,IPCC 1.A.1 Energy Industries
+AKMS (ASCC Miscellaneous),eGRID,Total output,EPA 2022 - eGRID
+NWPP (WECC Northwest),eGRID,Total output,EPA 2022 - eGRID
+Gasoline heavy-duty vehicles 1997,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Insurance carriers and related activities,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Recreational equipment-diesel,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Unfinished oils,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Mixed Organics-Composted,Mixed Organics,Composted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+RFCM (RFC Michigan),eGRID,Total output,EPA 2022 - eGRID
+Gasoline heavy-duty vehicles 2003,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+PET-Combusted,PET,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Gas oil kWh (net CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Food Waste (non-meat)-Combusted,Food Waste (non-meat),Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Newspaper-Combusted,Newspaper,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+CNG metricton,Fuel,Gaseous Fuel,Defra 2022 - Fuels
+"Publishing industries, except internet (includes software)",,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Special naphtha,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Processed fuel oils - residual oil kWh (gross CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Petroleum Coke,,,IPCC 1.A.1 Energy Industries
+Gasoline heavy-duty vehicles 1987,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Copper Wire-Recycled,Copper Wire,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Natural gas (100% mineral blend) Cubic metres,Fuel,Gaseous Fuel,Defra 2022 - Fuels
+mtCO2e (1=1),,,Other factors
+Computer systems design and related services,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Petrol (average biofuel blend) L,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Motor Gasoline,,,IPCC 1.A.1 Energy Industries
+Gasoline light-duty trucks 2017,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Lignite,,,IPCC 1.A.1 Energy Industries
+Light-duty trucks-LNG,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Other Biomass Gases,Fuel,Biomass Fuels - Gaseous,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Natural gas (100% mineral blend) metricton,Fuel,Gaseous Fuel,Defra 2022 - Fuels
+HDPE-Combusted,HDPE,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Fuel Gas,Fuel,Other Fuels - Gaseous,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Gasoline passenger cars 1999,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Motor Gasoline,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Naphtha kWh (gross CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Branches-Anaerobically Digested (Dry Digestate with Curing),Branches,Anaerobically Digested (Dry Digestate with Curing),EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Sludge Gas,,,IPCC 1.A.1 Energy Industries
+Gasoline heavy-duty vehicles 2012,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+"Miscellaneous professional, scientific, and technical services",,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Light-duty cars-ethanol,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Airport equipment-LPG,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Food Waste (non-meat)-Landfilled,Food Waste (non-meat),Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Motor gasoline,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Fruits and Vegetables-Anaerobically Digested (Wet Digestate with Curing),Fruits and Vegetables,Anaerobically Digested (Wet Digestate with Curing),EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Naphtha,,,IPCC 1.A.1 Energy Industries
+Textbooks-Recycled,Textbooks,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Sulphite Lyes (Black Liquor),,,IPCC 1.A.1 Energy Industries
+Carpet-Combusted,Carpet,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Bread-Composted,Bread,Composted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Construction,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Diesel Oil,,,IPCC 1.A.1 Energy Industries
+NYUP (NPCC Upstate NY),eGRID,Total output,EPA 2022 - eGRID
+Lignite Coal,Fuel,Coal and Coke,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Kerosene-Type Jet Fuel,Fuel,,EPA 2022 - Mobile Combustion Fuels
+Bus,,,EPA 2022 - Business travel and employee commuting GHG emission factors
+Leaves-Anaerobically Digested (Dry Digestate with Curing),Leaves,Anaerobically Digested (Dry Digestate with Curing),EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Isobutylene,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Gasoline passenger cars 1975,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Aviation turbine fuel kWh (net CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Steel Cans-Landfilled,Steel Cans,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Gasoline passenger cars 2012,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Lubricants kWh (net CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Biogasoline,,,IPCC 1.A.1 Energy Industries
+"Securities, commodity contracts, and investments",,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Carpet-Landfilled,Carpet,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Medium-density Fiberboard-Combusted,Medium-density Fiberboard,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+HIOA (HICC Oahu),eGRID,Total output,EPA 2022 - eGRID
+Aviation Gasoline,Fuel,,EPA 2022 - Mobile Combustion Fuels
+Solid Byproducts,Fuel,Biomass Fuels - Solid,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Refinery miscellaneous metricton,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Coal coke,Fuel,Coal and coke,EPA 2022 - Stationary Combustion Fuels
+Recreational equipment-gasoline (2 stroke),Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Motor vehicle and parts dealers,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Agricultural equipmentA-gasoline (4 stroke),Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Compressed Natural Gas (CNG),Fuel,,EPA 2022 - Mobile Combustion Fuels
+Coal (electricity generation) metricton,Fuel,Solid Fuel,Defra 2022 - Fuels
+Gasoline passenger cars 2016,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Isobutylene,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Paper products,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Jet Gasoline,,,IPCC 1.A.1 Energy Industries
+Wholesale trade,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Agricultural equipmentA-LPG,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Branches-Combusted,Branches,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Electricity generated,UK Electricity,,Defra 2022 - UK Electricity
+CNG L,Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Gasoline light-duty trucks 2015,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline passenger cars 1994,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Municipal Solid Waste,Fuel,Other Fuels - Solid,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Coal (electricity generation) kWh (gross CV),Fuel,Solid Fuel,Defra 2022 - Fuels
+Butane kWh (net CV),Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Lubricants,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Residual fuel oil no. 6,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Naphtha (<401 deg F),Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Hard-copy Devices-Combusted,Hard-copy Devices,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Gasoline light-duty trucks 1999,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Grass-Anaerobically Digested (Dry Digestate with Curing),Grass,Anaerobically Digested (Dry Digestate with Curing),EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Water transportation,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Medium- and heavy-duty vehicles-diesel 2007-2018,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Mixed Plastics-Combusted,Mixed Plastics,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Corrugated Containers-Landfilled,Corrugated Containers,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Residual Fuel Oil No. 5,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+PLA-Composted,PLA,Composted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Light-duty cars-LPG,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+FRCC (FRCC All),eGRID,Total output,EPA 2022 - eGRID
+Gasoline passenger cars 2001,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Heavy gas oils,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Orimulsion,,,IPCC 1.A.1 Energy Industries
+Landfill gas,Fuel,Biomass Fuels - Gaseous,EPA 2022 - Stationary Combustion Fuels
+LPG L,Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Gasoline light-duty trucks 1975,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Processed fuel oils - distillate oil kWh (net CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Aviation spirit kWh (gross CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Petrol (average biofuel blend) kWh (net CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+NYCW (NPCC NYC/Westchester),eGRID,Total output,EPA 2022 - eGRID
+Medium-duty trucks-CNG,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Office Paper-Recycled,Office Paper,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Petrol (100% mineral petrol) metricton,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Ethylene,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Food Waste (meat only)-Anaerobically Digested (Dry Digestate with Curing),Food Waste (meat only),Anaerobically Digested (Dry Digestate with Curing),EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Special Naphtha,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Wood/Wood Waste,,,IPCC 1.A.1 Energy Industries
+Grains-Composted,Grains,Composted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Heavy-duty trucks-ethanol,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Asphalt and Road Oil,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Industrial/Commercial equipment-diesel,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Fuel oil kWh (gross CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Liquefied petroleum gases (LPG),Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Oxygen Steel Furnace Gas,,,IPCC 1.A.1 Energy Industries
+Landfill Gas,Fuel,Biomass Fuels - Gaseous,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Yard Trimmings-Landfilled,Yard Trimmings,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Plastics,Fuel,Other fuels - solid,EPA 2022 - Stationary Combustion Fuels
+Waste oils L,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Coal (domestic) kWh (net CV),Fuel,Solid Fuel,Defra 2022 - Fuels
+RMPA (WECC Rockies),eGRID,Total output,EPA 2022 - eGRID
+Residual Fuel Oil No. 6,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Recreational equipment-gasoline (4 stroke),Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Other Biogas,,,IPCC 1.A.1 Energy Industries
+Heavy-duty trucks-methanol,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Fly Ash-Recycled,Fly Ash,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Rental and leasing services and lessors of intangible assets,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Mixed Paper (primarily residential)-Landfilled,Mixed Paper (primarily residential),Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Distillate fuel oil no. 1,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Natural Gasoline,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Airport equipment-gasoline,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Petroleum coke metricton,Fuel,Solid Fuel,Defra 2022 - Fuels
+Petroleum coke kWh (gross CV),Fuel,Solid Fuel,Defra 2022 - Fuels
+Truck transportation,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Other transportation equipment,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+North American Hardwood,Fuel,"Biomass Fuels - Kraft Pulping Liquor, by Wood Furnish",EPA 2022 - Stationary Combustion Fuels in MMBTU
+Printing and related support activities,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Electronic Peripherals-Landfilled,Electronic Peripherals,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Landfill Gas,,,IPCC 1.A.1 Energy Industries
+Newspaper-Landfilled,Newspaper,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Social assistance,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Intercity rail - national average,,,EPA 2022 - Business travel and employee commuting GHG emission factors
+Burning oil metricton,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Coal (industrial) metricton,Fuel,Solid Fuel,Defra 2022 - Fuels
+Gasoline passenger cars 2011,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline light-duty trucks 2011,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Poultry-Landfilled,Poultry,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Concrete-Recycled,Concrete,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+PS-Combusted,PS,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Lubricants,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Light-duty cars-methanol,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Coal (industrial) kWh (gross CV),Fuel,Solid Fuel,Defra 2022 - Fuels
+Other petroleum gas kWh (net CV),Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Transit and ground passenger transportation,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Coke oven gas,Fuel,Other fuels - gaseous,EPA 2022 - Stationary Combustion Fuels
+Anthracite,,,IPCC 1.A.1 Energy Industries
+Legal services,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Gasoline heavy-duty vehicles 2015,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+LPG kWh (gross CV),Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Commuter rail,,,EPA 2022 - Business travel and employee commuting GHG emission factors
+Gasoline passenger cars 1995,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline light-duty trucks 1981,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Mixed Metals-Recycled,Mixed Metals,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Light-Duty Truck,Transport Mode,Non-shared load,EPA 2022 - Transportation and distribution
+Gasoline light-duty trucks 1997,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Refinery miscellaneous kWh (net CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Gasoline passenger cars 2010,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Dairy Products-Landfilled,Dairy Products,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Logging equipment-gasoline (2 stroke),Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline light-duty trucks 1976,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline passenger cars 2000,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Agricultural offroad trucks-gasoline,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+General merchandise stores,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+PP-Combusted,PP,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Coke Oven Gas,Fuel,Other Fuels - Gaseous,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Sub-Bituminous Coal,,,IPCC 1.A.1 Energy Industries
+Corrugated Containers-Combusted,Corrugated Containers,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Steel Cans-Recycled,Steel Cans,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Marine fuel oil metricton,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Blast Furnace Gas,Fuel,Other Fuels - Gaseous,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Logging equipment-gasoline (4 stroke),Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Light-duty trucks-LPG,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline passenger cars 2014,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Intercity rail - other routes,,,EPA 2022 - Business travel and employee commuting GHG emission factors
+Other transportation and support activities,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Rail transportation,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Accommodation,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Gasoline light-duty trucks 2003,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Magazines/Third-class mail-Landfilled,Magazines/Third-class mail,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+"Data processing, internet publishing, and other information services",,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Lubricants,,,IPCC 1.A.1 Energy Industries
+Mixed Paper (general)-Landfilled,Mixed Paper (general),Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Gasoline light-duty trucks 2002,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Logging equipment-diesel,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Beef-Combusted,Beef,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Bread-Combusted,Bread,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Gasoline passenger cars 1980,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline passenger cars 2005,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Propane kWh (gross CV),Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Vegetable oil,Fuel,Biomass fuels - liquid,EPA 2022 - Stationary Combustion Fuels
+Gasoline light-duty trucks 2014,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Grains-Anaerobically Digested (Dry Digestate with Curing),Grains,Anaerobically Digested (Dry Digestate with Curing),EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Mixed Plastics-Landfilled,Mixed Plastics,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Food Waste-Composted,Food Waste,Composted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Grains-Combusted,Grains,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Gasoline passenger cars 1973-74,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Wood Flooring-Landfilled,Wood Flooring,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Crude Oil,,,IPCC 1.A.1 Energy Industries
+Coal Coke,Fuel,Coal and Coke,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Vegetable Oil,Fuel,Biomass Fuels - Liquid,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Gasoline heavy-duty vehicles 1996,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Vinyl Flooring-Landfilled,Vinyl Flooring,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+PLA-Landfilled,PLA,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Clay Bricks-Landfilled,Clay Bricks,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+LPG kWh (net CV),Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Gasoline heavy-duty vehicles <1981,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Butane,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+SRTV (SERC Tennessee Valley),eGRID,Total output,EPA 2022 - eGRID
+Light-duty cars-biodiesel,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Waste management and remediation services,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Gasoline passenger cars 1976-77,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Desktop CPUs-Combusted,Desktop CPUs,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Asphalt and road oil,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Grass-Composted,Grass,Composted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Concrete-Landfilled,Concrete,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Coking coal kWh (gross CV),Fuel,Solid Fuel,Defra 2022 - Fuels
+Waterborne craft,Transport Mode,Shared load,EPA 2022 - Transportation and distribution
+Light-duty trucks-CNG,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Natural gas (100% mineral blend) kWh (gross CV),Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Grass-Landfilled,Grass,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Gasoline heavy-duty vehicles 1999,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Anthracite coal,Fuel,Coal and coke,EPA 2022 - Stationary Combustion Fuels
+Waste oils metricton,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Railroad equipment-diesel,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline heavy-duty vehicles 1998,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Used oil,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Jet Kerosene,,,IPCC 1.A.1 Energy Industries
+Food Waste (meat only)-Combusted,Food Waste (meat only),Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Construction/Mining offroad trucks-gasoline,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Recreational equipment-LPG,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Mixed Metals-Landfilled,Mixed Metals,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Distillate fuel oil no. 4,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Pentanes Plus,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Grains-Anaerobically Digested (Wet Digestate with Curing),Grains,Anaerobically Digested (Wet Digestate with Curing),EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Farms,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Air travel - short haul (< 300 miles),,,EPA 2022 - Business travel and employee commuting GHG emission factors
+Gas Works Gas,,,IPCC 1.A.1 Energy Industries
+Petrol (100% mineral petrol) kWh (gross CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+CNG kWh (gross CV),Fuel,Gaseous Fuel,Defra 2022 - Fuels
+US Average,eGRID,Total output,EPA 2022 - eGRID
+Waste oils kWh (net CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Aviation turbine fuel kWh (gross CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Support activities for mining,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Gasoline passenger cars 1981,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Branches-Landfilled,Branches,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Other Oil (>401 deg F),Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Aviation spirit L,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Distillate Fuel Oil No. 1,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Construction/Mining equipmentB-gasoline (2 stroke),Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline light-duty trucks 1982,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Other Kerosene,,,IPCC 1.A.1 Energy Industries
+Gasoline heavy-duty vehicles 2014,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Other Oil (>401 deg F),Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+"Mining, except oil and gas",,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Gasoline light-duty trucks 2018,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Refinery Feedstocks,,,IPCC 1.A.1 Energy Industries
+Naphtha kWh (net CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Crude oil,Fuel,Petroleum products,EPA 2022 - Stationary Combustion Fuels
+Fruits and Vegetables-Combusted,Fruits and Vegetables,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Food services and drinking places,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Marine gas oil kWh (net CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Waste oils kWh (gross CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Medium- and Heavy-Duty Truck - Shared Load,Transport Mode,Shared load,EPA 2022 - Transportation and distribution
+Gas oil kWh (gross CV),Fuel,Liquid Fuel,Defra 2022 - Fuels
+Management of companies and enterprises,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Natural Gas kWh (net CV),Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Industrial/Commercial equipment-gasoline (4 stroke),Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Drywall-Landfilled,Drywall,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Food Waste (meat only)-Landfilled,Food Waste (meat only),Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Marine gas oil metricton,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Aviation Gasoline,Fuel,Petroleum Products,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Poultry-Combusted,Poultry,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+SPSO (SPP South),eGRID,Total output,EPA 2022 - eGRID
+Buses-ethanol,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline heavy-duty vehicles 2018,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Vinyl Flooring-Combusted,Vinyl Flooring,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Glass-Landfilled,Glass,Landfilled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Yard Trimmings-Combusted,Yard Trimmings,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Mixed (Commercial Sector),Fuel,Coal and Coke,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Gasoline heavy-duty vehicles 1982-84,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+LNG kWh (net CV),Fuel,Gaseous Fuel,Defra 2022 - Fuels
+Light-duty trucks-biodiesel,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline passenger cars 1978-79,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gas Coke,,,IPCC 1.A.1 Energy Industries
+Lawn and garden equipment-LPG,Vehicle,Non-road vehicles,EPA 2022 - Mobile Combustion Vehicles
+Processed fuel oils - distillate oil metricton,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Textbooks-Combusted,Textbooks,Combusted,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products
+Tires,Fuel,Other Fuels - Solid,EPA 2022 - Stationary Combustion Fuels in MMBTU
+Lubricants metricton,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Petroleum coke (Solid),Fuel,Other fuels - solid,EPA 2022 - Stationary Combustion Fuels
+MROE (MRO East),eGRID,Total output,EPA 2022 - eGRID
+Gasoline passenger cars 1983,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline light-duty trucks 2000,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Gasoline heavy-duty vehicles 2002,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Diesel (average biofuel blend) metricton,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Other retail,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Gasoline light-duty trucks 1983,Vehicle,On-road gasoline vehicles,EPA 2022 - Mobile Combustion Vehicles
+Ethanol (100%),Fuel,Biomass fuels - liquid,EPA 2022 - Stationary Combustion Fuels
+Wood products,,,EPA 2022 - Supply chain GHG emission factors - v1.1
+NYLI (NPCC Long Island),eGRID,Total output,EPA 2022 - eGRID
+Petrol (100% mineral petrol) L,Fuel,Liquid Fuel,Defra 2022 - Fuels
+Bagasse,Fuel,"Biomass Fuels - Kraft Pulping Liquor, by Wood Furnish",EPA 2022 - Stationary Combustion Fuels in MMBTU
+"Performing arts, spectator sports, museums, and related activities",,,EPA 2022 - Supply chain GHG emission factors - v1.1
+Medium-duty trucks-LPG,Vehicle,On-road diesel and alternative fuel vehicles,EPA 2022 - Mobile Combustion Vehicles
+Medium-density Fiberboard-Recycled,Medium-density Fiberboard,Recycled,EPA 2022 - Waste Generated in Operations or End-of-Life Treatment of Sold Products

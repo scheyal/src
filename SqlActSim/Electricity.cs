@@ -11,10 +11,8 @@ namespace SqlActSim
 
     internal class Electricity : IActivity
     {
-        const string TableName = "MeteredElectricity";
+        const string TableName = "DemoElectricityData";
         const int MeterCount = 10;
-        const long MaxMWh = 1000000;
-
 
         // Electricity Line
         public string Name { get; set; }
@@ -34,14 +32,18 @@ namespace SqlActSim
         public string Evidence;
         public string OriginCorrelationID;
         public string MeterNumber;
+        public string CarModel;
+        public string CarInterior;
+        public string SoundSystem;
+        public string AssemblyCount;
 
 
         public SqlCommand CreateCommand(SqlConnection Connection)
         {
             // Create the InsertCommand.
             SqlCommand command = new SqlCommand(
-                $"INSERT INTO {TableName} (Name, Description, [Energy Type], Quantity, [Quantity Unit], [Data Quality Type], [Energy Provider Name], [Contractual Instrument Type], [Is Renewable], [Organizational Unit], Facility, [Transaction Date], [Consumption Start Date], [Consumption End Date], Evidence, [Origin Correlation ID], [Meter number]) " +
-                "VALUES (@Name, @Description, @EnergyType, @Quantity, @QuantityUnit, @DataQualityType, @EnergyProviderName, @ContractualInstrumentType, @IsRenewable, @OrganizationalUnit, @Facility, @TransactionDate, @ConsumptionStartDate, @ConsumptionEndDate, @Evidence, @OriginCorrelationID, @MeterNumber)", 
+                $"INSERT INTO {TableName} (Name, Description, [Energy Type], Quantity, [Quantity Unit], [Data Quality Type], [Energy Provider Name], [Contractual Instrument Type], [Is Renewable], [Organizational Unit], Facility, [Transaction Date], [Consumption Start Date], [Consumption End Date], Evidence, [Origin Correlation ID], [Meter number], [Car Model], [Car Interior], [Sound System], [Assembly Count]) " +
+                "VALUES (@Name, @Description, @EnergyType, @Quantity, @QuantityUnit, @DataQualityType, @EnergyProviderName, @ContractualInstrumentType, @IsRenewable, @OrganizationalUnit, @Facility, @TransactionDate, @ConsumptionStartDate, @ConsumptionEndDate, @Evidence, @OriginCorrelationID, @MeterNumber, @CarModel, @CarInterior, @SoundSystem, @AssemblyCount)", 
                 Connection);
 
             // Add the parameters for the InsertCommand.
@@ -62,48 +64,58 @@ namespace SqlActSim
             command.Parameters.Add(new SqlParameter("@Evidence", Evidence));
             command.Parameters.Add(new SqlParameter("@OriginCorrelationID", OriginCorrelationID));
             command.Parameters.Add(new SqlParameter("@MeterNumber", MeterNumber));
+            command.Parameters.Add(new SqlParameter("@CarModel", CarModel));
+            command.Parameters.Add(new SqlParameter("@CarInterior", CarInterior));
+            command.Parameters.Add(new SqlParameter("@SoundSystem", SoundSystem));
+            command.Parameters.Add(new SqlParameter("@AssemblyCount", AssemblyCount));
 
             return command;
         }
 
-        long GetQuantity(long timeTicks)
-        {
-            double rads = Math.PI / 180.0 * (double)(timeTicks % 180);
-            return (long)((double)MaxMWh * Math.Sin(rads)) + MaxMWh / 2;
-        }
 
         public void FillLine(long index)
         {
             long timeTicks = DateTime.Now.ToFileTimeUtc();
 
+
             long meterNumber = timeTicks  % MeterCount + 1000;
             string timeString = timeTicks.ToString();
             string timeISOString = DateTime.Now.ToString("o", CultureInfo.GetCultureInfo("en-US"));
 
-            long q = GetQuantity(timeTicks);
+            TimeSpan span = GlobalStatic.ConsumptionEndDate - GlobalStatic.ConsumptionStartDate;
+            long period = span.Days / GlobalStatic.TotalActivities;
+            DateTime start = GlobalStatic.ConsumptionStartDate.AddDays(index * period);
+            DateTime end = start.AddDays(period);
 
-            Name = String.Format($"{GlobalStatic.Watermark}: {meterNumber} @ #{timeISOString} (power)");
-            Description = String.Format($"{GlobalStatic.Watermark}: Sql hydrated @ {DateTime.Now.ToShortDateString()}");
+            long q = Utilities.GetQuantity(timeTicks);
+
             EnergyType = "Electricity";
+            Name = String.Format($"{GlobalStatic.Watermark}: [#{index}] {EnergyType} at #{timeISOString}");
+            Description = String.Format($"[#{index}] {GlobalStatic.Watermark}: Sql hydrated @ {DateTime.Now.ToShortDateString()}");
+            
             Quantity = q.ToString();
-            QuantityUnit = "MWh";
-            DataQualityType = "Metered";
-            EnergyProviderName = "Ontario Public Energy";
-            ContractualInstrumentType = "Ontario Contract - 1";
+            QuantityUnit = Utilities.GetRandomString(DefaultDataStore.EnergyType);
+            DataQualityType = Utilities.GetRandomString(DefaultDataStore.DataQualityType);
+            EnergyProviderName = DefaultDataStore.EnergyProviderName;
+            ContractualInstrumentType = Utilities.GetRandomString(DefaultDataStore.ContractualInstrumentType);
             IsRenewable = "No";
-            OrganizationalUnit = "Alexandra Hospital";
-            Facility = "Alexandra Hospital, Ingersoll";
-            TransactionDate = DateTime.Now.ToShortDateString(); 
-            ConsumptionStartDate = DateTime.Now.ToShortDateString();
-            ConsumptionEndDate = DateTime.Now.ToShortDateString(); 
+            OrganizationalUnit = Utilities.GetRandomString(DefaultDataStore.OUs);
+            Facility = Utilities.GetRandomString(DefaultDataStore.Facilities);
+            TransactionDate = end.AddDays(GlobalStatic.PostedTransactionDelay).ToShortDateString();
+            ConsumptionStartDate = start.ToShortDateString();
+            ConsumptionEndDate = end.ToShortDateString(); 
             Evidence = "cogito, ergo sum";
             OriginCorrelationID = timeString;
             MeterNumber = meterNumber.ToString();
+            CarModel = Utilities.GetRandomString(CustomDimension.CarModel);
+            CarInterior = Utilities.GetRandomString(CustomDimension.CarInterior);
+            SoundSystem = Utilities.GetRandomString(CustomDimension.SoundSystem);
+            AssemblyCount = Utilities.GetQuantity(timeTicks, CustomDimension.AssemblyCount[1], CustomDimension.AssemblyCount[0]).ToString();
         }
 
         public void PrintLine()
         {
-            Console.WriteLine($"N:{Name}; D:{Description}; Q:{Quantity}; TD: {TransactionDate}; O: {OriginCorrelationID}; M: {MeterNumber}");
+            Console.WriteLine($"N:{Name}; Q:{Quantity}; SD: {ConsumptionStartDate}; ED: {ConsumptionEndDate} TD: {TransactionDate}; O: {OriginCorrelationID}; M: {MeterNumber}");
         }
 
         public void GenerateTestLines(int count)
