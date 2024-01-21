@@ -23,6 +23,7 @@ Request Body should contain:
     "password":  "***removed***"
 }
 Return: Authentication Token (SHA256 based).
+```
 
 #### Call: GET Activity/GetActivities
 
@@ -37,8 +38,8 @@ Parameters:
 
 
 
-## Swagger
-```
+##Swagger
+``` Json
 
 {
     "openapi": "3.0.1",
