@@ -1,4 +1,4 @@
-﻿#1 Activity3PService
+﻿# Activity3PService
 
 The following project simulates an Electricity Utility Provider provider service. The service exposes a simple REST API to authenticate and retrieve fake consumption data.
 The service data shape is designed to fit the model of Microsoft Sustainability Manager (MSM) data model.
