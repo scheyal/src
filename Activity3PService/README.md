@@ -34,13 +34,13 @@ Parameters:
 - OU = similarly for OU
 - WatermarkDate = The response will contain a record per day since WatermarkDate
 - NameSeed = The record names will start with NameSeed string
+- Fail = if 'true' will generate records with bad QuantityUnit. Default = false.
 
 
 
 
 ## Swagger
 ``` Json
-
 {
     "openapi": "3.0.1",
     "info": {
@@ -91,6 +91,14 @@ Parameters:
                         "schema": {
                             "type": "string",
                             "default": "Purchased Electricity"
+                        }
+                    },
+                    {
+                        "name": "Fail",
+                        "in": "query",
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
                         }
                     }
                 ],
@@ -167,6 +175,35 @@ Parameters:
                 "responses": {
                     "200": {
                         "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/Test": {
+            "get": {
+                "tags": [
+                    "Test"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ActivityResponseModel"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ActivityResponseModel"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ActivityResponseModel"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -282,5 +319,4 @@ Parameters:
         }
     }
 }
-
 ```

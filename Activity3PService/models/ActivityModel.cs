@@ -24,7 +24,7 @@ namespace Activity3PService.Models
         public string OriginCorrelationID { get; set; }
 
 
-        public ActivityModel(string name, DateTime date, string facility, string OU, int counter = 0)
+        public ActivityModel(string name, DateTime date, string facility, string OU, int counter = 0, bool Failed=false)
         {
             string c = counter > 0 ? $" #" + counter.ToString() : string.Empty;
             int R = Utilities.RandGen.Next();
@@ -33,8 +33,12 @@ namespace Activity3PService.Models
 
             Name = $"{name} for {date.ToShortDateString()} {c}";
             Description = $"{Name} at {now}";
+            if(Failed)
+            {
+                Description += " ** FAILED **";
+            }
             Quantity = Utilities.GetQuantity(UtcNow.Ticks).ToString();
-            QuantityUnit = "kWh";
+            QuantityUnit = Failed? "TEST:BadUnit" : "kWh";
             DataQualityType = "Metered";
             EnergyProviderName = "The 3P Utilities Company";
             ContractualInstrumentType = "Utility Company Grid Energy";

@@ -38,8 +38,18 @@ namespace Activity3PService.Controllers
         }
         ***/
 
+        /// <summary>
+        /// Generate Purcahsed Electricity activities from WatermarkDate to today with activity per day with specified attributes (Facility, OU, Name seed).
+        /// </summary>
+        /// <param name="Facility">Facility for the generated activities</param>
+        /// <param name="OU">Organizational Unit for the generated activites</param>
+        /// <param name="WatermarkDate">Date from which the activities are generated, one activity per day</param>
+        /// <param name="NameSeed">A seed for the name/description fields</param>
+        /// <param name="ActivityType">Hard-coded Purchased Electricity. Use other for API error</param>
+        /// <param name="Fail">Generate failed records for error testing (with some invalid fields)</param>
+        /// <returns></returns>
         [HttpGet(Name = "GetActivities")]
-        public async Task<ActivityResponseModel> GetActivities(string Facility, string OU, string WatermarkDate = "01/01/2024", string NameSeed = "Test 3P Utilities", string ActivityType = Globals.PurchasedElectricity)
+        public async Task<ActivityResponseModel> GetActivities(string Facility, string OU, string WatermarkDate = "01/01/2024", string NameSeed = "Test 3P Utilities", string ActivityType = Globals.PurchasedElectricity, bool Fail=false)
         {
 
             ActivityResponseModel activityResponseModel = new ActivityResponseModel();
@@ -82,7 +92,7 @@ namespace Activity3PService.Controllers
                 int c = 0;
                 foreach (DateTime day in EachDay(Since, DateTime.Now))
                 {
-                    ActivityModel act = new ActivityModel(NameSeed, day, Facility, OU, ++c);
+                    ActivityModel act = new ActivityModel(NameSeed, day, Facility, OU, ++c, Fail);
                     activities.Add(act);
                 }
 
