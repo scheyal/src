@@ -2,12 +2,43 @@
 @model Activity3PService.Pages.IndexModel
 @{
 }
+<html>
 
-<h1>Activity 3P Service</h1>
-<h5>The time on the server is @DateTime.Now</h5>
+<head>
+    <style>
+    code {
+      font-family: Consolas,"courier new";
+      color: darkgreen;
+      background-color: #f1f1f1;
+      padding: 2px;
+      font-size: 105%;
+    }
+    </style>
+</head>
 
-<p>
-    The following server is an API server that is used to test Microsoft Sustainability Manager Connection Plugin Framework.
-    <br />
-    See <a href="https://github.com/scheyal/src/tree/master/Activity3PService">Github Project</a> for more.
-</p>
+<body>
+
+    <h1>Activity 3P Service</h1>
+
+    <p>
+        API RESTful Ping Test URL:  <a href="@Model.TestURL">@Model.TestURL</a> <br />
+        ==> <br/>
+        <code>
+            {
+            "statusCode": 200,
+            "message": "Test OK!",
+            "count": 0,
+            "activities": []
+            }
+        </code>
+    </p>
+
+    <p>
+        The following server is an API server that is used to test Microsoft Sustainability Manager Connection Plugin Framework.
+        <br />
+        See <a href="https://github.com/scheyal/src/tree/master/Activity3PService">Github Project</a> for more.
+    </p>
+</body>
+
+</html>
+
