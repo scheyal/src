@@ -4,8 +4,8 @@ The following project simulates an Electricity Utility Provider provider service
 The service data shape is designed to fit the model of Microsoft Sustainability Manager (MSM) data model.
 It is designed to serve as a test and an example service for documentation of development of a 3rd party partner connectors to MSM.
 
-In summary the service authenticate username/password and returns a Bearer token to be set in Authentication header in all consequent calls
-Upon request, the server returns fake purchased electricity records, one per day since a watermark date marker.
+In summary, the service authenticates username/password and returns a _Bearer_ token to be set in Authentication header in all consequent calls.
+Then, call the Activity APIs with the authentication header to retrieve fake purchased electricity records, one per day since a watermark date marker.
 
 
 Deploy the service on a REST compatible ASP Core web server.
@@ -22,8 +22,8 @@ Request Body should contain:
     "username": "***removed***",
     "password":  "***removed***"
 }
-Return: Authentication Token (SHA256 based).
 ```
+Return: Authentication Token (SHA256 based).
 
 #### Call: GET Activity/GetActivities
 
@@ -38,7 +38,7 @@ Parameters:
 
 
 
-##Swagger
+## Swagger
 ``` Json
 
 {
@@ -55,13 +55,6 @@ Parameters:
                 ],
                 "operationId": "GetActivities",
                 "parameters": [
-                    {
-                        "name": "ActivityType",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "Facility",
                         "in": "query",
@@ -80,7 +73,8 @@ Parameters:
                         "name": "WatermarkDate",
                         "in": "query",
                         "schema": {
-                            "type": "string"
+                            "type": "string",
+                            "default": "01/01/2024"
                         }
                     },
                     {
@@ -89,6 +83,14 @@ Parameters:
                         "schema": {
                             "type": "string",
                             "default": "Test 3P Utilities"
+                        }
+                    },
+                    {
+                        "name": "ActivityType",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "default": "Purchased Electricity"
                         }
                     }
                 ],
@@ -116,7 +118,7 @@ Parameters:
                 }
             }
         },
-        "/Logon/Post": {
+        "/Logon/GetToken": {
             "post": {
                 "tags": [
                     "Logon"
@@ -280,4 +282,5 @@ Parameters:
         }
     }
 }
+
 ```

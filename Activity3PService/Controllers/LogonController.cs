@@ -26,27 +26,10 @@ namespace Activity3PService.Controllers
             _configuration = configuration;
         }
 
-        /*** DELETE ME ***
-        // GET: api/<LogonController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "Forbidden", "Test-Only API" };
-        }
-
-        
-        // GET api/<LogonController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "TEST-Only API";
-        }
-        ***/
-
 
         // POST api/<LogonController>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] LogonModel creds)
+        public async Task<IActionResult> GetToken([FromBody] LogonModel creds)
         {
 
             string RequestBody = await GetRawBodyAsync();

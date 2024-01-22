@@ -1,6 +1,6 @@
 @Activity3PService_HostAddress = http://localhost:5126
 
-GET {{Activity3PService_HostAddress}}/weatherforecast/
+GET {{Activity3PService_HostAddress}}/
 Accept: application/json
 
 ###

@@ -39,7 +39,7 @@ namespace Activity3PService.Controllers
         ***/
 
         [HttpGet(Name = "GetActivities")]
-        public async Task<ActivityResponseModel> GetActivities(string ActivityType, string Facility, string OU, string? WatermarkDate, string NameSeed = "Test 3P Utilities")
+        public async Task<ActivityResponseModel> GetActivities(string Facility, string OU, string WatermarkDate = "01/01/2024", string NameSeed = "Test 3P Utilities", string ActivityType = Globals.PurchasedElectricity)
         {
 
             ActivityResponseModel activityResponseModel = new ActivityResponseModel();
@@ -64,7 +64,6 @@ namespace Activity3PService.Controllers
                     return activityResponseModel;
                 }
 
-                WatermarkDate = WatermarkDate ?? "01/01/1900";
                 DateTime Since = DateTime.Parse(WatermarkDate);
                 if(DateTime.Now < Since) 
                 {
@@ -87,7 +86,8 @@ namespace Activity3PService.Controllers
                     activities.Add(act);
                 }
 
-                activityResponseModel.SetActivities(activities); 
+                activityResponseModel.SetActivities(activities);
+                activityResponseModel.SetStatus(StatusCodes.Status200OK, "OK");
 
             }
             catch (Exception ex)
