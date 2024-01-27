@@ -32,7 +32,7 @@ app.Use(next => context => {
     return next(context);
 });
 
-Globals.LazyInitializer(app.Configuration); 
+Globals.LazyInitializer(app.Configuration, app.Environment); 
 
 app.UseHttpsRedirection();
 
