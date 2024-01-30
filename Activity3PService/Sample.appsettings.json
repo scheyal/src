@@ -8,6 +8,10 @@
   "AllowedHosts": "*",
   "Authentication": {
     "TestUser": "***Removed***",
-    "TestPassword":  "***Removed***"
+    "TestPassword": "***Removed***"
+  },
+  "Libraries": {
+    "Path": "EFLibs",
+    "Manifest": "Libraries.csv"
   }
 }
