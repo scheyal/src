@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "whatinpdf": {
+      "commandName": "Project",
+      "commandLineArgs": "test.pdf"
+    }
+  }
+}
